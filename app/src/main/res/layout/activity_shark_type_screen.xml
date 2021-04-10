@@ -94,4 +94,5 @@
         android:text="Terminar Registro"
         tools:layout_editor_absoluteX="96dp"
         tools:layout_editor_absoluteY="663dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

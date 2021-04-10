@@ -6,14 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".SignupScreen">
 
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:text="Button"
-        tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="605dp" />
-
     <TextView
         android:id="@+id/textView6"
         android:layout_width="339dp"
@@ -70,14 +62,6 @@
         tools:layout_editor_absoluteY="528dp" />
 
     <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="371dp"
-        android:layout_height="98dp"
-        app:srcCompat="@drawable/ic_launcher_background"
-        tools:layout_editor_absoluteX="22dp"
-        tools:layout_editor_absoluteY="586dp" />
-
-    <ImageView
         android:id="@+id/imageView7"
         android:layout_width="24dp"
         android:layout_height="22dp"
@@ -101,20 +85,28 @@
         tools:layout_editor_absoluteY="26dp"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <Button
-        android:id="@+id/button9"
+    <ImageButton
+        android:id="@+id/imageButton8"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:text="Button"
-        tools:layout_editor_absoluteX="177dp"
-        tools:layout_editor_absoluteY="605dp" />
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="605dp"
+        tools:srcCompat="@tools:sample/avatars" />
 
-    <Button
-        android:id="@+id/button10"
+    <ImageButton
+        android:id="@+id/imageButton9"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:text="Button"
-        tools:layout_editor_absoluteX="302dp"
-        tools:layout_editor_absoluteY="605dp" />
+        tools:layout_editor_absoluteX="298dp"
+        tools:layout_editor_absoluteY="605dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageButton
+        android:id="@+id/imageButton10"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        tools:layout_editor_absoluteX="175dp"
+        tools:layout_editor_absoluteY="605dp"
+        tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
