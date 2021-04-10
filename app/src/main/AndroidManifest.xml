@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Elink">
-        <activity android:name=".LoginScreen"></activity>
+        <activity android:name=".SharkTypeScreen"></activity>
+        <activity android:name=".SheepTypeScreen" />
+        <activity android:name=".UserTypeScreen" />
+        <activity android:name=".SignupScreen" />
+        <activity android:name=".LoginScreen" />
         <activity android:name=".firstScreen" />
         <activity android:name=".prueba" />
         <activity android:name=".MainActivity">
