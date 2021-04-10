@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Elink">
+        <activity android:name=".LoginScreen"></activity>
+        <activity android:name=".firstScreen" />
+        <activity android:name=".prueba" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
