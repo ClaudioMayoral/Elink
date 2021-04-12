@@ -7,106 +7,147 @@
     tools:context=".SignupScreen">
 
     <TextView
-        android:id="@+id/textView6"
-        android:layout_width="339dp"
-        android:layout_height="39dp"
-        android:text="Crea tu cuenta para poder ayudar a transformar el mundo"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="191dp" />
-
-    <EditText
-        android:id="@+id/editTextTextEmailAddress2"
-        android:layout_width="309dp"
-        android:layout_height="48dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:text="Correo Electrónico"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="250dp" />
-
-    <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
         android:text="¡Bienvenido!"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="138dp" />
-
-    <EditText
-        android:id="@+id/editTextTextPassword3"
-        android:layout_width="309dp"
-        android:layout_height="43dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="361dp"
-        tools:text="Confirmar Contraseña" />
-
-    <EditText
-        android:id="@+id/editTextTextPassword2"
-        android:layout_width="310dp"
-        android:layout_height="41dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="308dp"
-        tools:text="Contraseña" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="O crea una usando"
-        tools:layout_editor_absoluteX="147dp"
-        tools:layout_editor_absoluteY="528dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="24dp"
         android:layout_height="22dp"
-        app:srcCompat="@drawable/abc_vector_test"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="26dp" />
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ingresar"
-        tools:layout_editor_absoluteX="151dp"
-        tools:layout_editor_absoluteY="435dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/abc_vector_test" />
 
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        tools:layout_editor_absoluteX="177dp"
-        tools:layout_editor_absoluteY="26dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <ImageButton
-        android:id="@+id/imageButton8"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="605dp"
-        tools:srcCompat="@tools:sample/avatars" />
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9">
 
-    <ImageButton
-        android:id="@+id/imageButton9"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        tools:layout_editor_absoluteX="298dp"
-        tools:layout_editor_absoluteY="605dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="339dp"
+            android:layout_height="39dp"
+            android:layout_margin="4dp"
+            android:text="Crea tu cuenta para poder ayudar a transformar el mundo" />
 
-    <ImageButton
-        android:id="@+id/imageButton10"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        tools:layout_editor_absoluteX="175dp"
-        tools:layout_editor_absoluteY="605dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        <EditText
+            android:id="@+id/etEmail2"
+            android:layout_width="309dp"
+            android:layout_height="48dp"
+            android:layout_margin="4dp"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:text="Correo Electrónico" />
+
+        <EditText
+            android:id="@+id/etPassword2"
+            android:layout_width="310dp"
+            android:layout_height="41dp"
+            android:layout_margin="4dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            tools:text="Contraseña" />
+
+        <EditText
+            android:id="@+id/etPasswordConfirmation2"
+            android:layout_width="309dp"
+            android:layout_height="43dp"
+            android:layout_margin="4dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            tools:text="Confirmar Contraseña" />
+
+        <Button
+            android:id="@+id/btnRegistrarse2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="Registrarse" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="O crea una usando" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="0dp"
+            android:gravity="center|fill_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton8"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_weight="1"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageButton
+                android:id="@+id/imageButton10"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_weight="1"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageButton
+                android:id="@+id/imageButton9"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_weight="1"
+                tools:srcCompat="@tools:sample/avatars" />
+        </LinearLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
