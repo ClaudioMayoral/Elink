@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Elink">
-        <activity android:name=".chatScreen"></activity>
+        <activity android:name=".profileScreen"></activity>
+        <activity android:name=".chatScreen" />
         <activity android:name=".inboxScreen" />
         <activity android:name=".ProjectScreen" />
         <activity android:name=".SearchScreen" />
