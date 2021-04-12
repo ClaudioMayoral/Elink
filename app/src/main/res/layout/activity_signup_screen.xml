@@ -63,7 +63,7 @@
             android:text="Crea tu cuenta para poder ayudar a transformar el mundo" />
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress2"
+            android:id="@+id/etEmail2"
             android:layout_width="309dp"
             android:layout_height="48dp"
             android:layout_margin="4dp"
@@ -72,7 +72,7 @@
             android:text="Correo Electrónico" />
 
         <EditText
-            android:id="@+id/editTextTextPassword2"
+            android:id="@+id/etPassword2"
             android:layout_width="310dp"
             android:layout_height="41dp"
             android:layout_margin="4dp"
@@ -81,7 +81,7 @@
             tools:text="Contraseña" />
 
         <EditText
-            android:id="@+id/editTextTextPassword3"
+            android:id="@+id/etPasswordConfirmation2"
             android:layout_width="309dp"
             android:layout_height="43dp"
             android:layout_margin="4dp"
@@ -90,7 +90,7 @@
             tools:text="Confirmar Contraseña" />
 
         <Button
-            android:id="@+id/button8"
+            android:id="@+id/btnRegistrarse2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"

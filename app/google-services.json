@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "361407988660",
+    "project_id": "elink-19b80",
+    "storage_bucket": "elink-19b80.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:361407988660:android:23c89ba16d047cf20ce8e1",
+        "android_client_info": {
+          "package_name": "mx.itesm.ETeam.Elink"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "361407988660-atfo59i51e95eurb1h81vbh6lp8ggub7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mx.itesm.ETeam.Elink",
+            "certificate_hash": "3ba521e34d638514b5705ce7d570d89ec344f66e"
+          }
+        },
+        {
+          "client_id": "361407988660-fkmjf4m8viedhsp7043l7cd5r7a1nvmk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvl_8DL_MJcxz7VsuRbZVFxHh3VQh2iLg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "361407988660-fkmjf4m8viedhsp7043l7cd5r7a1nvmk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
