@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Elink</string>
+    <string name="bienvenido_a_elink">Bienvenido a Elink</string>
+    <string name="disfruta_de_una_nueva_forma_de_divulgar_y_apoyar_proyectos">Disfruta de una nueva forma de divulgar y apoyar proyectos.</string>
+    <string name="ingresar">Ingresar</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="created_with_at_mexico">Created with ❤ at Mexico️</string>
 </resources>
