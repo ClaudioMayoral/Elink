@@ -5,4 +5,9 @@
     <string name="ingresar">Ingresar</string>
     <string name="registrarse">Registrarse</string>
     <string name="created_with_at_mexico">Created with ❤ at Mexico️</string>
+    <string name="olvidaste_tu">¿Olvidaste tu</string>
+    <string name="contrase_a">contraseña?</string>
+    <string name="ingresa_tu_cuenta_para_seguir_mejorando_al_mundo">Ingresa tu cuenta para seguir mejorando al mundo</string>
+    <string name="hola_de_nuevo">¡Hola de nuevo!</string>
+    <string name="correo_electr_nico">Correo electrónico</string>
 </resources>

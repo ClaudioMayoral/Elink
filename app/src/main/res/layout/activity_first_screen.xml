@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#21D0B2"
+    android:background="#6634F5C5"
     tools:context=".firstScreen">
 
     <View
@@ -18,6 +18,20 @@
         app:layout_constraintTop_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--SHADOW-->
+    <View
+        android:id="@+id/view3"
+        android:layout_width="347dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="187dp"
+
+        android:background="@drawable/shadow"
+        app:layout_constraintEnd_toEndOf="@+id/view2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
+    <!--SHADOW-->
+
     <View
         android:id="@+id/view2"
         android:layout_width="0dp"
@@ -29,7 +43,6 @@
         android:layout_marginRight="32dp"
         android:layout_marginBottom="250dp"
         android:background="@drawable/bg_centershape"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -42,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:fontFamily="sans-serif-thin"
+        android:fontFamily="@font/lato"
         android:text="@string/bienvenido_a_elink"
         android:textColor="#2F455C"
         android:textSize="22sp"
@@ -77,8 +90,11 @@
         android:background="@drawable/light_btn"
         android:fontFamily="@font/lato"
         android:text="@string/ingresar"
+        android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
+        android:elevation="10dp"
+
         app:backgroundTint="#21D0B2"
         app:layout_constraintEnd_toEndOf="@+id/view2"
         app:layout_constraintStart_toStartOf="@+id/view2"
@@ -92,8 +108,11 @@
         android:background="@drawable/dark_btn"
         android:fontFamily="@font/lato"
         android:text="@string/registrarse"
+        android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
+        android:elevation="10dp"
+
         app:backgroundTint="#2F455C"
         app:layout_constraintEnd_toEndOf="@+id/view2"
         app:layout_constraintStart_toStartOf="@+id/view2"

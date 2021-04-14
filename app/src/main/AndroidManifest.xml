@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Elink">
-        <activity android:name=".CreatorMainScreen"></activity>
+        <activity android:name=".CreatorMainScreen" />
         <activity android:name=".profileScreen" />
         <activity android:name=".chatScreen" />
         <activity android:name=".inboxScreen" />
