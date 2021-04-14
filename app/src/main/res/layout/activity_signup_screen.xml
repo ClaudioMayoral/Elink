@@ -16,10 +16,10 @@
         android:text="¡Bienvenido!"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+        app:layout_constraintTop_toBottomOf="@+id/logo_login" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/back_btn_login"
         android:layout_width="24dp"
         android:layout_height="22dp"
         android:layout_marginStart="16dp"
@@ -30,7 +30,7 @@
         app:srcCompat="@drawable/abc_vector_test" />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/logo_login"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginTop="16dp"

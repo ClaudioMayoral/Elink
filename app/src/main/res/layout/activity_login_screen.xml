@@ -8,36 +8,38 @@
     tools:context=".SignupScreen">
 
     <View
-        android:id="@+id/view"
+        android:id="@+id/header_login"
         android:layout_width="0dp"
         android:layout_height="320dp"
         android:background="@drawable/bg_header"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="24dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:id="@+id/back_btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="44dp"
+        android:contentDescription="@string/desc"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/abc_vector_test" />
 
     <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="16dp"
+        android:id="@+id/logo_login"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="@string/desc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@android:drawable/ic_delete" />
 
     <!--SHADOW-->
     <View
@@ -47,14 +49,14 @@
         android:layout_marginTop="187dp"
 
         android:background="@drawable/shadow"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="@+id/center_login"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="@+id/view2" />
+        app:layout_constraintStart_toStartOf="@+id/center_login"
+        app:layout_constraintTop_toTopOf="@+id/center_login" />
     <!--SHADOW-->
 
     <View
-        android:id="@+id/view2"
+        android:id="@+id/center_login"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="32dp"
@@ -69,80 +71,93 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/header_login"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/lato"
-        android:textColor="#FFF"
         android:text="@string/hola_de_nuevo"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+        app:layout_constraintTop_toBottomOf="@+id/logo_login" />
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="339dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:textColor="#FFF"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/lato"
         android:text="@string/ingresa_tu_cuenta_para_seguir_mejorando_al_mundo"
+        android:textColor="#FFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
-
-    <!--
     <EditText
-        android:id="@+id/etPassword2"
-        android:layout_width="310dp"
-        android:layout_height="41dp"
-        android:layout_margin="4dp"
+        android:id="@+id/loginMail"
+        android:layout_width="294dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/custom_email_icon"
+        android:drawableLeft="@drawable/mail_icon"
+        android:drawablePadding="12dp"
         android:ems="10"
-        android:inputType="textPassword"
-        tools:layout_editor_absoluteX="51dp"
-        tools:layout_editor_absoluteY="188dp"
-        tools:text="Contraseña" />
-    -->
-
-
-    <!--
-    <EditText
-        android:id="@+id/etEmail2"
-        android:layout_width="309dp"
-        android:layout_height="48dp"
-        android:layout_margin="4dp"
-        android:layout_marginTop="445dp"
-        android:ems="10"
+        android:hint="@string/correo_electr_nico"
         android:inputType="textEmailAddress"
-        android:text="Correo Electrónico"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="@+id/view2" />
-        -->
+        android:paddingStart="12dp"
+        android:paddingLeft="12dp"
+        android:paddingEnd="12dp"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="@+id/center_login"
+        app:layout_constraintStart_toStartOf="@+id/center_login"
+        app:layout_constraintTop_toTopOf="@+id/center_login" />
 
+    <EditText
+        android:id="@+id/loginPassword"
+        android:layout_width="294dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/custom_password_icon"
+        android:drawableLeft="@drawable/password_icon"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        android:paddingStart="12dp"
+        android:paddingLeft="12dp"
+        android:paddingEnd="12dp"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="@+id/center_login"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="@+id/center_login"
+        app:layout_constraintTop_toBottomOf="@+id/loginMail" />
 
     <Button
         android:id="@+id/btnRegistrarse2"
         android:layout_width="200dp"
         android:layout_height="36dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/dark_btn"
+        android:elevation="10dp"
         android:fontFamily="@font/lato"
         android:text="@string/ingresar"
-        android:textAllCaps="false"
-        android:elevation="10dp"
 
+        android:textAllCaps="false"
         app:backgroundTint="#2F455C"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="@+id/center_login"
         app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        tools:layout_editor_absoluteY="389dp" />
+        app:layout_constraintStart_toStartOf="@+id/center_login"
+        app:layout_constraintTop_toBottomOf="@+id/loginPassword" />
 
     <TextView
         android:id="@+id/textView51"
@@ -155,7 +170,7 @@
         android:text="@string/olvidaste_tu"
         android:textColor="#2F455C"
         android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintStart_toStartOf="@+id/center_login"
         app:layout_constraintTop_toBottomOf="@+id/btnRegistrarse2" />
 
     <TextView
@@ -166,73 +181,135 @@
         android:layout_marginLeft="2dp"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/lato"
-        android:text="@string/contrase_a"
+        android:text="@string/contrase_a_ques"
         android:textColor="#21D0B2"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/textView51"
         app:layout_constraintTop_toBottomOf="@+id/btnRegistrarse2" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView53"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center|fill_vertical"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="620dp">
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:fontFamily="@font/lato"
+        android:text="O ingresa usando"
+        android:textColor="#2F455C"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
 
-        <ImageButton
-            android:id="@+id/imageButton8"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_weight="1"
-            tools:srcCompat="@tools:sample/avatars" />
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="#2F455C"
+        app:layout_constraintEnd_toStartOf="@+id/textView53"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
 
-        <ImageButton
-            android:id="@+id/imageButton10"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_weight="1"
-            tools:srcCompat="@tools:sample/avatars" />
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:background="#2F455C"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView53"
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
 
-        <ImageButton
-            android:id="@+id/imageButton9"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_weight="1"
-            tools:srcCompat="@tools:sample/avatars" />
-    </LinearLayout>
+    <!--SHADOW-->
+    <View
+        android:id="@+id/view9"
+        android:layout_width="347dp"
+        android:layout_height="80dp"
 
-    <EditText
-        android:id="@+id/editTextTextPersonName6"
-        android:layout_width="294dp"
-        android:layout_height="36dp"
-        android:ems="10"
-        android:drawableStart="@drawable/custom_email_icon"
-        android:paddingStart="12dp"
-        android:paddingLeft="12dp"
-        android:paddingEnd="12dp"
-        android:drawablePadding="12dp"
-        android:drawableLeft="@drawable/icon_mail"
-        android:background="@drawable/custom_input"
-        android:inputType="textEmailAddress"
-        android:hint="@string/correo_electr_nico"
-        android:textSize="13sp"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        tools:layout_editor_absoluteY="294dp"
-         />
+        android:layout_marginTop="25dp"
+        android:background="@drawable/shadow"
+        app:layout_constraintEnd_toEndOf="@+id/view10"
+        app:layout_constraintStart_toStartOf="@+id/view10"
+        app:layout_constraintTop_toTopOf="@+id/view10" />
+    <!--SHADOW-->
 
+    <View
+        android:id="@+id/view10"
+        android:layout_width="347dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="32dp"
+
+        android:background="@drawable/bg_centershape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView53" />
+
+    <ImageView
+        android:id="@+id/button4"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/selectable_white_btn"
+        android:elevation="10dp"
+        android:scaleType="centerInside"
+
+        android:src="@drawable/g_logo"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/view10"
+        app:layout_constraintStart_toStartOf="@+id/view10"
+        app:layout_constraintTop_toTopOf="@+id/view10" />
+
+    <ImageView
+        android:id="@+id/button5"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/selectable_white_btn"
+        android:elevation="10dp"
+        android:scaleType="centerInside"
+
+        android:src="@drawable/fb_logo"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/view10"
+        app:layout_constraintStart_toEndOf="@+id/button4"
+        app:layout_constraintTop_toTopOf="@+id/view10" />
+
+    <ImageView
+        android:id="@+id/button7"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/selectable_white_btn"
+        android:elevation="10dp"
+        android:scaleType="centerInside"
+
+        android:src="@drawable/apple_logo"
+        app:backgroundTint="#FFFFFF"
+        app:iconPadding="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view10"
+        app:layout_constraintStart_toEndOf="@+id/button5"
+        app:layout_constraintTop_toTopOf="@+id/view10" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

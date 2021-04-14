@@ -8,7 +8,7 @@
     tools:context=".firstScreen">
 
     <View
-        android:id="@+id/view"
+        android:id="@+id/header_login"
         android:layout_width="0dp"
         android:layout_height="320dp"
         android:background="@drawable/bg_header"
@@ -26,14 +26,14 @@
         android:layout_marginTop="187dp"
 
         android:background="@drawable/shadow"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="@+id/center_login"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="@+id/view2" />
+        app:layout_constraintStart_toStartOf="@+id/center_login"
+        app:layout_constraintTop_toTopOf="@+id/center_login" />
     <!--SHADOW-->
 
     <View
-        android:id="@+id/view2"
+        android:id="@+id/center_login"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="32dp"
@@ -47,7 +47,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/header_login"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
@@ -60,9 +60,9 @@
         android:textColor="#2F455C"
         android:textSize="22sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="@+id/view2" />
+        app:layout_constraintEnd_toEndOf="@+id/center_login"
+        app:layout_constraintStart_toStartOf="@+id/center_login"
+        app:layout_constraintTop_toTopOf="@+id/center_login" />
 
     <TextView
         android:id="@+id/textView2"
@@ -78,8 +78,8 @@
         android:text="@string/disfruta_de_una_nueva_forma_de_divulgar_y_apoyar_proyectos"
         android:textColor="#2F455C"
         android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="@+id/center_login"
+        app:layout_constraintStart_toStartOf="@+id/center_login"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
@@ -96,8 +96,8 @@
         android:elevation="10dp"
 
         app:backgroundTint="#21D0B2"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="@+id/center_login"
+        app:layout_constraintStart_toStartOf="@+id/center_login"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
@@ -114,8 +114,8 @@
         android:elevation="10dp"
 
         app:backgroundTint="#2F455C"
-        app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="@+id/center_login"
+        app:layout_constraintStart_toStartOf="@+id/center_login"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
 
     <TextView
@@ -137,11 +137,10 @@
         android:layout_width="85dp"
         android:layout_height="87dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/view2"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toTopOf="@+id/view"
+        app:layout_constraintBottom_toTopOf="@+id/center_login"
+        app:layout_constraintEnd_toEndOf="@+id/header_login"
+        app:layout_constraintStart_toStartOf="@+id/header_login"
+        app:layout_constraintTop_toTopOf="@+id/header_login"
         app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
