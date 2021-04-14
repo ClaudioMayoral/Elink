@@ -43,7 +43,7 @@
 
     <!--SHADOW-->
     <View
-        android:id="@+id/view3"
+        android:id="@+id/center_shadow_login"
         android:layout_width="347dp"
         android:layout_height="100dp"
         android:layout_marginTop="187dp"
@@ -75,7 +75,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/title1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -89,7 +89,7 @@
         app:layout_constraintTop_toBottomOf="@+id/logo_login" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/description1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -99,7 +99,7 @@
         android:text="@string/ingresa_tu_cuenta_para_seguir_mejorando_al_mundo"
         android:textColor="#FFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/title1" />
 
     <EditText
         android:id="@+id/loginMail"
@@ -131,7 +131,7 @@
         android:drawableLeft="@drawable/password_icon"
         android:drawablePadding="12dp"
         android:ems="10"
-        android:hint="Contraseña"
+        android:hint="@string/contrase_a"
         android:inputType="textPassword"
         android:paddingStart="12dp"
         android:paddingLeft="12dp"
@@ -143,7 +143,7 @@
         app:layout_constraintTop_toBottomOf="@+id/loginMail" />
 
     <Button
-        android:id="@+id/btnRegistrarse2"
+        android:id="@+id/buttonLogin"
         android:layout_width="200dp"
         android:layout_height="36dp"
         android:layout_marginTop="32dp"
@@ -160,7 +160,7 @@
         app:layout_constraintTop_toBottomOf="@+id/loginPassword" />
 
     <TextView
-        android:id="@+id/textView51"
+        android:id="@+id/description2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="102dp"
@@ -171,10 +171,10 @@
         android:textColor="#2F455C"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/center_login"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegistrarse2" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
 
     <TextView
-        android:id="@+id/textView52"
+        android:id="@+id/forgetPass_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
@@ -184,11 +184,11 @@
         android:text="@string/contrase_a_ques"
         android:textColor="#21D0B2"
         android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/textView51"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegistrarse2" />
+        app:layout_constraintStart_toEndOf="@+id/description2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
 
     <TextView
-        android:id="@+id/textView53"
+        android:id="@+id/description3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -197,12 +197,12 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:fontFamily="@font/lato"
-        android:text="O ingresa usando"
+        android:text="@string/o_ingresa_usando"
         android:textColor="#2F455C"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view3" />
+        app:layout_constraintTop_toBottomOf="@+id/center_shadow_login" />
 
     <View
         android:id="@+id/divider"
@@ -214,9 +214,9 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:background="#2F455C"
-        app:layout_constraintEnd_toStartOf="@+id/textView53"
+        app:layout_constraintEnd_toStartOf="@+id/description3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view3" />
+        app:layout_constraintTop_toBottomOf="@+id/center_shadow_login" />
 
     <View
         android:id="@+id/divider2"
@@ -230,24 +230,24 @@
         android:background="#2F455C"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView53"
-        app:layout_constraintTop_toBottomOf="@+id/view3" />
+        app:layout_constraintStart_toEndOf="@+id/description3"
+        app:layout_constraintTop_toBottomOf="@+id/center_shadow_login" />
 
     <!--SHADOW-->
     <View
-        android:id="@+id/view9"
+        android:id="@+id/bottom_shadow_login"
         android:layout_width="347dp"
         android:layout_height="80dp"
 
         android:layout_marginTop="25dp"
         android:background="@drawable/shadow"
-        app:layout_constraintEnd_toEndOf="@+id/view10"
-        app:layout_constraintStart_toStartOf="@+id/view10"
-        app:layout_constraintTop_toTopOf="@+id/view10" />
+        app:layout_constraintEnd_toEndOf="@+id/bottom_login"
+        app:layout_constraintStart_toStartOf="@+id/bottom_login"
+        app:layout_constraintTop_toTopOf="@+id/bottom_login" />
     <!--SHADOW-->
 
     <View
-        android:id="@+id/view10"
+        android:id="@+id/bottom_login"
         android:layout_width="347dp"
         android:layout_height="100dp"
         android:layout_marginTop="32dp"
@@ -255,10 +255,10 @@
         android:background="@drawable/bg_centershape"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView53" />
+        app:layout_constraintTop_toBottomOf="@+id/description3" />
 
     <ImageView
-        android:id="@+id/button4"
+        android:id="@+id/google_login"
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_marginStart="38dp"
@@ -268,15 +268,16 @@
         android:background="@drawable/selectable_white_btn"
         android:elevation="10dp"
         android:scaleType="centerInside"
+        android:contentDescription="@string/desc"
 
         android:src="@drawable/g_logo"
         app:backgroundTint="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/view10"
-        app:layout_constraintStart_toStartOf="@+id/view10"
-        app:layout_constraintTop_toTopOf="@+id/view10" />
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_login"
+        app:layout_constraintStart_toStartOf="@+id/bottom_login"
+        app:layout_constraintTop_toTopOf="@+id/bottom_login" />
 
     <ImageView
-        android:id="@+id/button5"
+        android:id="@+id/fb_login"
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_marginStart="38dp"
@@ -286,15 +287,16 @@
         android:background="@drawable/selectable_white_btn"
         android:elevation="10dp"
         android:scaleType="centerInside"
+        android:contentDescription="@string/desc"
 
         android:src="@drawable/fb_logo"
         app:backgroundTint="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/view10"
-        app:layout_constraintStart_toEndOf="@+id/button4"
-        app:layout_constraintTop_toTopOf="@+id/view10" />
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_login"
+        app:layout_constraintStart_toEndOf="@+id/google_login"
+        app:layout_constraintTop_toTopOf="@+id/bottom_login" />
 
     <ImageView
-        android:id="@+id/button7"
+        android:id="@+id/apple_login"
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_marginStart="38dp"
@@ -304,12 +306,13 @@
         android:background="@drawable/selectable_white_btn"
         android:elevation="10dp"
         android:scaleType="centerInside"
+        android:contentDescription="@string/desc"
 
         android:src="@drawable/apple_logo"
         app:backgroundTint="#FFFFFF"
         app:iconPadding="25dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view10"
-        app:layout_constraintStart_toEndOf="@+id/button5"
-        app:layout_constraintTop_toTopOf="@+id/view10" />
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_login"
+        app:layout_constraintStart_toEndOf="@+id/fb_login"
+        app:layout_constraintTop_toTopOf="@+id/bottom_login" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,7 +7,7 @@
     tools:context=".SignupScreen">
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/title1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -53,10 +53,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9">
+        app:layout_constraintTop_toBottomOf="@+id/title1">
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/description1"
             android:layout_width="339dp"
             android:layout_height="39dp"
             android:layout_margin="4dp"
@@ -90,7 +90,7 @@
             tools:text="Confirmar Contraseña" />
 
         <Button
-            android:id="@+id/btnRegistrarse2"
+            android:id="@+id/buttonLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"

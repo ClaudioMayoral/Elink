@@ -20,7 +20,7 @@
 
     <!--SHADOW-->
     <View
-        android:id="@+id/view3"
+        android:id="@+id/center_shadow_login"
         android:layout_width="347dp"
         android:layout_height="100dp"
         android:layout_marginTop="187dp"

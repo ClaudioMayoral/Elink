@@ -11,4 +11,6 @@
     <string name="hola_de_nuevo">¡Hola de nuevo!</string>
     <string name="correo_electr_nico">Correo electrónico</string>
     <string name="desc">desc</string>
+    <string name="o_ingresa_usando">O ingresa usando</string>
+    <string name="contrase_a">Contraseña</string>
 </resources>
