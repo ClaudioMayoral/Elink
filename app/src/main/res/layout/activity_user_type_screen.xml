@@ -4,8 +4,129 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#6634F5C5"
     tools:context=".UserTypeScreen">
 
+    <View
+        android:id="@+id/header_userSelection"
+        android:layout_width="0dp"
+        android:layout_height="320dp"
+        android:background="@drawable/background_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/back_btn_userSelection"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="44dp"
+        android:contentDescription="@string/desc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/abc_vector_test" />
+
+    <ImageView
+        android:id="@+id/logo_userSelection"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="@string/desc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@android:drawable/ic_delete" />
+
+    <!--SHADOW-->
+    <View
+        android:id="@+id/center_shadow_userSelection"
+        android:layout_width="347dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="328dp"
+
+        android:background="@drawable/shadow"
+        app:layout_constraintEnd_toEndOf="@+id/center_userSelection"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/center_userSelection"
+        app:layout_constraintTop_toTopOf="@+id/center_userSelection" />
+    <!--SHADOW-->
+
+    <View
+        android:id="@+id/center_userSelection"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="215dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="95dp"
+        android:background="@drawable/background_centershape"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/header_userSelection"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/title3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="31dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/bienvenido"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo_userSelection" />
+
+    <TextView
+        android:id="@+id/description4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/crea_tu_cuenta_para_poder_ayudar_a_ayudar_a_transformar_el_mundo"
+        android:textColor="#FFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title3" />
+
+    <EditText
+        android:id="@+id/username_input"
+        android:layout_width="294dp"
+        android:layout_height="36dp"
+        android:autofillHints="@string/nombre_de_usuario"
+        android:background="@drawable/background_selectable_input"
+        android:drawableStart="@drawable/input_toggle_user"
+        android:drawableLeft="@drawable/icon_password"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:hint="@string/nombre_de_usuario"
+        android:inputType="textPersonName"
+        android:paddingStart="12dp"
+        android:paddingLeft="12dp"
+        android:paddingEnd="12dp"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="@+id/center_userSelection"
+        app:layout_constraintHorizontal_bias="0.283"
+        app:layout_constraintStart_toStartOf="@+id/center_userSelection"
+        tools:layout_editor_absoluteY="366dp" />
+
+
+    <!--
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
@@ -114,4 +235,42 @@
         android:text="Continuar"
         tools:layout_editor_absoluteX="80dp"
         tools:layout_editor_absoluteY="653dp" />
+        -->
+
+
+    <Button
+        android:id="@+id/buttonSignup"
+        android:layout_width="200dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginLeft="72dp"
+        android:background="@drawable/button_blue"
+        android:elevation="10dp"
+
+        android:fontFamily="@font/lato"
+        android:text="@string/crear_cuenta"
+        android:textAllCaps="false"
+        app:backgroundTint="#2F455C"
+        app:layout_constraintEnd_toEndOf="@+id/center_signup"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/center_userSelection"
+        tools:layout_editor_absoluteY="543dp" />
+
+    <ImageView
+        android:id="@+id/profilePicture_selectionUser"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:background="@drawable/button_white_circle"
+        android:contentDescription="@string/desc"
+        android:elevation="10dp"
+        android:scaleType="centerInside"
+
+        android:src="@drawable/icon_profile_picture"
+        app:backgroundTint="#FFFFFF"
+        app:iconPadding="25dp"
+        app:layout_constraintEnd_toEndOf="@+id/center_userSelection"
+        app:layout_constraintStart_toStartOf="@+id/center_userSelection"
+        app:layout_constraintTop_toTopOf="@+id/center_userSelection" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

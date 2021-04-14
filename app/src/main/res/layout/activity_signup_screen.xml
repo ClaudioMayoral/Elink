@@ -4,150 +4,314 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#6634F5C5"
     tools:context=".SignupScreen">
 
-    <TextView
-        android:id="@+id/title1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
-        android:text="¡Bienvenido!"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+    <View
+        android:id="@+id/header_signup"
+        android:layout_width="0dp"
+        android:layout_height="320dp"
+        android:background="@drawable/background_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo_login" />
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/back_btn_login"
-        android:layout_width="24dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:id="@+id/back_btn_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="44dp"
+        android:contentDescription="@string/desc"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/abc_vector_test" />
 
     <ImageView
-        android:id="@+id/logo_login"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="16dp"
+        android:id="@+id/logo_signup"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="@string/desc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@android:drawable/ic_delete" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <!--SHADOW-->
+    <View
+        android:id="@+id/center_shadow_signup"
+        android:layout_width="347dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="173dp"
+
+        android:background="@drawable/shadow"
+        app:layout_constraintEnd_toEndOf="@+id/center_signup"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/center_signup"
+        app:layout_constraintTop_toTopOf="@+id/center_signup" />
+    <!--SHADOW-->
+
+    <View
+        android:id="@+id/center_signup"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="215dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="250dp"
+        android:background="@drawable/background_centershape"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/header_signup"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/title2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="31dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/bienvenido"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo_signup" />
+
+    <TextView
+        android:id="@+id/description4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:gravity="center"
-        android:orientation="vertical"
+        android:fontFamily="@font/lato"
+        android:text="@string/crea_tu_cuenta_para_poder_ayudar_a_ayudar_a_transformar_el_mundo"
+        android:textColor="#FFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title2" />
+
+    <EditText
+        android:id="@+id/signupMail"
+        android:layout_width="294dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/background_selectable_input"
+        android:drawableStart="@drawable/input_toggle_email"
+        android:drawableLeft="@drawable/icon_mail"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:hint="@string/correo_electr_nico"
+        android:autofillHints="@string/correo_electr_nico"
+        android:inputType="textEmailAddress"
+        android:paddingStart="12dp"
+        android:paddingLeft="12dp"
+        android:paddingEnd="12dp"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="@+id/center_signup"
+        app:layout_constraintStart_toStartOf="@+id/center_signup"
+        app:layout_constraintTop_toTopOf="@+id/center_signup" />
+
+    <EditText
+        android:id="@+id/signupPassword"
+        android:layout_width="294dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/background_selectable_input"
+        android:drawableStart="@drawable/input_toggle_password"
+        android:drawableLeft="@drawable/icon_password"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:hint="@string/contrase_a"
+        android:autofillHints="@string/contrase_a"
+        android:inputType="textPassword"
+        android:paddingStart="12dp"
+        android:paddingLeft="12dp"
+        android:paddingEnd="12dp"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="@+id/center_signup"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="@+id/center_signup"
+        app:layout_constraintTop_toBottomOf="@+id/signupMail" />
+
+    <EditText
+        android:id="@+id/signupConfirmPassword"
+        android:layout_width="294dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/background_selectable_input"
+        android:drawableStart="@drawable/input_toggle_password"
+        android:drawableLeft="@drawable/icon_password"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:hint="@string/confirmar_contrase_a"
+        android:autofillHints="@string/confirmar_contrase_a"
+        android:inputType="textPassword"
+        android:paddingStart="12dp"
+        android:paddingLeft="12dp"
+        android:paddingEnd="12dp"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="@+id/center_signup"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="@+id/center_signup"
+        app:layout_constraintTop_toBottomOf="@+id/signupPassword" />
+
+    <Button
+        android:id="@+id/buttonSignup"
+        android:layout_width="200dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/button_blue"
+        android:elevation="10dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/crear_cuenta"
+
+        android:textAllCaps="false"
+        app:backgroundTint="#2F455C"
+        app:layout_constraintEnd_toEndOf="@+id/center_signup"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/center_signup"
+        app:layout_constraintTop_toBottomOf="@+id/signupConfirmPassword" />
+
+    <TextView
+        android:id="@+id/description5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/o_crea_una_cuenta_usando"
+        android:textColor="#2F455C"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/center_shadow_signup" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="#2F455C"
+        app:layout_constraintEnd_toStartOf="@+id/description5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/center_shadow_signup" />
+
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:background="#2F455C"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/description5"
+        app:layout_constraintTop_toBottomOf="@+id/center_shadow_signup" />
+
+    <!--SHADOW-->
+    <View
+        android:id="@+id/bottom_shadow_signup"
+        android:layout_width="347dp"
+        android:layout_height="80dp"
+
+        android:layout_marginTop="25dp"
+        android:background="@drawable/shadow"
+        app:layout_constraintEnd_toEndOf="@+id/bottom_signup"
+        app:layout_constraintStart_toStartOf="@+id/bottom_signup"
+        app:layout_constraintTop_toTopOf="@+id/bottom_signup" />
+    <!--SHADOW-->
+
+    <View
+        android:id="@+id/bottom_signup"
+        android:layout_width="347dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="32dp"
+
+        android:background="@drawable/background_centershape"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title1">
+        app:layout_constraintTop_toBottomOf="@+id/description5" />
 
-        <TextView
-            android:id="@+id/description1"
-            android:layout_width="339dp"
-            android:layout_height="39dp"
-            android:layout_margin="4dp"
-            android:text="Crea tu cuenta para poder ayudar a transformar el mundo" />
+    <ImageView
+        android:id="@+id/google_signup"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_white_square"
+        android:elevation="10dp"
+        android:scaleType="centerInside"
+        android:contentDescription="@string/desc"
 
-        <EditText
-            android:id="@+id/etEmail2"
-            android:layout_width="309dp"
-            android:layout_height="48dp"
-            android:layout_margin="4dp"
-            android:ems="10"
-            android:inputType="textEmailAddress"
-            android:text="Correo Electrónico" />
+        android:src="@drawable/logo_google"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_signup"
+        app:layout_constraintStart_toStartOf="@+id/bottom_signup"
+        app:layout_constraintTop_toTopOf="@+id/bottom_signup" />
 
-        <EditText
-            android:id="@+id/etPassword2"
-            android:layout_width="310dp"
-            android:layout_height="41dp"
-            android:layout_margin="4dp"
-            android:ems="10"
-            android:inputType="textPassword"
-            tools:text="Contraseña" />
+    <ImageView
+        android:id="@+id/fb_signup"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_white_square"
+        android:elevation="10dp"
+        android:scaleType="centerInside"
+        android:contentDescription="@string/desc"
 
-        <EditText
-            android:id="@+id/etPasswordConfirmation2"
-            android:layout_width="309dp"
-            android:layout_height="43dp"
-            android:layout_margin="4dp"
-            android:ems="10"
-            android:inputType="textPassword"
-            tools:text="Confirmar Contraseña" />
+        android:src="@drawable/logo_facebook"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_signup"
+        app:layout_constraintStart_toEndOf="@+id/google_signup"
+        app:layout_constraintTop_toTopOf="@+id/bottom_signup" />
 
-        <Button
-            android:id="@+id/buttonLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:text="Registrarse" />
+    <ImageView
+        android:id="@+id/apple_signup"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_white_square"
+        android:elevation="10dp"
+        android:scaleType="centerInside"
+        android:contentDescription="@string/desc"
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:text="O crea una usando" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginRight="0dp"
-            android:layout_marginBottom="0dp"
-            android:gravity="center|fill_vertical"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/imageButton8"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_weight="1"
-                tools:srcCompat="@tools:sample/avatars" />
-
-            <ImageButton
-                android:id="@+id/imageButton10"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_weight="1"
-                tools:srcCompat="@tools:sample/avatars" />
-
-            <ImageButton
-                android:id="@+id/imageButton9"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginEnd="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_weight="1"
-                tools:srcCompat="@tools:sample/avatars" />
-        </LinearLayout>
-    </LinearLayout>
+        android:src="@drawable/logo_apple"
+        app:backgroundTint="#FFFFFF"
+        app:iconPadding="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_signup"
+        app:layout_constraintStart_toEndOf="@+id/fb_signup"
+        app:layout_constraintTop_toTopOf="@+id/bottom_signup" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
