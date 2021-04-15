@@ -6,14 +6,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import com.google.firebase.auth.FirebaseAuth
-import mx.itesm.ETeam.Elink.databinding.ActivityFirstScreenBinding
-import mx.itesm.ETeam.Elink.databinding.ActivityUserTypeScreenBinding
+
 
 class MainActivity : AppCompatActivity() {
-
-
     private lateinit var mAuth: FirebaseAuth
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mAuth = FirebaseAuth.getInstance()
