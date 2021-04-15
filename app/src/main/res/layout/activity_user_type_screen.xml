@@ -105,7 +105,7 @@
         app:layout_constraintTop_toBottomOf="@+id/title3" />
 
     <EditText
-        android:id="@+id/username_input"
+        android:id="@+id/etNombreUsuario"
         android:layout_width="294dp"
         android:layout_height="36dp"
         android:autofillHints="@string/nombre_de_usuario"
@@ -245,16 +245,18 @@
         android:layout_marginStart="72dp"
         android:layout_marginLeft="72dp"
         android:background="@drawable/button_blue"
-        android:elevation="10dp"
 
+        android:elevation="10dp"
         android:fontFamily="@font/lato"
         android:text="@string/crear_cuenta"
         android:textAllCaps="false"
+        android:visibility="invisible"
         app:backgroundTint="#2F455C"
         app:layout_constraintEnd_toEndOf="@+id/center_signup"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="@+id/center_userSelection"
-        tools:layout_editor_absoluteY="543dp" />
+        tools:layout_editor_absoluteY="543dp"
+        tools:visibility="visible" />
 
     <ImageView
         android:id="@+id/profilePicture_selectionUser"
@@ -271,6 +273,24 @@
         app:layout_constraintEnd_toEndOf="@+id/center_userSelection"
         app:layout_constraintStart_toStartOf="@+id/center_userSelection"
         app:layout_constraintTop_toTopOf="@+id/center_userSelection" />
+
+    <ImageButton
+        android:id="@+id/btnSelectShark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="selectShark"
+        app:srcCompat="@drawable/icon_shark_dark"
+        tools:layout_editor_absoluteX="104dp"
+        tools:layout_editor_absoluteY="459dp" />
+
+    <ImageButton
+        android:id="@+id/btnSelectSheep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="selectSheep"
+        app:srcCompat="@drawable/icon_sheep_dark"
+        tools:layout_editor_absoluteX="238dp"
+        tools:layout_editor_absoluteY="452dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

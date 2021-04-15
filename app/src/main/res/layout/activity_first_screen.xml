@@ -83,7 +83,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnIngresar"
         android:layout_width="215dp"
         android:layout_height="44dp"
         android:layout_marginTop="32dp"
@@ -101,7 +101,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnRegistrarse"
         android:layout_width="215dp"
         android:layout_height="44dp"
         android:layout_marginTop="32dp"
@@ -116,7 +116,7 @@
         app:backgroundTint="#2F455C"
         app:layout_constraintEnd_toEndOf="@+id/center_login"
         app:layout_constraintStart_toStartOf="@+id/center_login"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/btnIngresar" />
 
     <TextView
         android:id="@+id/textView50"
