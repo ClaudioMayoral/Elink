@@ -24,13 +24,7 @@ class SignupScreen : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 
-        binding.buttonSignup.setOnClickListener{
-            signUp()
-        }
 
-        binding.googleSignup.setOnClickListener{
-            googleSignUp()
-        }
     }
 
     private fun googleSignUp() {
@@ -41,6 +35,8 @@ class SignupScreen : AppCompatActivity() {
             .build(),
         RC_SIGN_IN)
     }
+
+
 
 
     private fun signUp() {
