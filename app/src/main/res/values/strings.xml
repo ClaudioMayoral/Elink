@@ -19,4 +19,6 @@
     <string name="crea_tu_cuenta_para_poder_ayudar_a_ayudar_a_transformar_el_mundo">Crea tu cuenta para poder ayudar a ayudar a transformar el mundo.</string>
     <string name="creado_con_en_m_xico">Creado con ❤ en México️</string>
     <string name="nombre_de_usuario">Nombre de usuario</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

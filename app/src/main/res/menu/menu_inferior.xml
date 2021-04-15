@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navPosts"
+        android:icon="@android:drawable/checkbox_off_background"
+        android:title="Posts" />
+    <item
+        android:id="@+id/navSearch"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="Search" />
+    <item
+        android:id="@+id/navMessages"
+        android:icon="@drawable/fui_ic_mail_white_24dp"
+        android:title="Messages" />
+    <item
+        android:id="@+id/navProfile"
+        android:icon="@drawable/fui_ic_anonymous_white_24dp"
+        android:title="Profile" />
+</menu>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PostsFrag">
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Proyectos que sigues:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="25dp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="74dp"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tiempo de Posteo"
+        tools:layout_editor_absoluteX="168dp"
+        tools:layout_editor_absoluteY="74dp" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        tools:layout_editor_absoluteX="106dp"
+        tools:layout_editor_absoluteY="75dp" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipo: "
+        tools:layout_editor_absoluteX="106dp"
+        tools:layout_editor_absoluteY="127dp" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipo de Post"
+        tools:layout_editor_absoluteX="149dp"
+        tools:layout_editor_absoluteY="126dp" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre del proyecto"
+        tools:layout_editor_absoluteX="106dp"
+        tools:layout_editor_absoluteY="101dp" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="374dp"
+        android:layout_height="191dp"
+        app:srcCompat="@android:drawable/gallery_thumb"
+        tools:layout_editor_absoluteX="21dp"
+        tools:layout_editor_absoluteY="176dp" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine2"
+        android:layout_width="372dp"
+        android:layout_height="44dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="381dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton18"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        app:srcCompat="@android:drawable/ic_dialog_email"
+        tools:layout_editor_absoluteX="276dp"
+        tools:layout_editor_absoluteY="437dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton19"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        app:srcCompat="@android:drawable/ic_menu_share"
+        tools:layout_editor_absoluteX="331dp"
+        tools:layout_editor_absoluteY="437dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton11"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        app:srcCompat="@drawable/dollar"
+        tools:layout_editor_absoluteX="219dp"
+        tools:layout_editor_absoluteY="437dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
