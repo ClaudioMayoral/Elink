@@ -8,9 +8,12 @@ import mx.itesm.ETeam.Elink.databinding.ActivityMasterScreenBinding
 
 class masterScreen : AppCompatActivity() {
     private lateinit var binding: ActivityMasterScreenBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_master_screen)
+        binding = ActivityMasterScreenBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
 
         configurarFragmentoInicio()
         configurarMenu()

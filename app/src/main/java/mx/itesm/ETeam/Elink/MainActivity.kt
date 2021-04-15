@@ -11,7 +11,7 @@ import mx.itesm.ETeam.Elink.databinding.ActivityUserTypeScreenBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityFirstScreenBinding
+
     private lateinit var mAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,29 +24,14 @@ class MainActivity : AppCompatActivity() {
             println("ID: ${usuario.uid}")
             println("Imagen: ${usuario.photoUrl}")
             //Lanzar directamente la segunda pantalla
-            val intRegistrarse = Intent(baseContext, profileScreen::class.java)
-            startActivity(intRegistrarse)
+            val intMasterScreen = Intent(baseContext, masterScreen::class.java)
+            startActivity(intMasterScreen)
         }else{
-            binding = ActivityFirstScreenBinding.inflate(layoutInflater)
-            setContentView(binding.root)
-
-
-            configurarBotones()
+            val intFirstScreen = Intent(baseContext, firstScreen::class.java)
+            startActivity(intFirstScreen)
         }
 
 
-    }
-
-    private fun configurarBotones() {
-        binding.btnRegistrarse.setOnClickListener{
-            val intRegistrarse = Intent(baseContext, SignupScreen::class.java)
-            startActivity(intRegistrarse)
-        }
-
-        binding.btnIngresar.setOnClickListener{
-            val intIngresar = Intent(baseContext, LoginScreen::class.java)
-            startActivity(intIngresar)
-        }
     }
 
 
