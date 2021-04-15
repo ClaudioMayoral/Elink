@@ -18,43 +18,28 @@
         app:layout_constraintTop_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--SHADOW-->
-    <View
-        android:id="@+id/center_shadow_login"
-        android:layout_width="347dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="187dp"
-
-        android:background="@drawable/shadow"
-        app:layout_constraintEnd_toEndOf="@+id/center_login"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/center_login"
-        app:layout_constraintTop_toTopOf="@+id/center_login" />
-    <!--SHADOW-->
-
     <View
         android:id="@+id/center_login"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="278dp"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:layout_marginBottom="250dp"
         android:background="@drawable/background_centershape"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:elevation="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header_login"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/logoImage1" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:elevation="15dp"
         android:fontFamily="@font/lato"
         android:text="@string/bienvenido_a_elink"
         android:textColor="#2F455C"
@@ -65,7 +50,7 @@
         app:layout_constraintTop_toTopOf="@+id/center_login" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -78,9 +63,10 @@
         android:text="@string/disfruta_de_una_nueva_forma_de_divulgar_y_apoyar_proyectos"
         android:textColor="#2F455C"
         android:textSize="12sp"
+        android:elevation="15dp"
         app:layout_constraintEnd_toEndOf="@+id/center_login"
         app:layout_constraintStart_toStartOf="@+id/center_login"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <Button
         android:id="@+id/btnIngresar"
@@ -93,33 +79,35 @@
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        android:elevation="10dp"
+        android:elevation="20dp"
 
         app:backgroundTint="#21D0B2"
         app:layout_constraintEnd_toEndOf="@+id/center_login"
         app:layout_constraintStart_toStartOf="@+id/center_login"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/description" />
 
     <Button
         android:id="@+id/btnRegistrarse"
         android:layout_width="215dp"
         android:layout_height="44dp"
         android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/button_blue"
+        android:elevation="20dp"
         android:fontFamily="@font/lato"
         android:text="@string/registrarse"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
-        android:elevation="10dp"
 
+        android:textSize="18sp"
         app:backgroundTint="#2F455C"
+        app:layout_constraintBottom_toBottomOf="@+id/center_login"
         app:layout_constraintEnd_toEndOf="@+id/center_login"
         app:layout_constraintStart_toStartOf="@+id/center_login"
         app:layout_constraintTop_toBottomOf="@+id/btnIngresar" />
 
     <TextView
-        android:id="@+id/textView50"
+        android:id="@+id/bottomMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -133,12 +121,11 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/logoImage1"
         android:layout_width="85dp"
         android:layout_height="87dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         android:contentDescription="@string/desc"
-        app:layout_constraintBottom_toTopOf="@+id/center_login"
         app:layout_constraintEnd_toEndOf="@+id/header_login"
         app:layout_constraintStart_toStartOf="@+id/header_login"
         app:layout_constraintTop_toTopOf="@+id/header_login"
