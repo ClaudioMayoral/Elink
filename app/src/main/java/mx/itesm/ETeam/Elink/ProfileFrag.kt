@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.getInstance
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.fragment_profile.view.*
 import mx.itesm.ETeam.Elink.databinding.FragmentProfileBinding
 
 /*
@@ -45,12 +46,6 @@ class ProfileFrag : Fragment() {
         }
     }
 
-    private fun configurarBotones() {
-        binding.btnLogOut.setOnClickListener{
-            println("Bye Bye")
-            listener?.itemClicked()
-        }
-    }
 
 
     override fun onCreateView(
@@ -59,7 +54,11 @@ class ProfileFrag : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_profile, container, false)
-        configurarBotones()
+
+        view.btnLogOut.setOnClickListener { view ->
+            println("Hola")
+            listener?.itemClicked()
+        }
         println("reachable")
         return view
     }
