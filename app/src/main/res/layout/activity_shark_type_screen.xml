@@ -242,7 +242,7 @@
             android:layout_height="wrap_content"
             android:elevation="1dp"
             android:fontFamily="@font/lato"
-            android:text="@string/bank"
+            android:text="@string/banco"
             android:textColor="@drawable/input_toggle_text"
             android:textStyle="bold"
             app:icon="@drawable/icon_bank"
