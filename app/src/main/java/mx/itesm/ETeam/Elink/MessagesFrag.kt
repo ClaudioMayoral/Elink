@@ -64,4 +64,8 @@ class MessagesFrag : Fragment(), ClickListener {
     override fun clicked(posicion: Int) {
         val tarjeta = arrChat[posicion]
     }
+
+    override fun itemClicked() {
+        TODO("Not yet implemented")
+    }
 }

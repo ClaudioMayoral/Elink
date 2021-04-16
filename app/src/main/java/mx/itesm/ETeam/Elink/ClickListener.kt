@@ -7,4 +7,6 @@ interface ClickListener {
 
     // Hizo click en el renglón  [posición]
     fun clicked(posicion:Int)
+
+    fun itemClicked()
 }

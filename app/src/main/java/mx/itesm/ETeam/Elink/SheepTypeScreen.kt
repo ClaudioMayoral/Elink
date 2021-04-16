@@ -17,7 +17,7 @@ class SheepTypeScreen : AppCompatActivity() {
     }
 
     private fun configurarBotones() {
-        binding.buttonSheepy.setOnClickListener {
+        binding.backBtnSheepy.setOnClickListener {
             val intSignup = Intent(this, SignupScreen::class.java)
             intSignup.putExtra("userType", "sheep")
             intSignup.putExtra("username", intent.getStringExtra("username").toString())
