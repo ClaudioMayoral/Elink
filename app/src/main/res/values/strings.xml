@@ -21,4 +21,23 @@
     <string name="nombre_de_usuario">Nombre de usuario</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="elige_un_tipo_de_usuario">Elige un tipo de usuario</string>
+    <string name="sheepy">Sheepy</string>
+    <string name="sharky">Sharky</string>
+    <string name="continuar">Continuar</string>
+    <string name="foto_de_perfil">Foto de perfil</string>
+    <string name="haremos_que_el_crear_y_mejorar_al_mundo_sea_una_experiencia_nica_cu_ntanos_de_tu_proyecto">Haremos que el crear y mejorar al mundo, sea una experiencia única. Cuéntanos de tu proyecto.</string>
+    <string name="nombre_del_proyecto">Nombre del proyecto</string>
+    <string name="objetivo_del_proyecto">Objetivo del proyecto</string>
+    <string name="meta_monetaria_en_usd">Meta monetaria (en USD)</string>
+    <string name="categor_a">Categoría</string>
+
+    <string-array name="categorias">
+        <item>Ambiental</item>
+        <item>Tecnología</item>
+        <item>Social</item>
+        <item>Entretenimiento</item>
+        <item>Estilo de vida</item>
+    </string-array>
+
 </resources>

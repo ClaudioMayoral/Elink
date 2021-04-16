@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--color de icono encendido-->
+    <item android:alpha="1.00" android:color="@color/dark_blue" android:state_checkable="true"
+        android:state_checked="true" android:state_enabled="true"/>
+
+    <!--color de icono apagado-->
+    <item android:alpha="0.60" android:color="@color/light_blue" android:state_checkable="true"
+        android:state_checked="false" android:state_enabled="true"/> <!-- this color -->
+
+</selector>
