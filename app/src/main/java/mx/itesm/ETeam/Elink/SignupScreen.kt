@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.ktx.Firebase
 import mx.itesm.ETeam.Elink.databinding.ActivitySignupScreenBinding
 import android.widget.Toast
+import com.google.firebase.database.FirebaseDatabase
 
 /*
 Pantalla para hacer signup se ofrecen distintas opciones
@@ -21,8 +22,8 @@ class SignupScreen : AppCompatActivity() {
 
     private lateinit var binding : ActivitySignupScreenBinding
     // Administra la información de sign-in
-    private lateinit var mAuth: FirebaseAuth
     private lateinit var auth: FirebaseAuth
+    private lateinit var baseDatos: FirebaseDatabase
 
     //  ActivityForResult
     private val RC_SIGN_IN: Int = 200
@@ -31,8 +32,8 @@ class SignupScreen : AppCompatActivity() {
 
         binding = ActivitySignupScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        mAuth = FirebaseAuth.getInstance()
         auth = Firebase.auth
+        baseDatos = FirebaseDatabase.getInstance()
 
         configurarBotones()
 
@@ -82,23 +83,23 @@ class SignupScreen : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success")
                     val user = auth.currentUser
-                    updateUI(user)
+                    insertUserDataInDB(user)
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
                     Toast.makeText(baseContext, "Authentication failed.",
                         Toast.LENGTH_SHORT).show()
-                    updateUI(null)
                 }
             }
     }
 
-    private fun updateUI(user: FirebaseUser?) {
-        insertUserDataInDB()
-    }
-
-    private fun insertUserDataInDB() {
-        val userID = mAuth.currentUser.uid
+    private fun insertUserDataInDB(user: FirebaseUser) {
+        val userID = user.uid
+        val username = intent.getStringExtra("username").toString()
+        val usertype = intent.getStringExtra("userType").toString()
+        val referencia = baseDatos.getReference("/Users/$userID")
+        val userDB = SharkUser(username,usertype)
+        referencia.setValue(userDB);
 
         val intMasterScreen = Intent(this, masterScreen::class.java)
         startActivity(intMasterScreen)
@@ -112,7 +113,7 @@ class SignupScreen : AppCompatActivity() {
                     val usuario = FirebaseAuth.getInstance().currentUser
 
                     // Siguiente actividad
-                    insertUserDataInDB()
+                    insertUserDataInDB(usuario)
                 }
                 RESULT_CANCELED ->{
                     // signup cancelado

@@ -25,15 +25,21 @@ class UserTypeScreen : AppCompatActivity() {
         binding.buttonSignup.setOnClickListener{
             crearCuenta()
         }
+        configurarBotones()
+    }
 
-        binding.etNombreUsuario.setOnClickListener {
-            habilitarBoton()
-        }
-        binding.btnSelectShark.setOnClickListener{
+    private fun configurarBotones() {
+        binding.btnSelectShark.setOnClickListener {
+            userType = "shark"
             habilitarBoton()
         }
 
         binding.btnSelectSheep.setOnClickListener {
+            userType = "sheep"
+            habilitarBoton()
+        }
+
+        binding.etNombreUsuario.setOnClickListener {
             habilitarBoton()
         }
     }
@@ -45,6 +51,7 @@ class UserTypeScreen : AppCompatActivity() {
     }
 
     private fun crearCuenta() {
+        println("userType: $userType")
         if(userType == "shark"){
             val intSharkType = Intent(this, SharkTypeScreen::class.java)
             intSharkType.putExtra("username", binding.etNombreUsuario.text.toString())
@@ -56,11 +63,4 @@ class UserTypeScreen : AppCompatActivity() {
         }
     }
 
-    fun selectShark(v: View){
-        userType = "shark"
-    }
-
-    fun selectSheep(v: View){
-        userType = "sheep"
-    }
 }
