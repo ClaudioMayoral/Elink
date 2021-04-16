@@ -94,7 +94,14 @@ class SignupScreen : AppCompatActivity() {
     }
 
     private fun updateUI(user: FirebaseUser?) {
+        insertUserDataInDB()
+    }
 
+    private fun insertUserDataInDB() {
+        val userID = mAuth.currentUser.uid
+
+        val intMasterScreen = Intent(this, masterScreen::class.java)
+        startActivity(intMasterScreen)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -105,8 +112,7 @@ class SignupScreen : AppCompatActivity() {
                     val usuario = FirebaseAuth.getInstance().currentUser
 
                     // Siguiente actividad
-                    val intUserType = Intent(this, UserTypeScreen::class.java)
-                    startActivity(intUserType)
+                    insertUserDataInDB()
                 }
                 RESULT_CANCELED ->{
                     // signup cancelado

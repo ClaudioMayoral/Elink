@@ -1,9 +1,12 @@
 package mx.itesm.ETeam.Elink
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import mx.itesm.ETeam.Elink.databinding.ActivityMasterScreenBinding
 
 class masterScreen : AppCompatActivity() {
@@ -40,8 +43,11 @@ class masterScreen : AppCompatActivity() {
                 cambiarFragmento(fragMessages)
             }
             R.id.navProfile -> {
-                val fragProfile = ProfileFrag()
-                cambiarFragmento(fragProfile)
+                /*val fragProfile = ProfileFrag()
+                cambiarFragmento(fragProfile)*/
+                Firebase.auth.signOut()
+                val intFirstScreen = Intent(this, firstScreen::class.java)
+                startActivity(intFirstScreen)
             }
         }
         true

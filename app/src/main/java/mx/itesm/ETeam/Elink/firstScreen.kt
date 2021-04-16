@@ -19,7 +19,7 @@ class firstScreen : AppCompatActivity() {
 
     private fun configurarBotones() {
         binding.btnRegistrarse.setOnClickListener{
-            val intRegistrarse = Intent(baseContext, SignupScreen::class.java)
+            val intRegistrarse = Intent(baseContext, UserTypeScreen::class.java)
             startActivity(intRegistrarse)
         }
 
