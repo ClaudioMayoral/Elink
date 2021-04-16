@@ -191,7 +191,7 @@
         android:textColor="@color/dark_blue"
         android:textSize="13sp"
         android:elevation="5dp"
-        android:text="Zona de impacto"
+        android:text="@string/zona_de_impacto"
         app:layout_constraintStart_toStartOf="@+id/center_sheepy"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
@@ -223,7 +223,7 @@
         android:textAllCaps="false"
         android:visibility="invisible"
         app:backgroundTint="#2F455C"
-        app:layout_constraintBottom_toBottomOf="@+id/center_userSelection"
+        app:layout_constraintBottom_toBottomOf="@+id/center_sheepy"
         app:layout_constraintEnd_toEndOf="@+id/center_sheepy"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="@+id/center_sheepy"

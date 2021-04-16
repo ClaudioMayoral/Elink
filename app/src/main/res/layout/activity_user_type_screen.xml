@@ -38,7 +38,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@android:drawable/ic_delete" />
+        app:srcCompat="@drawable/logo" />
 
     <View
         android:id="@+id/center_userSelection"
@@ -180,7 +180,6 @@
             app:layout_constraintBottom_toBottomOf="@+id/center_userSelection"
             app:layout_constraintEnd_toEndOf="@+id/center_userSelection"
             app:layout_constraintStart_toStartOf="@+id/center_userSelection"
-            app:layout_constraintTop_toBottomOf="@+id/profilePicture_selectionUser"
             app:shapeAppearance="@style/Rounded" />
 
         <Button
@@ -198,7 +197,6 @@
             app:layout_constraintBottom_toBottomOf="@+id/center_userSelection"
             app:layout_constraintEnd_toEndOf="@+id/center_userSelection"
             app:layout_constraintStart_toStartOf="@+id/center_userSelection"
-            app:layout_constraintTop_toBottomOf="@+id/profilePicture_selectionUser"
             app:shapeAppearance="@style/Rounded" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
 

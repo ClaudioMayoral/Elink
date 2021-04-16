@@ -129,6 +129,6 @@
         app:layout_constraintEnd_toEndOf="@+id/header_login"
         app:layout_constraintStart_toStartOf="@+id/header_login"
         app:layout_constraintTop_toTopOf="@+id/header_login"
-        app:srcCompat="@drawable/common_google_signin_btn_icon_dark" />
+        app:srcCompat="@drawable/logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

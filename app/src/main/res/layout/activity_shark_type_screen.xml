@@ -4,95 +4,294 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#6634F5C5"
     tools:context=".SharkTypeScreen">
 
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="339dp"
-        android:layout_height="39dp"
-        android:text="Gracias a ti, se podrán concretar muchas ideas. Cuéntanos sobre qué y cómo te gustaría ayudar."
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="191dp" />
+    <View
+        android:id="@+id/header_sharky"
+        android:layout_width="0dp"
+        android:layout_height="320dp"
+        android:background="@drawable/background_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        tools:layout_editor_absoluteX="177dp"
-        tools:layout_editor_absoluteY="26dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:id="@+id/back_btn_sharky"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="44dp"
+        android:contentDescription="@string/desc"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/abc_vector_test" />
+
+    <ImageView
+        android:id="@+id/logo_sharky"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="@string/desc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/title5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sharky,"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/sharky"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="138dp" />
-
-    <ImageView
-        android:id="@+id/imageView15"
-        android:layout_width="24dp"
-        android:layout_height="22dp"
-        app:srcCompat="@drawable/abc_vector_test"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="26dp" />
+        android:textColor="#FFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo_sharky" />
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/description11"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/haremos_que_el_crear_y_mejorar_al_mundo_sea_una_experiencia_nica_cu_ntanos_de_tu_proyecto"
+        android:textColor="#FFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title5" />
+
+    <View
+        android:id="@+id/center_sharky"
+        android:layout_width="0dp"
+        android:layout_height="410dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/background_centershape"
+        android:elevation="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/description11" />
+
+    <TextView
+        android:id="@+id/description12"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:elevation="5dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/categor_as_de_inter_s"
+        android:textColor="@color/dark_blue"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/center_sharky"
+        app:layout_constraintTop_toTopOf="@+id/center_sharky" />
+
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:elevation="5dp"
+        app:layout_constraintEnd_toEndOf="@+id/center_sharky"
+        app:layout_constraintStart_toStartOf="@+id/center_sharky"
+        app:layout_constraintTop_toBottomOf="@+id/description12">
+
+        <CheckBox
+            android:id="@+id/categoria_ambiental"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:checked="false"
+            android:drawableStart="@drawable/icon_earth"
+            android:drawablePadding="12dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/ambiental"
+            android:textColor="@color/dark_blue"
+            android:textSize="12sp"
+            android:theme="@style/CustomCheckBox">
+
+        </CheckBox>
+
+        <CheckBox
+            android:id="@+id/categoria_tec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/categoria_ambiental"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:checked="false"
+            android:drawableStart="@drawable/icon_tec"
+            android:drawablePadding="12dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/tecnolog_a"
+            android:textColor="@color/dark_blue"
+            android:textSize="12sp"
+            android:theme="@style/CustomCheckBox">
+
+        </CheckBox>
+
+        <CheckBox
+            android:id="@+id/categoria_social"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/categoria_tec"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:checked="false"
+            android:drawableStart="@drawable/icon_social"
+            android:drawablePadding="12dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/social"
+            android:textColor="@color/dark_blue"
+            android:textSize="12sp"
+            android:theme="@style/CustomCheckBox">
+
+        </CheckBox>
+
+        <CheckBox
+            android:id="@+id/categoria_entertainment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/categoria_social"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:checked="false"
+            android:drawableStart="@drawable/icon_video"
+            android:drawablePadding="12dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/entretenimiento"
+            android:textColor="@color/dark_blue"
+            android:textSize="12sp"
+            android:theme="@style/CustomCheckBox">
+
+        </CheckBox>
+
+        <CheckBox
+            android:id="@+id/categoria_lifestyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/categoria_entertainment"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:checked="false"
+            android:drawableStart="@drawable/icon_desk"
+            android:drawablePadding="12dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/estilo_de_vida"
+            android:textColor="@color/dark_blue"
+            android:textSize="12sp"
+            android:theme="@style/CustomCheckBox">
+
+        </CheckBox>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/description13"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:elevation="5dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/agrega_un_m_todo_de_pago_opcional"
+        android:textColor="@color/dark_blue"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/center_sharky"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/toggleButtonGroup2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Categorías de interés"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="269dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:elevation="5dp"
+        app:layout_constraintEnd_toEndOf="@+id/center_sharky"
+        app:layout_constraintStart_toStartOf="@+id/center_sharky"
+        app:layout_constraintTop_toBottomOf="@+id/description13"
+        app:singleSelection="true">
 
-    <TextView
-        android:id="@+id/textView22"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Agregar método de pago (opcional)"
-        tools:layout_editor_absoluteX="34dp"
-        tools:layout_editor_absoluteY="445dp" />
+        <Button
+            android:id="@+id/btnSelectBank"
+            style="@style/ToggleButtonWithIconOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="1dp"
+            android:fontFamily="@font/lato"
+            android:text="@string/bank"
+            android:textColor="@drawable/input_toggle_text"
+            android:textStyle="bold"
+            app:icon="@drawable/icon_bank"
+            app:iconPadding="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/center_sharky"
+            app:layout_constraintEnd_toEndOf="@+id/center_sharky"
+            app:layout_constraintStart_toStartOf="@+id/center_sharky"
+            app:shapeAppearance="@style/Rounded" />
 
-    <TextView
-        android:id="@+id/textView23"
-        android:layout_width="161dp"
-        android:layout_height="42dp"
-        android:text="Tarjeta de crédito/débito (No habilitado)"
-        tools:layout_editor_absoluteX="61dp"
-        tools:layout_editor_absoluteY="600dp" />
-
-    <TextView
-        android:id="@+id/textView24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PayPal"
-        tools:layout_editor_absoluteX="266dp"
-        tools:layout_editor_absoluteY="600dp" />
-
-    <ImageButton
-        android:id="@+id/imageButton3"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        tools:layout_editor_absoluteX="97dp"
-        tools:layout_editor_absoluteY="505dp"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        tools:layout_editor_absoluteX="247dp"
-        tools:layout_editor_absoluteY="505dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        <Button
+            android:id="@+id/btnSelectPayPal"
+            style="@style/ToggleButtonWithIconOnly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="1dp"
+            android:fontFamily="@font/lato"
+            android:text="@string/paypal"
+            android:textColor="@drawable/input_toggle_text"
+            android:textStyle="bold"
+            app:icon="@drawable/icon_paypal"
+            app:iconPadding="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/center_sharky"
+            app:layout_constraintEnd_toEndOf="@+id/center_sharky"
+            app:layout_constraintStart_toStartOf="@+id/center_sharky"
+            app:shapeAppearance="@style/Rounded" />
+    </com.google.android.material.button.MaterialButtonToggleGroup>
 
     <Button
-        android:id="@+id/button13"
-        android:layout_width="228dp"
-        android:layout_height="44dp"
-        android:text="Terminar Registro"
-        tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="663dp" />
+        android:id="@+id/buttonSignup"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/button_blue"
+        android:elevation="10dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/continuar"
+        android:textAllCaps="false"
+        android:visibility="invisible"
+        app:backgroundTint="#2F455C"
+        app:layout_constraintBottom_toBottomOf="@+id/center_sharky"
+        app:layout_constraintEnd_toEndOf="@+id/center_sharky"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="@+id/center_sharky"
+        app:layout_constraintTop_toBottomOf="@+id/toggleButtonGroup2"
+        tools:visibility="visible" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

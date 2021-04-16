@@ -31,6 +31,17 @@
     <string name="objetivo_del_proyecto">Objetivo del proyecto</string>
     <string name="meta_monetaria_en_usd">Meta monetaria (en USD)</string>
     <string name="categor_a">Categoría</string>
+    <string name="zona_de_impacto">Zona de impacto</string>
+    <string name="categor_as_de_inter_s">Categorías de interés</string>
+    <string name="detalles">Detalles</string>
+    <string name="ambiental">Ambiental</string>
+    <string name="tecnolog_a">Tecnología</string>
+    <string name="social">Social</string>
+    <string name="entretenimiento">Entretenimiento</string>
+    <string name="estilo_de_vida">Estilo de vida</string>
+    <string name="agrega_un_m_todo_de_pago_opcional">Agrega un método de pago (opcional)</string>
+    <string name="bank">Bank</string>
+    <string name="paypal">PayPal</string>
 
     <string-array name="categorias">
         <item>Ambiental</item>

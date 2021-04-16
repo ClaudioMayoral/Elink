@@ -35,4 +35,9 @@
         <item name="strokeWidth">10dp</item>
     </style>
 
+    <style name="CustomCheckBox" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/light_blue</item>
+        <item name="colorControlActivated">@color/dark_green</item>
+    </style>
+
 </resources>
