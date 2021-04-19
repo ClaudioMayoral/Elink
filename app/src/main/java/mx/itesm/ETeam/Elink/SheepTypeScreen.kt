@@ -13,9 +13,9 @@ class SheepTypeScreen : AppCompatActivity() {
         binding = ActivitySheepTypeScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        configurarBotones()
+        //configurarBotones()
     }
-
+/*
     private fun configurarBotones() {
         binding.backBtnSheepy.setOnClickListener {
             val intSignup = Intent(this, SignupScreen::class.java)
@@ -23,5 +23,5 @@ class SheepTypeScreen : AppCompatActivity() {
             intSignup.putExtra("username", intent.getStringExtra("username").toString())
             startActivity(intSignup)
         }
-    }
+    }*/
 }

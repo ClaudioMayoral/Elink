@@ -19,21 +19,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/back_btn_sharky"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="44dp"
-        android:contentDescription="@string/desc"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/abc_vector_test" />
-
-    <ImageView
         android:id="@+id/logo_sharky"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:contentDescription="@string/desc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/lato"
         android:text="@string/sharky"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -58,10 +47,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
         android:fontFamily="@font/lato"
         android:text="@string/haremos_que_el_crear_y_mejorar_al_mundo_sea_una_experiencia_nica_cu_ntanos_de_tu_proyecto"
         android:textColor="#FFF"
@@ -275,6 +262,8 @@
         android:layout_width="0dp"
         android:layout_height="36dp"
 
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/button_blue"
         android:elevation="10dp"
         android:fontFamily="@font/lato"
@@ -282,9 +271,10 @@
         android:textAllCaps="false"
         android:visibility="invisible"
         app:backgroundTint="#2F455C"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/center_sharky"
+        app:layout_constraintEnd_toEndOf="@+id/center_sharky"
+        app:layout_constraintStart_toStartOf="@+id/center_sharky"
+        app:layout_constraintTop_toBottomOf="@+id/toggleButtonGroup2"
         tools:visibility="visible" />
 
 
