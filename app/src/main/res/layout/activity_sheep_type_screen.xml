@@ -202,8 +202,8 @@
         android:layout_height="36dp"
 
         android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         android:background="@drawable/button_blue"
         android:elevation="10dp"
         android:fontFamily="@font/lato"
@@ -211,7 +211,6 @@
         android:textAllCaps="false"
         android:visibility="invisible"
         app:backgroundTint="#2F455C"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/center_sheepy"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/center_sheepy"
