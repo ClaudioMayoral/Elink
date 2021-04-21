@@ -141,10 +141,10 @@
         app:layout_constraintTop_toBottomOf="@+id/projectDescription" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/til_category"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="0dp"
-        android:layout_height="43dp"
+        android:layout_height="44dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
@@ -158,7 +158,8 @@
         app:startIconDrawable="@drawable/icon_list_dark">
 
         <AutoCompleteTextView
-            android:id="@+id/autoCompleteTextView"
+            tools:ignore="LabelFor"
+            android:id="@+id/auto_category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -180,7 +181,7 @@
         android:elevation="5dp"
         android:text="@string/zona_de_impacto"
         app:layout_constraintStart_toStartOf="@+id/center_sheepy"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/til_category" />
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView"

@@ -42,6 +42,8 @@
     <string name="agrega_un_m_todo_de_pago_opcional">Agrega un método de pago (opcional)</string>
     <string name="paypal">PayPal</string>
     <string name="banco">banco</string>
+    <string name="cu_ntanos_sobre_ti">¡Cuéntanos sobre ti!</string>
+    <string name="para_darte_la_experiencia_que_mereces_necesitamos_saber_m_s_de_ti">Para darte la experiencia que mereces, necesitamos saber más de ti.</string>
 
     <string-array name="categorias">
         <item>Ambiental</item>
