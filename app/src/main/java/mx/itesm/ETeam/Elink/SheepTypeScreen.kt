@@ -29,6 +29,7 @@ class SheepTypeScreen : AppCompatActivity() {
         val category = resources.getStringArray(R.array.categorias)
         val adapter = ArrayAdapter(this, R.layout.dropdown_item, category)
         binding.autoCategory.setAdapter(adapter)
+
     }
 /*
     private fun configurarBotones() {
