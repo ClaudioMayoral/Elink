@@ -4,11 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import androidx.fragment.app.Fragment
-import com.google.android.material.textfield.TextInputLayout
-import kotlinx.android.synthetic.main.activity_sheep_type_screen.*
-import mx.itesm.ETeam.Elink.databinding.ActivitySharkTypeScreenBinding
 import mx.itesm.ETeam.Elink.databinding.ActivitySheepTypeScreenBinding
 
 class SheepTypeScreen : AppCompatActivity() {
@@ -22,7 +17,7 @@ class SheepTypeScreen : AppCompatActivity() {
 
         configurarDropDown()
 
-        //configurarBotones()
+        configurarBotones()
     }
 
     private fun configurarDropDown() {
@@ -30,14 +25,27 @@ class SheepTypeScreen : AppCompatActivity() {
         val adapter = ArrayAdapter(this, R.layout.dropdown_item, category)
         binding.autoCategory.setAdapter(adapter)
     }
-/*
+
     private fun configurarBotones() {
-        binding.backBtnSheepy.setOnClickListener {
+        binding.buttonSheepy.setOnClickListener {
+            val hashMap = HashMap<String, String>()
+            val nombreDelProyecto = binding.projectName.text.toString()
+            val descripcionProyecto = binding.projectDescription.text.toString()
+            val moneyGoal = binding.moneyGoal.text.toString()
+            val categoria = binding.autoCategory.text.toString()
+
+            hashMap["nombreDeProyecto"] = nombreDelProyecto
+            hashMap["descripcionDeProyecto"] = descripcionProyecto
+            hashMap["metaMonetaria"] = moneyGoal
+            hashMap["categoria"] = categoria
+
             val intSignup = Intent(this, SignupScreen::class.java)
             intSignup.putExtra("userType", "sheep")
             intSignup.putExtra("username", intent.getStringExtra("username").toString())
+            intSignup.putExtra("userPreferences", hashMap)
+
             startActivity(intSignup)
         }
-    }*/
+    }
 }
 

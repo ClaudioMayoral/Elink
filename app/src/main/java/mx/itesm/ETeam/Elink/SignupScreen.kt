@@ -122,9 +122,10 @@ class SignupScreen : AppCompatActivity() {
         val userID = user.uid
         val username = intent.getStringExtra("username").toString()
         val usertype = intent.getStringExtra("userType").toString()
+
         val referencia = baseDatos.getReference("/Users/$userID")
         val userDB = SharkUser(username,usertype)
-        referencia.setValue(userDB);
+        referencia.setValue(userDB)
 
         val intMasterScreen = Intent(this, masterScreen::class.java)
         startActivity(intMasterScreen)

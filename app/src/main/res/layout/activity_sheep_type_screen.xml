@@ -209,7 +209,7 @@
         android:fontFamily="@font/lato"
         android:text="@string/continuar"
         android:textAllCaps="false"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:backgroundTint="#2F455C"
         app:layout_constraintEnd_toEndOf="@+id/center_sheepy"
         app:layout_constraintHorizontal_bias="0.0"
