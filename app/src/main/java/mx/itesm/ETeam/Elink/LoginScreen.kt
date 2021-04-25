@@ -45,6 +45,15 @@ class LoginScreen : AppCompatActivity() {
         binding.googleLogin.setOnClickListener{
             auntenticarGoogle()
         }
+
+        binding.forgetPassText.setOnClickListener{
+            resetPassword();
+        }
+    }
+
+    private fun resetPassword() {
+        val intForgottenPassword = Intent(this, forgottenPassword::class.java)
+        startActivity(intForgottenPassword)
     }
 
     private fun autenticarEmail(email:String, password:String) {
@@ -60,7 +69,7 @@ class LoginScreen : AppCompatActivity() {
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, "Authentication failed.",
+                    Toast.makeText(baseContext, "Fallo en la autencicación",
                         Toast.LENGTH_SHORT).show()
                     updateUI(null)
                 }

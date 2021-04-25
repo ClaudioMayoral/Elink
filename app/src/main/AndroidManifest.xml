@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Elink">
-        <activity android:name=".masterScreen"></activity>
+        <activity android:name=".forgottenPassword"></activity>
+        <activity android:name=".masterScreen" />
         <activity android:name=".CreatorMainScreen" />
         <activity android:name=".profileScreen" />
         <activity android:name=".chatScreen" />

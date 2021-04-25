@@ -43,16 +43,50 @@ class SignupScreen : AppCompatActivity() {
         binding.googleSignup.setOnClickListener {
             googleSignUp()
         }
+
+        binding.fbSignup.setOnClickListener {
+            facebookSignUp()
+        }
+
+        binding.appleSignup.setOnClickListener {
+            appleSignUp()
+        }
         binding.buttonSignup.setOnClickListener{
-            val email = binding.signupMail.text.toString()
-            val password = binding.signupPassword.text.toString()
-            val passwordConfirmation = binding.signupConfirmPassword.text.toString()
+            val email = binding.signupMail.text.toString().trim()
+            val password = binding.signupPassword.text.toString().trim()
+            val passwordConfirmation = binding.signupConfirmPassword.text.toString().trim()
             if(verificarEntradas(email,password,passwordConfirmation)){
                 signUp(email, password)
             }
         }
     }
 
+    private fun appleSignUp() {
+        val proveedores = arrayListOf(AuthUI.IdpConfig.AppleBuilder().build())
+        startActivityForResult(AuthUI.getInstance()
+                .createSignInIntentBuilder()
+                .setAvailableProviders(proveedores)
+                .build(),
+                RC_SIGN_IN)
+    }
+
+    private fun facebookSignUp() {
+        val proveedores = arrayListOf(AuthUI.IdpConfig.FacebookBuilder().build())
+        startActivityForResult(AuthUI.getInstance()
+                .createSignInIntentBuilder()
+                .setAvailableProviders(proveedores)
+                .build(),
+        RC_SIGN_IN)
+    }
+
+    private fun googleSignUp() {
+        val proveedores = arrayListOf(AuthUI.IdpConfig.GoogleBuilder().build())
+        startActivityForResult(AuthUI.getInstance()
+                .createSignInIntentBuilder()
+                .setAvailableProviders(proveedores)
+                .build(),
+                RC_SIGN_IN)
+    }
     private fun verificarEntradas(email: String, password: String, passwordConfirmation: String) :Boolean{
         if (email.isEmpty() || password.isEmpty()|| passwordConfirmation.isEmpty()){
             Toast.makeText(baseContext, "Rellene todos los campos para continuar.",
@@ -64,15 +98,6 @@ class SignupScreen : AppCompatActivity() {
             return false
         }
         return true
-    }
-
-    private fun googleSignUp() {
-        val proveedores = arrayListOf(AuthUI.IdpConfig.GoogleBuilder().build())
-        startActivityForResult(AuthUI.getInstance()
-            .createSignInIntentBuilder()
-            .setAvailableProviders(proveedores)
-            .build(),
-        RC_SIGN_IN)
     }
 
 
