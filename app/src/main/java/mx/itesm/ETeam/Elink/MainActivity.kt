@@ -3,8 +3,6 @@ package mx.itesm.ETeam.Elink
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
 import com.google.firebase.auth.FirebaseAuth
 
 

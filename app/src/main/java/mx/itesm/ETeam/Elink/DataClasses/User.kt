@@ -1,3 +1,6 @@
-package mx.itesm.ETeam.Elink
+package mx.itesm.ETeam.Elink.DataClasses
 
-data class SharkUser(val username:String="", val usertype:String = "", val dirImagen:String = "")
+/* Clase que representa a un usuario de la aplicación, sus datos se ingresan en la base de datos.
+Autor: Alejandro Torices
+ */
+data class User(val username:String="", val usertype:String = "", val dirImagen:String="")
