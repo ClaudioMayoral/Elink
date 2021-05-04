@@ -52,7 +52,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/tvProfImage"
         android:layout_width="70dp"
         android:layout_height="70dp"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
@@ -60,30 +60,30 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tvProfName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Nombre"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/tvProfImage"
         tools:layout_editor_absoluteX="166dp" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tvProfRank"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Rank de usuario"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/tvProfName"
         tools:layout_editor_absoluteX="143dp" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/tvProfMail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Correo"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/tvProfRank"
         tools:layout_editor_absoluteX="174dp" />
 
     <TextView

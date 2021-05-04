@@ -3,6 +3,7 @@ package mx.itesm.ETeam.Elink
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
@@ -30,18 +31,22 @@ class SharkTypeScreen : AppCompatActivity() {
             val checkEntretenimiento = binding.categoriaEntertainment.isChecked
             val checkLifeStyle = binding.categoriaLifestyle.isChecked
 
-            val hashMap = HashMap<String, Boolean>()
-            hashMap["ambiental"] = checkAmbiental
-            hashMap["tecnologia"] = checkTecnologia
-            hashMap["social"] = checkSocial
-            hashMap["entretenimiento"] = checkEntretenimiento
-            hashMap["lifestyle"] = checkLifeStyle
+            if(checkAmbiental or checkTecnologia or checkSocial or checkEntretenimiento or checkLifeStyle) {
+                val intSignup = Intent(this, SignupScreen::class.java)
+                intSignup.putExtra("userType", "shark")
+                intSignup.putExtra("username", intent.getStringExtra("username").toString())
+                intSignup.putExtra("profilePic", intent.getStringExtra("profilePic").toString())
 
-            val intSignup = Intent(this, SignupScreen::class.java)
-            intSignup.putExtra("userType", "shark")
-            intSignup.putExtra("username", intent.getStringExtra("username").toString())
-            intSignup.putExtra("userPreferences", hashMap)
-            startActivity(intSignup)
+                intSignup.putExtra("ambiental", checkAmbiental)
+                intSignup.putExtra("tecnologia", checkTecnologia)
+                intSignup.putExtra("social", checkSocial)
+                intSignup.putExtra("entretenimiento", checkEntretenimiento)
+                intSignup.putExtra("lifestyle", checkLifeStyle)
+
+                startActivity(intSignup)
+            }else{
+                Toast.makeText(baseContext, "Escoga al menos una categoría para continuar.", Toast.LENGTH_SHORT).show()
+            }
         }
 
     }

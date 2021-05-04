@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import mx.itesm.ETeam.Elink.databinding.ActivitySheepTypeScreenBinding
 
 class SheepTypeScreen : AppCompatActivity() {
@@ -28,23 +29,32 @@ class SheepTypeScreen : AppCompatActivity() {
 
     private fun configurarBotones() {
         binding.buttonSheepy.setOnClickListener {
-            val hashMap = HashMap<String, String>()
             val nombreDelProyecto = binding.projectName.text.toString()
             val descripcionProyecto = binding.projectDescription.text.toString()
             val moneyGoal = binding.moneyGoal.text.toString()
             val categoria = binding.autoCategory.text.toString()
 
-            hashMap["nombreDeProyecto"] = nombreDelProyecto
-            hashMap["descripcionDeProyecto"] = descripcionProyecto
-            hashMap["metaMonetaria"] = moneyGoal
-            hashMap["categoria"] = categoria
+            if((nombreDelProyecto == "") or (descripcionProyecto =="") or (categoria == "") or (moneyGoal == "" )){
+                Toast.makeText(baseContext,"Rellene todos los campos para continuar", Toast.LENGTH_SHORT).show()
+            }else {
 
-            val intSignup = Intent(this, SignupScreen::class.java)
-            intSignup.putExtra("userType", "sheep")
-            intSignup.putExtra("username", intent.getStringExtra("username").toString())
-            intSignup.putExtra("userPreferences", hashMap)
+                val intSignup = Intent(this, SignupScreen::class.java)
+                intSignup.putExtra("userType", "sheep")
+                intSignup.putExtra("username", intent.getStringExtra("username").toString())
+                intSignup.putExtra("profilePic", intent.getStringExtra("profilePic").toString())
 
-            startActivity(intSignup)
+                intSignup.putExtra("nombreDeProyecto", nombreDelProyecto)
+                intSignup.putExtra("descripcionDeProyecto", descripcionProyecto)
+                intSignup.putExtra("metaMonetaria", moneyGoal.toDouble())
+                intSignup.putExtra("categoria", categoria)
+
+                try {
+                    startActivity(intSignup)
+                }catch (e:NumberFormatException){
+                    Toast.makeText(baseContext,"Introduzca una cantidad válida.", Toast.LENGTH_SHORT).show()
+                }
+
+            }
         }
     }
 }
