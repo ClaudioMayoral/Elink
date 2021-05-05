@@ -57,7 +57,7 @@ class MessagesFrag : Fragment(), ClickListener {
     private fun crearArrTarjetas(): Array<TarjetaChat> {
         return arrayOf(
                 TarjetaChat("Juan", 0,"Buen Día"),
-                TarjetaChat("Pedro",0,"Gracias")
+                TarjetaChat("Pedro",0,"Muchas gracias")
         )
     }
 
