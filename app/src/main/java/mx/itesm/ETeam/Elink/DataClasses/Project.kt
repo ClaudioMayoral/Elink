@@ -5,4 +5,4 @@ Un conjunto de proyectos se desplegará en la pantalla principal.
 Autor: Alejandro Torices
  */
 data class Project(val nombreDelProyecto:String="", val descripcionProyecto:String="",
-                   val moneyGoal:Double=0.0, val categoria:String="")
+                   val moneyGoal:Int=0, val categoria:String="")
