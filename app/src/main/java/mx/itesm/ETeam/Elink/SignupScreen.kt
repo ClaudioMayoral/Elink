@@ -114,7 +114,7 @@ class SignupScreen : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success")
                     val user = auth.currentUser
-                    insertUserDataInDB(user)
+                    insertUserDataInDB(user!!)
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
@@ -169,7 +169,7 @@ class SignupScreen : AppCompatActivity() {
                     val usuario = FirebaseAuth.getInstance().currentUser
 
                     // Siguiente actividad
-                    insertUserDataInDB(usuario)
+                    insertUserDataInDB(usuario!!)
                 }
                 RESULT_CANCELED ->{
                     // signup cancelado

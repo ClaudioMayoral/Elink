@@ -59,6 +59,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvProfRank" />
 
+<<<<<<< HEAD
     <TextView
         android:id="@+id/textView42"
         android:layout_width="297dp"
@@ -68,15 +69,24 @@
         app:layout_constraintBottom_toTopOf="@+id/textView43"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+=======
+
+>>>>>>> 0e3140c (Ya se pueden guardar datos y se accede a la camara y fotos para la creacion de posts)
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:text="Save"
         app:layout_constraintBottom_toTopOf="@+id/btnLogOut"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+=======
+        android:text="Guardar cambios"
+        tools:layout_editor_absoluteX="157dp"
+        tools:layout_editor_absoluteY="600dp" />
+>>>>>>> 0e3140c (Ya se pueden guardar datos y se accede a la camara y fotos para la creacion de posts)
 
     <Button
         android:id="@+id/btnLogOut"
@@ -139,14 +149,11 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal"></LinearLayout>
+
 
     </LinearLayout>
 
+<<<<<<< HEAD
     <TextView
         android:id="@+id/textView43"
         android:layout_width="wrap_content"
@@ -197,5 +204,8 @@
         app:layout_constraintTop_toBottomOf="@+id/textView45"
         tools:layout_editor_absoluteX="303dp"
         tools:srcCompat="@tools:sample/avatars" />
+=======
+
+>>>>>>> 0e3140c (Ya se pueden guardar datos y se accede a la camara y fotos para la creacion de posts)
 
 </androidx.constraintlayout.widget.ConstraintLayout>

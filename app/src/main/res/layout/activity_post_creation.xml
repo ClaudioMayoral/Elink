@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PostCreation">
+
+    <ImageView
+        android:id="@+id/logo_image"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_color_square"
+        android:contentDescription="@string/desc"
+        android:elevation="5dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/logo"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/postTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/crea_un_post"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/dark_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo_image" />
+
+    <EditText
+        android:id="@+id/post"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:autofillHints="@string/qu_es_lo_que_quieres_decir"
+        android:background="@drawable/background_selectable_input"
+        android:drawableStart="@drawable/input_toggle_project"
+        android:drawablePadding="12dp"
+        android:elevation="5dp"
+        android:ems="10"
+        android:hint="@string/qu_es_lo_que_quieres_decir"
+        android:inputType="text"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/postTitle" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_type"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:elevation="5dp"
+        android:hint="@string/tipo_de_post"
+        app:boxStrokeColor="@color/dark_blue"
+        app:boxStrokeWidth="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/post"
+        app:startIconDrawable="@drawable/icon_list_dark">
+
+        <AutoCompleteTextView
+            android:id="@+id/auto_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="none"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="13sp"
+            tools:ignore="LabelFor" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/imageTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/agrega_una_imagen"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/dark_blue"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_type" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="0dp"
+        android:layout_height="127dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/button_color_square"
+        android:contentDescription="@string/desc"
+        android:elevation="5dp"
+        android:scaleType="centerInside"
+        android:src="@android:drawable/ic_menu_gallery"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.398"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageTitle" />
+
+    <Button
+        android:id="@+id/postButton"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/button_blue"
+        android:elevation="10dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/continuar"
+        android:textAllCaps="false"
+        android:visibility="visible"
+        app:backgroundTint="#2F455C"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

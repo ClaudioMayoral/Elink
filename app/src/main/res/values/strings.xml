@@ -45,6 +45,16 @@
     <string name="cu_ntanos_sobre_ti">¡Cuéntanos sobre ti!</string>
     <string name="para_darte_la_experiencia_que_mereces_necesitamos_saber_m_s_de_ti">Para darte la experiencia que mereces, necesitamos saber más de ti.</string>
     <string name="te_enviaremos_un_correo_para_que_puedas_reestablecer_tu_contrase_a">Te enviaremos un correo para que puedas reestablecer tu contraseña.</string>
+<<<<<<< HEAD
+=======
+    <string name="tipo_de_post">Tipo de post</string>
+    <string name="crea_un_post">Crea un post</string>
+    <string name="agrega_una_imagen">Agrega una imagen</string>
+    <string name="qu_es_lo_que_quieres_decir">¿Qué es lo que quieres decir?</string>
+    <string name="mi_perfil">Mi perfil</string>
+    <string name="tu_impacto">Tu impacto</string>
+    <string name="gracias_a_tus_contribuciones_estos_proyectos_est_n_monetariamente_completos_al">Gracias a tus contribuciones estos proyectos están monetariamente completos al</string>
+>>>>>>> 0e3140c (Ya se pueden guardar datos y se accede a la camara y fotos para la creacion de posts)
 
     <string-array name="categorias">
         <item>Ambiental</item>
