@@ -4,18 +4,18 @@
 
     <item
         android:id="@+id/navPosts"
-        android:icon="@android:drawable/checkbox_off_background"
-        android:title="Posts" />
+        android:icon="@drawable/icon_home"
+        android:title="@string/inicio" />
     <item
         android:id="@+id/navSearch"
-        android:icon="@android:drawable/ic_menu_search"
-        android:title="Search" />
+        android:icon="@drawable/icon_search"
+        android:title="@string/buscar" />
     <item
         android:id="@+id/navMessages"
-        android:icon="@drawable/fui_ic_mail_white_24dp"
-        android:title="Messages" />
+        android:icon="@drawable/icon_message"
+        android:title="@string/mensajes" />
     <item
         android:id="@+id/navProfile"
-        android:icon="@drawable/fui_ic_anonymous_white_24dp"
-        android:title="Profile" />
+        android:icon="@drawable/icon_profile"
+        android:title="@string/perfil" />
 </menu>
