@@ -166,7 +166,6 @@
         android:text="@string/o_crea_una_cuenta_usando"
         android:textColor="#2F455C"
         android:textSize="12sp"
-        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/bottom_signup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -211,7 +210,6 @@
         android:layout_marginBottom="32dp"
         android:background="@drawable/background_centershape"
         android:elevation="2dp"
-        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -229,7 +227,6 @@
         android:elevation="5dp"
         android:scaleType="centerInside"
         android:src="@drawable/logo_google"
-        android:visibility="invisible"
         app:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/bottom_signup"
         app:layout_constraintStart_toStartOf="@+id/bottom_signup"
@@ -248,7 +245,6 @@
         android:elevation="5dp"
         android:scaleType="centerInside"
         android:src="@drawable/logo_facebook"
-        android:visibility="invisible"
         app:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/bottom_signup"
         app:layout_constraintEnd_toStartOf="@+id/apple_signup"
@@ -267,221 +263,9 @@
         android:elevation="5dp"
         android:scaleType="centerInside"
         android:src="@drawable/logo_apple"
-        android:visibility="invisible"
         app:backgroundTint="#FFFFFF"
         app:iconPadding="25dp"
         app:layout_constraintBottom_toBottomOf="@+id/bottom_signup"
         app:layout_constraintEnd_toEndOf="@+id/bottom_signup"
         app:layout_constraintTop_toTopOf="@+id/bottom_signup" />
-
-    <!--
-    <LinearLayout
-        android:id="@+id/registro"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_weight="3"
-        android:background="@drawable/background_centershape"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description4">
-
-        <EditText
-            android:id="@+id/signupConfirmPassword"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
-            android:layout_weight="1"
-            android:autofillHints="@string/confirmar_contrase_a"
-            android:background="@drawable/background_selectable_input"
-            android:drawableStart="@drawable/input_toggle_password"
-            android:drawablePadding="12dp"
-            android:elevation="5dp"
-            android:ems="10"
-            android:hint="@string/confirmar_contrase_a"
-            android:inputType="textPassword"
-            android:paddingStart="6dp"
-            android:paddingEnd="12dp"
-            android:textSize="13sp" />
-
-        <EditText
-            android:id="@+id/signupPassword"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="16dp"
-            android:layout_weight="1"
-            android:autofillHints="@string/contrase_a"
-            android:background="@drawable/background_selectable_input"
-            android:drawableStart="@drawable/input_toggle_password"
-            android:drawablePadding="12dp"
-            android:elevation="5dp"
-            android:ems="10"
-            android:hint="@string/contrase_a"
-            android:inputType="textPassword"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:textSize="13sp" />
-
-        <EditText
-            android:id="@+id/signupMail"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="16dp"
-            android:layout_weight="1"
-            android:autofillHints="@string/correo_electr_nico"
-            android:background="@drawable/background_selectable_input"
-            android:drawableStart="@drawable/input_toggle_email"
-            android:drawablePadding="12dp"
-            android:elevation="5dp"
-            android:ems="10"
-            android:hint="@string/correo_electr_nico"
-            android:inputType="textEmailAddress"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:textSize="13sp" />
-
-        <Button
-            android:id="@+id/buttonSignup"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="24dp"
-            android:layout_weight="2"
-            android:background="@drawable/button_blue"
-            android:elevation="10dp"
-            android:fontFamily="@font/lato"
-            android:text="@string/crear_cuenta"
-            android:textAllCaps="false"
-            android:textSize="24sp"
-            app:backgroundTint="#2F455C" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/separador"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registro">
-
-        <View
-            android:id="@+id/divider3"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_gravity="center|center_horizontal|fill_horizontal"
-            android:layout_marginEnd="16dp"
-            android:layout_weight="3"
-            android:background="#2F455C" />
-
-        <TextView
-            android:id="@+id/description5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|center_horizontal|fill_horizontal"
-            android:fontFamily="@font/lato"
-            android:text="@string/o_crea_una_cuenta_usando"
-            android:textAlignment="center"
-            android:textColor="#2F455C"
-            android:textSize="14sp" />
-
-        <View
-            android:id="@+id/divider4"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_gravity="center|center_horizontal|fill_horizontal"
-            android:layout_marginStart="16dp"
-            android:layout_weight="3"
-            android:background="#2F455C" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/barraInferior"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
-        android:background="@drawable/background_centershape"
-        android:backgroundTintMode="add"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/separador">
-
-        <ImageView
-            android:id="@+id/google_signup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/button_white_square"
-            android:contentDescription="@string/desc"
-            android:elevation="5dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/logo_google"
-            app:backgroundTint="#FFFFFF" />
-
-        <Space
-            android:layout_width="50dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="0dp" />
-
-        <ImageView
-            android:id="@+id/fb_signup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/button_white_square"
-            android:contentDescription="@string/desc"
-            android:elevation="5dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/logo_facebook"
-            app:backgroundTint="#FFFFFF" />
-
-        <Space
-            android:layout_width="50dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginBottom="0dp" />
-
-        <ImageView
-            android:id="@+id/apple_signup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/button_white_square"
-            android:contentDescription="@string/desc"
-            android:elevation="5dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/logo_apple"
-            app:backgroundTint="#FFFFFF"
-            app:iconPadding="25dp" />
-    </LinearLayout>
-
-    -->
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -39,9 +39,9 @@
         android:layout_marginBottom="32dp"
         android:background="@drawable/background_centershape"
         android:elevation="2dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/divider3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/description9" />
 
@@ -169,33 +169,6 @@
             android:textSize="13sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/description10"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/lato"
-        android:textColor="@color/dark_blue"
-        android:textSize="13sp"
-        android:elevation="5dp"
-        android:text="@string/zona_de_impacto"
-        app:layout_constraintStart_toStartOf="@+id/center_sheepy"
-        app:layout_constraintTop_toBottomOf="@+id/til_category" />
-
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
-        android:elevation="5dp"
-        app:layout_constraintEnd_toEndOf="@+id/center_sheepy"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/center_sheepy"
-        app:layout_constraintTop_toBottomOf="@+id/description10" />
-
     <Button
         android:id="@+id/buttonSheepy"
         android:layout_width="0dp"
@@ -214,8 +187,19 @@
         app:layout_constraintEnd_toEndOf="@+id/center_sheepy"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/center_sheepy"
-        app:layout_constraintTop_toBottomOf="@+id/mapView"
+        app:layout_constraintTop_toBottomOf="@+id/til_category"
         tools:visibility="visible" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="32dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
