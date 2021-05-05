@@ -7,34 +7,62 @@
     android:layout_height="match_parent"
     tools:context=".ProfileFrag">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/logo_image"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Profile"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="36sp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_white_square"
+        android:contentDescription="@string/desc"
+        android:elevation="5dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/logo"
+        app:backgroundTint="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/profilePage_Sharky"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/mi_perfil"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/dark_blue"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/logo_image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <ImageView
         android:id="@+id/tvProfImage"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/button_white_circle"
+        android:contentDescription="@string/desc"
+        android:elevation="10dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/icon_profile_picture"
+        app:backgroundTint="#FFFFFF"
+        app:iconPadding="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toBottomOf="@+id/profilePage_Sharky" />
 
     <TextView
         android:id="@+id/tvProfName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Nombre"
+        android:fontFamily="@font/lato"
+        android:text="@string/nombre"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvProfImage" />
@@ -44,7 +72,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Rank de usuario"
+        android:fontFamily="@font/lato"
+        android:text="@string/rank_de_usuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvProfName" />
@@ -54,62 +83,94 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Correo"
+        android:fontFamily="@font/lato"
+        android:text="@string/correo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvProfRank" />
 
-<<<<<<< HEAD
-    <TextView
-        android:id="@+id/textView42"
-        android:layout_width="297dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="16dp"
-        android:text="Your contributions have helped this projects to reach:"
-        app:layout_constraintBottom_toTopOf="@+id/textView43"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-=======
 
->>>>>>> 0e3140c (Ya se pueden guardar datos y se accede a la camara y fotos para la creacion de posts)
+    <TextView
+        android:id="@+id/impactText1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:elevation="5dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/tu_impacto"
+        android:textColor="@color/dark_blue"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvProfMail" />
+
+    <TextView
+        android:id="@+id/impactText2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:elevation="5dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/gracias_a_tus_contribuciones_estos_proyectos_est_n_monetariamente_completos_al"
+        android:textColor="@color/dark_blue"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/impactText1" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-        android:text="Save"
+        android:fontFamily="@font/lato"
+        android:text="@string/guardar_cambios"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnLogOut"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-=======
-        android:text="Guardar cambios"
-        tools:layout_editor_absoluteX="157dp"
-        tools:layout_editor_absoluteY="600dp" />
->>>>>>> 0e3140c (Ya se pueden guardar datos y se accede a la camara y fotos para la creacion de posts)
+
 
     <Button
         android:id="@+id/btnLogOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        android:text="Logout"
+        android:fontFamily="@font/lato"
+        android:text="@string/salir"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/impactText5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="84dp"
+        android:elevation="5dp"
+        android:fontFamily="@font/lato"
+        android:text="Cambiar ajustes"
+        android:textColor="@color/dark_blue"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/impactText2" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="160dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:baselineAligned="false"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/impactText5">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.5"
             android:orientation="vertical">
@@ -122,7 +183,15 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Change mail" />
+                    android:background="@drawable/background_selectable_input"
+                    android:drawableStart="@drawable/input_toggle_email"
+                    android:drawablePadding="12dp"
+                    android:fontFamily="@font/lato"
+                    android:hint="@string/cambiar_correo_electr_nico"
+                    android:paddingStart="12dp"
+                    android:paddingTop="12dp"
+                    android:paddingEnd="12dp"
+                    android:textSize="15sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -133,7 +202,15 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Change password" />
+                    android:background="@drawable/background_selectable_input"
+                    android:drawableStart="@drawable/input_toggle_password"
+                    android:drawablePadding="12dp"
+                    android:fontFamily="@font/lato"
+                    android:hint="@string/cambiar_contrase_a"
+                    android:paddingStart="12dp"
+                    android:paddingTop="12dp"
+                    android:paddingEnd="12dp"
+                    android:textSize="15sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -144,17 +221,24 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Change name" />
+                    android:background="@drawable/background_selectable_input"
+                    android:drawableStart="@drawable/input_toggle_user"
+                    android:drawablePadding="12dp"
+                    android:fontFamily="@font/lato"
+                    android:hint="@string/cambiar_nombre"
+                    android:paddingStart="12dp"
+                    android:paddingTop="12dp"
+                    android:paddingEnd="12dp"
+                    android:textSize="15sp" />
             </com.google.android.material.textfield.TextInputLayout>
-
         </LinearLayout>
 
-
-
     </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-<<<<<<< HEAD
-    <TextView
+
+<!--
+ <TextView
         android:id="@+id/textView43"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -204,8 +288,4 @@
         app:layout_constraintTop_toBottomOf="@+id/textView45"
         tools:layout_editor_absoluteX="303dp"
         tools:srcCompat="@tools:sample/avatars" />
-=======
-
->>>>>>> 0e3140c (Ya se pueden guardar datos y se accede a la camara y fotos para la creacion de posts)
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+-->

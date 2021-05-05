@@ -56,11 +56,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:20.0.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.firebase:firebase-database:19.7.0'
-<<<<<<< HEAD
     implementation 'com.google.firebase:firebase-storage:19.2.2'
-=======
     implementation 'com.google.firebase:firebase-storage-ktx:19.2.2'
->>>>>>> 0e3140c (Ya se pueden guardar datos y se accede a la camara y fotos para la creacion de posts)
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
