@@ -1,6 +1,7 @@
 package mx.itesm.ETeam.Elink
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -13,7 +14,7 @@ import com.google.firebase.ktx.Firebase
 import mx.itesm.ETeam.Elink.databinding.ActivitySignupScreenBinding
 import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.ktx.storage
 import mx.itesm.ETeam.Elink.DataClasses.Project
 import mx.itesm.ETeam.Elink.DataClasses.SharkPreferences
 import mx.itesm.ETeam.Elink.DataClasses.User
@@ -29,7 +30,8 @@ class SignupScreen : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var baseDatos: FirebaseDatabase
 
-    private lateinit var storageReference: StorageReference
+    private val storage = Firebase.storage
+    private val storageRef = storage.reference
 
     //  ActivityForResult
     private val RC_SIGN_IN: Int = 200
@@ -130,8 +132,11 @@ class SignupScreen : AppCompatActivity() {
         val usertype = intent.getStringExtra("userType").toString()
         val profilePic = intent.getStringExtra("profilePic").toString()
 
+        val imageRef = storageRef.child("ProfilePics/$userID")
+        imageRef.putFile(Uri.parse(profilePic))
+
         val referencia = baseDatos.getReference("/Users/$userID")
-        val userDB = User(username,usertype,profilePic)
+        val userDB = User(username,usertype,imageRef.toString())
         referencia.setValue(userDB)
 
         if(usertype =="shark"){
@@ -150,7 +155,7 @@ class SignupScreen : AppCompatActivity() {
 
             val nombreDelProyecto = intent.getStringExtra("nombreDeProyecto").toString()
             val descripcionProyecto = intent.getStringExtra("descripcionDeProyecto").toString()
-            val moneyGoal = intent.getDoubleExtra("metaMonetaria",0.0).toString().toDouble()
+            val moneyGoal = intent.getIntExtra("metaMonetaria",0).toString().toInt()
             val categoria = intent.getStringExtra("categoria").toString()
 
             val projectDB = Project(nombreDelProyecto,descripcionProyecto,moneyGoal,categoria)

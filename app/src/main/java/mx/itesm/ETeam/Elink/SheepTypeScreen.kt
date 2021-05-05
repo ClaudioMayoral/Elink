@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import mx.itesm.ETeam.Elink.databinding.ActivitySheepTypeScreenBinding
+import kotlin.math.roundToInt
 
 class SheepTypeScreen : AppCompatActivity() {
 
@@ -17,8 +18,8 @@ class SheepTypeScreen : AppCompatActivity() {
         setContentView(binding.root)
 
         configurarDropDown()
-
         configurarBotones()
+
     }
 
     private fun configurarDropDown() {
@@ -36,7 +37,7 @@ class SheepTypeScreen : AppCompatActivity() {
 
             if((nombreDelProyecto == "") or (descripcionProyecto =="") or (categoria == "") or (moneyGoal == "" )){
                 Toast.makeText(baseContext,"Rellene todos los campos para continuar", Toast.LENGTH_SHORT).show()
-            }else {
+            }else{
 
                 val intSignup = Intent(this, SignupScreen::class.java)
                 intSignup.putExtra("userType", "sheep")
@@ -45,14 +46,14 @@ class SheepTypeScreen : AppCompatActivity() {
 
                 intSignup.putExtra("nombreDeProyecto", nombreDelProyecto)
                 intSignup.putExtra("descripcionDeProyecto", descripcionProyecto)
-                intSignup.putExtra("metaMonetaria", moneyGoal.toDouble())
                 intSignup.putExtra("categoria", categoria)
-
                 try {
+                    intSignup.putExtra("metaMonetaria", moneyGoal.toInt())
                     startActivity(intSignup)
-                }catch (e:NumberFormatException){
+                }catch (e: NumberFormatException){
                     Toast.makeText(baseContext,"Introduzca una cantidad válida.", Toast.LENGTH_SHORT).show()
                 }
+
 
             }
         }
