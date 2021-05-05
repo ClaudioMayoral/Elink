@@ -67,9 +67,9 @@ class ProfileFrag : Fragment() {
         }
         val image = baseDatos.getReference("Users/${user.uid}").child("dirImagen").toString()
         try {
-            Picasso.get().load(image).into(binding.tvProfImage)
+            Picasso.get().load(image).into(binding.ivProfImage)
         }catch (e: Exception){
-            Picasso.get().load("@drawable/icon_profile_picture").into(binding.tvProfImage)
+            Picasso.get().load("@drawable/icon_profile_picture").into(binding.ivProfImage)
         }
 
         return view
