@@ -18,7 +18,6 @@
     <string name="bienvenido">¡Bienvenido!</string>
     <string name="crea_tu_cuenta_para_poder_ayudar_a_ayudar_a_transformar_el_mundo">Crea tu cuenta para poder ayudar a ayudar a transformar el mundo.</string>
     <string name="creado_con_en_m_xico">Creado con ❤ en México️</string>
-    <string name="nombre_de_usuario">Nombre de usuario</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="elige_un_tipo_de_usuario">Elige un tipo de usuario</string>
@@ -46,7 +45,6 @@
     <string name="para_darte_la_experiencia_que_mereces_necesitamos_saber_m_s_de_ti">Para darte la experiencia que mereces, necesitamos saber más de ti.</string>
     <string name="te_enviaremos_un_correo_para_que_puedas_reestablecer_tu_contrase_a">Te enviaremos un correo para que puedas reestablecer tu contraseña.</string>
 
-    <string name="tipo_de_post">Tipo de post</string>
     <string name="crea_un_post">Crea un post</string>
     <string name="agrega_una_imagen">Agrega una imagen</string>
     <string name="qu_es_lo_que_quieres_decir">¿Qué es lo que quieres decir?</string>
@@ -69,6 +67,11 @@
     <string name="escribe_tu_correo_electr_nico">Escribe tu correo electrónico</string>
     <string name="recuperar_contrase_a">Recuperar contraseña</string>
     <string name="publicar">Publicar</string>
+    <string name="tipo_de_post">Tipo de post</string>
+    <string name="nombre_de_usuario">Nombre de usuario</string>
+    <string name="compartir">Compartir</string>
+    <string name="like">Like</string>
+    <string name="donar">Donar</string>
 
     <string-array name="categorias">
         <item>Ambiental</item>

@@ -1,8 +1,7 @@
-package mx.itesm.ETeam.Elink
+package mx.itesm.ETeam.Elink.PostsRelated
 
 import android.app.Activity
 import android.app.ProgressDialog
-import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -16,43 +15,70 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.UploadTask
+import kotlinx.android.synthetic.main.activity_post_creation.*
+import mx.itesm.ETeam.Elink.R
 import mx.itesm.ETeam.Elink.databinding.ActivityPostCreationBinding
 import java.lang.Exception
-import java.util.jar.Manifest
 
 // Autor: Francisco Arenas
 // Clase que permite la creación de un post en la red
 class PostCreation : AppCompatActivity() {
 
     private lateinit var binding: ActivityPostCreationBinding
-    private val REQUEST_CODE = 200
-    lateinit var acceso: String
-    private lateinit var baseDatos: DatabaseReference
+    private lateinit var baseDatos: FirebaseDatabase
     private lateinit var auth: FirebaseAuth
+
+    // Datos de usuario
     private lateinit var userName: String
     private lateinit var userMail: String
+    private lateinit var userImage: String
     private lateinit var uid: String
+
+    // Permisos para fotografias
+    private val REQUEST_CODE = 200
+    lateinit var acceso: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPostCreationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        baseDatos = FirebaseDatabase.getInstance().getReference("")
+        baseDatos = FirebaseDatabase.getInstance()
         auth = Firebase.auth
         val image = obtenerImagen()
-//      obtenerUsuario()
+
+        obtenerDatos()
         configurarDropDown()
         configurarBotones(image.toString())
+    }
+
+    private fun obtenerDatos() {
+        val user = auth.currentUser!!
+        uid = user.uid
+        val dbPath = baseDatos.getReference("Users")
+        val query = dbPath.orderByChild("usermail").equalTo(userMail)
+        val eventListener = object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for(ds in snapshot.children){
+                    userName = "" + ds.child("username").value
+                    userMail = "" + ds.child("usermail").value
+                    userImage = "" + ds.child("dirImagen").value
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(baseContext, "Algo salió mal al momento de publicar tu post. Intenta más tarde.",
+                    Toast.LENGTH_LONG).show()
+            }
+
+        }
+        query.addValueEventListener(eventListener)
     }
 
     private fun configurarDropDown() {
@@ -66,10 +92,10 @@ class PostCreation : AppCompatActivity() {
             val postText = binding.post.text.toString().trim()
             val postType = binding.autoType.text.toString()
             if(revisarContenido(postText, postType)){
-                if(image.equals("")){
+                if(image == ""){
                     subirDatos(postText, postType, "noImage")
                 } else {
-                    subirDatos(postText, postType, image.toString())
+                    subirDatos(postText, postType, image)
                 }
             }
         }
@@ -89,15 +115,16 @@ class PostCreation : AppCompatActivity() {
                 if(takeSnapshot.storage.downloadUrl.isSuccessful){
                     val hashMap = HashMap<Any, String>()
                     hashMap["uid"] = uid
-                    hashMap["userName"] = userName
-                    hashMap["userMail"] = userMail
+                    hashMap["username"] = userName
+                    hashMap["usermail"] = userMail
+                    hashMap["dirImagen"] = userImage
                     hashMap["postID"] = timeStamp
                     hashMap["postText"] = postText
                     hashMap["postType"] = postType
                     hashMap["postImage"] = image
                     hashMap["postTime"] = timeStamp
 
-                    //path to store data
+                    // Path to store post data
                     val ref2DB = FirebaseDatabase.getInstance().getReference("Posts")
                     ref2DB.child(timeStamp).setValue(hashMap).addOnSuccessListener {
                         pd.dismiss()
@@ -114,15 +141,16 @@ class PostCreation : AppCompatActivity() {
         } else {
             val hashMap = HashMap<Any, String>()
             hashMap["uid"] = uid
-            hashMap["userName"] = userName
-            hashMap["userMail"] = userMail
+            hashMap["username"] = userName
+            hashMap["usermail"] = userMail
+            hashMap["dirImagen"] = userImage
             hashMap["postID"] = timeStamp
             hashMap["postText"] = postText
             hashMap["postType"] = postType
-            hashMap["postImage"] = "noImage"
+            hashMap["postImage"] = image
             hashMap["postTime"] = timeStamp
 
-            //path to store data
+            // Path to store post data
             val ref2DB = FirebaseDatabase.getInstance().getReference("Posts")
             ref2DB.child(timeStamp).setValue(hashMap).addOnSuccessListener {
                 pd.dismiss()
@@ -150,7 +178,6 @@ class PostCreation : AppCompatActivity() {
     private fun obtenerImagen() {
         binding.image.setOnClickListener{
             seleccionImagen()
-
         }
     }
 
@@ -253,7 +280,7 @@ class PostCreation : AppCompatActivity() {
         when(acceso){
             "Camara" -> {
                 if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE && data != null){
-                    binding.image.setImageBitmap(data.extras?.get("data") as Bitmap)
+                    binding.image.setImageURI(data.data)
                 }
             }
             "Galería" -> {
@@ -262,12 +289,5 @@ class PostCreation : AppCompatActivity() {
                 }
             }
         }
-    }
-
-    private fun obtenerUsuario(){
-        val user: FirebaseUser = auth.currentUser!!
-        userMail = user.email!!
-        userName = user.displayName!!
-        uid = user.uid
     }
 }

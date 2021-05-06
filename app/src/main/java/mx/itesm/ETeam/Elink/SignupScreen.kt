@@ -128,6 +128,7 @@ class SignupScreen : AppCompatActivity() {
 
     private fun insertUserDataInDB(user: FirebaseUser) {
         val userID = user.uid
+        val usermail = user.email!!
         val username = intent.getStringExtra("username").toString()
         val usertype = intent.getStringExtra("userType").toString()
         val profilePic = intent.getStringExtra("profilePic").toString()
@@ -136,7 +137,7 @@ class SignupScreen : AppCompatActivity() {
         imageRef.putFile(Uri.parse(profilePic))
 
         val referencia = baseDatos.getReference("/Users/$userID")
-        val userDB = User(username,usertype,imageRef.toString())
+        val userDB = User(username, usermail, usertype,imageRef.toString())
         referencia.setValue(userDB)
 
         if(usertype =="shark"){
