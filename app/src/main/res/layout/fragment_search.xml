@@ -1,97 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SearchFrag">
 
-    <ImageButton
-        android:id="@+id/imageButton14"
-        app:srcCompat="@android:drawable/ic_menu_search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="121dp"
-        tools:layout_editor_absoluteY="665dp"
-        tools:src="@android:drawable/ic_menu_search" />
-
-    <ImageButton
-        android:id="@+id/imageButton17"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="@android:drawable/btn_star"
-        tools:layout_editor_absoluteX="21dp"
-        tools:layout_editor_absoluteY="665dp" />
-
-    <ImageButton
-        android:id="@+id/imageButton20"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="@android:drawable/stat_notify_chat"
-        tools:layout_editor_absoluteX="226dp"
-        tools:layout_editor_absoluteY="664dp" />
-
-    <ImageButton
-        android:id="@+id/imageButton21"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="@android:drawable/ic_dialog_info"
-        tools:layout_editor_absoluteX="323dp"
-        tools:layout_editor_absoluteY="664dp" />
+    <ImageView
+        android:id="@+id/logo_image"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_white_square"
+        android:contentDescription="@string/desc"
+        android:elevation="5dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/logo"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView31"
+        android:id="@+id/profilePage_Sharky"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Find more projects"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/lato"
+        android:text="Busqueda de posts"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        android:textColor="@color/dark_blue"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/logo_image"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="383dp"
-        android:layout_height="161dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="123dp"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <EditText
+        android:id="@+id/etBuscarPost"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:autofillHints="Buscar por categoría"
+        android:background="@drawable/background_selectable_input"
+        android:drawableStart="@drawable/icon_search"
+        android:drawablePadding="12dp"
+        android:elevation="5dp"
+        android:ems="10"
+        android:hint="Buscar por categoría"
+        android:inputType="textPersonName"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profilePage_Sharky" />
+
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="402dp"
-        android:layout_height="352dp"
-        tools:layout_editor_absoluteX="6dp"
-        tools:layout_editor_absoluteY="301dp" />
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etBuscarPost" />
 
-    <com.google.android.material.chip.Chip
-        android:id="@+id/chip4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="For you"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="75dp" />
 
-    <com.google.android.material.chip.Chip
-        android:id="@+id/chip5"
-        android:layout_width="76dp"
-        android:layout_height="50dp"
-        android:text="Social"
-        tools:layout_editor_absoluteX="101dp"
-        tools:layout_editor_absoluteY="75dp" />
-
-    <com.google.android.material.chip.Chip
-        android:id="@+id/chip6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Environment"
-        tools:layout_editor_absoluteX="187dp"
-        tools:layout_editor_absoluteY="75dp" />
-
-    <com.google.android.material.chip.Chip
-        android:id="@+id/chip7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Technology"
-        tools:layout_editor_absoluteX="301dp"
-        tools:layout_editor_absoluteY="75dp" />
-
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
