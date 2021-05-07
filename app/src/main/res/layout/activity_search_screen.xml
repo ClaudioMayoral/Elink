@@ -42,24 +42,27 @@
         android:id="@+id/textView31"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Find more projects"
+        android:layout_marginTop="24dp"
+        android:text="Encuentra más proyectos"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.259"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="383dp"
         android:layout_height="161dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="123dp"
+        tools:layout_editor_absoluteX="12dp"
+        tools:layout_editor_absoluteY="210dp"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="402dp"
-        android:layout_height="352dp"
+        android:layout_width="410dp"
+        android:layout_height="267dp"
         tools:layout_editor_absoluteX="6dp"
-        tools:layout_editor_absoluteY="301dp" />
+        tools:layout_editor_absoluteY="386dp" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip4"
@@ -67,7 +70,7 @@
         android:layout_height="wrap_content"
         android:text="For you"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="75dp" />
+        tools:layout_editor_absoluteY="144dp" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip5"
@@ -75,21 +78,64 @@
         android:layout_height="50dp"
         android:text="Social"
         tools:layout_editor_absoluteX="101dp"
-        tools:layout_editor_absoluteY="75dp" />
+        tools:layout_editor_absoluteY="144dp" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Environment"
-        tools:layout_editor_absoluteX="187dp"
-        tools:layout_editor_absoluteY="75dp" />
+        tools:layout_editor_absoluteX="184dp"
+        tools:layout_editor_absoluteY="144dp" />
 
     <com.google.android.material.chip.Chip
         android:id="@+id/chip7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Technology"
-        tools:layout_editor_absoluteX="301dp"
-        tools:layout_editor_absoluteY="75dp" />
+        tools:layout_editor_absoluteX="297dp"
+        tools:layout_editor_absoluteY="144dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="68dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="34dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/icon_search"
+        tools:layout_editor_absoluteY="87dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Busca un proyecto por nombre"
+        android:textColor="#CFCCCC"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/chip6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView31" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
