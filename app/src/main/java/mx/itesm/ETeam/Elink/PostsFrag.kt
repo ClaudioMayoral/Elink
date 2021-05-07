@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -27,18 +29,64 @@ class PostsFrag : Fragment() {
 
     //private var adapter: RecyclerView.Adapter<PostAdapter.ViewHolder>?= null
     //private var layoutManager: RecyclerView.LayoutManager?= null
-    private lateinit var auth: FirebaseAuth
-    lateinit var postArray: List<PostData>
+    //private lateinit var firebaseAuth: FirebaseAuth
+    //lateinit var postList: List<PostData>
 
-    override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?,
-                                                    savedInstanceState: Bundle?): View? {
+    // Instance variables
+    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapterPost: PostAdapter
+    private lateinit var postList: ArrayList<PostData>
 
-        return inflater.inflate(R.layout.fragment_posts, container, false)
+    override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?
+                                                       , savedInstanceState: Bundle?): View?
+    {
+        val view = inflater.inflate(R.layout.fragment_posts, container, false)
+        val layoutManager = LinearLayoutManager(activity)
+        firebaseAuth = FirebaseAuth.getInstance()
+        recyclerView = view.findViewById(R.id.postsRecyclerView)
+        layoutManager.stackFromEnd = true
+        layoutManager.reverseLayout = true
+        recyclerView.layoutManager = layoutManager
+
+        postList = arrayListOf<PostData>()
+        val button = view.findViewById<FloatingActionButton>(R.id.addButton)
+        crearPost(button)
+        cargarPosts()
+
+        return view
     }
 
+    private fun crearPost(button: FloatingActionButton) {
+        button.setOnClickListener{
+            val intActivity = Intent(activity, PostCreation::class.java)
+            startActivity(intActivity)
+        }
+    }
+
+    private fun cargarPosts() {
+        val dBreference = FirebaseDatabase.getInstance().getReference("Posts")
+        val postListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                postList.clear()
+                for(ds in dataSnapshot.children){
+                    val postdata = ds.getValue(PostData::class.java)!!
+                    postList.add(postdata)
+                    adapterPost = activity?.let { PostAdapter(it.applicationContext, postList) }!!
+                    recyclerView.adapter = adapterPost
+                }
+            }
+            override fun onCancelled(databaseError: DatabaseError) {
+                Toast.makeText(activity, ""+databaseError.message, Toast.LENGTH_SHORT).show()
+            }
+        }
+        dBreference.addValueEventListener(postListener)
+    }
+
+    /*
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        auth = FirebaseAuth.getInstance()
+        firebaseAuth = FirebaseAuth.getInstance()
         buttonCall()
 
         postsRecyclerView.apply{
@@ -64,11 +112,11 @@ class PostsFrag : Fragment() {
 
         val postListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                postArray = emptyList()
+                postList = emptyList()
 
                 for(ds in dataSnapshot.children){
                     val modelPost = ds.getValue<PostData>(PostData::class.java)!!
-                    postArray.toMutableList().add(modelPost)
+                    postList.toMutableList().add(modelPost)
 
                     //adapter = PostAdapter(postArray)
                 //    postsRecyclerView.adapter = PostAdapter(postArray)
@@ -83,4 +131,6 @@ class PostsFrag : Fragment() {
         }
         ref.addValueEventListener(postListener)
     }
+
+    */
 }
