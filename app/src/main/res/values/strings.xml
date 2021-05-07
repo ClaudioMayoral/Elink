@@ -72,6 +72,7 @@
     <string name="compartir">Compartir</string>
     <string name="like">Like</string>
     <string name="donar">Donar</string>
+    <string name="los_proyectos_al_d_a">Los proyectos al día</string>
 
     <string-array name="categorias">
         <item>Ambiental</item>

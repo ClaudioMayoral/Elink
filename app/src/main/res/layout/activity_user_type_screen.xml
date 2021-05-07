@@ -72,19 +72,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title3" />
 
-    <ImageView
-        android:id="@+id/imgProfilePicture"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/button_white_circle"
-        android:contentDescription="@string/desc"
 
-        android:elevation="10dp"
-        android:scaleType="centerInside"
-        android:src="@drawable/icon_profile_picture"
-        app:backgroundTint="#FFFFFF"
-        app:iconPadding="25dp"
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/imgProfilePicture"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:src="@drawable/icon_profile"
+        app:civ_border="false"
+        app:civ_shadow="true"
+        app:civ_shadow_radius="5dp"
+        android:elevation="20dp"
+        app:civ_shadow_color="@color/dark_blue"
         app:layout_constraintEnd_toEndOf="@+id/center_userSelection"
         app:layout_constraintStart_toStartOf="@+id/center_userSelection"
         app:layout_constraintTop_toTopOf="@+id/center_userSelection" />

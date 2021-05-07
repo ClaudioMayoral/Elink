@@ -1,6 +1,12 @@
 package mx.itesm.ETeam.Elink.PostsRelated
 
-data class PostData(val postID: String, val postText: String, val postType: String,
-                    val postImage: String, val postTime: String, val uid: String,
-                    val userName: String, val userMail: String, val userImage: String)
-/*postID, postText, postType, postImage, postTime; uid, userName, userMail*/
+// Autor: Francisco Arenas
+// Clase que guarda los datos de un post
+data class PostData(val uid: String, val userName: String, val userMail: String,
+                    val dirImage: String, val postID: String, val postText: String,
+                    val postType: String, val postImage: String, val postTime: String)
+{
+    constructor() : this("", "", "", "", "", "",
+                            "", "", "")
+}
+

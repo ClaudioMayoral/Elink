@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="10dp"
     app:cardElevation="3dp"
-    app:cardUseCompatPadding="true"
-    app:cardBackgroundColor="@color/white">
+    app:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,47 +16,54 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
             <com.mikhaellopez.circularimageview.CircularImageView
-                android:id="@+id/postPicture"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
+                android:id="@+id/userPostPicture"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
                 android:src="@drawable/icon_profile"
                 app:civ_border="false"
                 app:civ_shadow="true"
-                app:civ_shadow_radius="10dp"
-                app:civ_shadow_color="@color/dark_blue"/>
+                app:civ_shadow_color="@color/dark_blue"
+                app:civ_shadow_radius="5dp" />
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/nameUser"
-                    android:text="@string/nombre_de_usuario"
-                    android:fontFamily="@font/lato"
-                    android:textColor="@color/dark_blue"
-                    android:textSize="20sp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:autoLink="all"
+                    android:fontFamily="@font/lato"
+                    android:text="@string/nombre_de_usuario"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="13sp" />
+
                 <TextView
                     android:id="@+id/postType"
-                    android:text="@string/tipo_de_post"
-                    android:fontFamily="@font/lato"
-                    android:textColor="@color/dark_blue"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:autoLink="all"
+                    android:fontFamily="@font/lato"
+                    android:text="@string/tipo_de_post"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="10sp" />
+
                 <TextView
                     android:id="@+id/time"
-                    android:text="33 min"
-                    android:fontFamily="@font/lato"
-                    android:textColor="@color/dark_blue"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:autoLink="all"
+                    android:fontFamily="@font/lato"
+                    android:text="33 min"
+                    android:textColor="@color/dark_blue"
+                    android:textSize="10sp" />
             </LinearLayout>
 
             <ImageButton
@@ -64,8 +71,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@null"
-                android:src="@drawable/icon_more"
-                android:contentDescription="@string/desc" />
+                android:contentDescription="@string/desc"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:src="@drawable/icon_more" />
 
         </LinearLayout>
 
@@ -74,74 +83,81 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:background="@color/white"
-            android:src="@android:drawable/ic_menu_gallery"
-            android:contentDescription="@string/desc" />
+            android:contentDescription="@string/desc"
+            android:src="@android:drawable/ic_menu_gallery" />
 
         <TextView
             android:id="@+id/content"
-            android:text="Aqui va el cuerpo del post"
-            android:fontFamily="@font/lato"
-            android:textColor="@color/dark_blue"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato"
+            android:paddingTop="10dp"
+            android:paddingBottom="2dp"
+            android:text="Aqui va el cuerpo del post"
+            android:textColor="@color/dark_blue"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/likes"
-            android:text="1.2k likes"
-            android:fontFamily="@font/lato"
-            android:textColor="@color/dark_blue"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="1.2k likes"
+            android:textColor="@color/dark_blue"
+            android:textSize="12sp" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/dark_blue"/>
+            android:background="@color/dark_blue" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/likeButton"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/white"
                 android:drawableLeft="@drawable/icon_like"
-                android:drawablePadding="12dp"
+                android:drawablePadding="10dp"
                 android:fontFamily="@font/lato"
-                android:text="@string/like"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:text="@string/like" />
+
             <Button
                 android:id="@+id/donarButton"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/donar"
-                android:textSize="13sp"
-                android:drawableLeft="@drawable/icon_donate"
-                android:drawablePadding="20dp"
-                android:fontFamily="@font/lato"
                 android:background="@color/white"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:drawableLeft="@drawable/icon_donate"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/lato"
+                android:text="@string/donar"
+                android:textSize="13sp" />
+
             <Button
                 android:id="@+id/compartirButton"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:drawableLeft="@drawable/icon_share"
-                android:drawablePadding="12dp"
-                android:text="@string/compartir"
-                android:fontFamily="@font/lato"
                 android:background="@color/white"
-                style="?android:attr/buttonBarButtonStyle" />
+                android:drawableLeft="@drawable/icon_share"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/lato"
+                android:text="@string/compartir" />
 
         </LinearLayout>
     </LinearLayout>
-
 
 
 </androidx.cardview.widget.CardView>
