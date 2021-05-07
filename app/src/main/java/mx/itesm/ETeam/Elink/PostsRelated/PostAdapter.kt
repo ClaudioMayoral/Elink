@@ -14,8 +14,10 @@ import java.lang.Exception
 import java.text.SimpleDateFormat
 import java.util.*
 
-class MyAdapter(private val postArray:Array<PostData>) :
-    RecyclerView.Adapter<MyAdapter.ViewHolder>()
+// Autor: Francisco Arenas
+// Clase que permite enseñar en un recyclerView los posts hechos
+class PostAdapter(private val postArray:List<PostData>) :
+    RecyclerView.Adapter<PostAdapter.ViewHolder>()
 {
 
     // Datos de usuario
