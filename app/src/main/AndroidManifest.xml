@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="mx.itesm.ETeam.Elink">
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:allowBackup="true"
@@ -10,13 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Elink">
-        <activity android:name=".forgottenPassword"></activity>
+        <activity android:name=".forgottenPassword"/>
         <activity android:name=".masterScreen" />
         <activity android:name=".CreatorMainScreen" />
         <activity android:name=".profileScreen" />
         <activity android:name=".chatScreen" />
         <activity android:name=".inboxScreen" />
         <activity android:name=".ProjectScreen" />
+        <activity android:name=".PostsRelated.PostCreation"/>
         <activity android:name=".SearchScreen" />
         <activity android:name=".MainScreen" />
         <activity android:name=".SharkTypeScreen" />

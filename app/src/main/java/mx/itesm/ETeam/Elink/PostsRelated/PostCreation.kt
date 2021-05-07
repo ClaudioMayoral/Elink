@@ -2,9 +2,10 @@ package mx.itesm.ETeam.Elink.PostsRelated
 
 import android.app.Activity
 import android.app.ProgressDialog
+import android.content.ContentValues
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,13 +16,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.activity_post_creation.*
 import mx.itesm.ETeam.Elink.R
 import mx.itesm.ETeam.Elink.databinding.ActivityPostCreationBinding
 import java.lang.Exception
@@ -30,6 +29,7 @@ import java.lang.Exception
 // Clase que permite la creación de un post en la red
 class PostCreation : AppCompatActivity() {
 
+    // Creacion de variables importantes
     private lateinit var binding: ActivityPostCreationBinding
     private lateinit var baseDatos: FirebaseDatabase
     private lateinit var auth: FirebaseAuth
@@ -41,8 +41,13 @@ class PostCreation : AppCompatActivity() {
     private lateinit var uid: String
 
     // Permisos para fotografias
-    private val REQUEST_CODE = 200
-    lateinit var acceso: String
+    private val CAMERA_REQUEST_CODE = 100
+    private val STORAGE_REQUEST_CODE = 200
+    private val IMAGE_CAMERA_CODE = 300
+    private val IMAGE_GALLERY_CODE = 400
+    private lateinit var cameraPermission: Array<String>
+    private lateinit var storagePermission: Array<String>
+    private var image_uri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,23 +56,51 @@ class PostCreation : AppCompatActivity() {
 
         baseDatos = FirebaseDatabase.getInstance()
         auth = Firebase.auth
-        val image = obtenerImagen()
 
-        obtenerDatos()
+        cameraPermission = arrayOf(android.Manifest.permission.CAMERA,
+                                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        storagePermission = arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+
+        obtenerImagen()
         configurarDropDown()
-        configurarBotones(image.toString())
+        obtenerDatos()
+        configurarBotones()
+    }
+
+    private fun configurarDropDown() {
+        val type = resources.getStringArray(R.array.tipoPost)
+        val adapter = ArrayAdapter(this, R.layout.dropdown_item, type)
+        binding.autoType.setAdapter(adapter)
+    }
+
+    private fun configurarBotones(){
+        //obtenerImagen()
+        binding.postButton.setOnClickListener{
+            val postText = binding.post.text.toString().trim()
+            val postType = binding.autoType.text.toString()
+            if(revisarDatos(postText, postType)){
+                if(image_uri == null){
+                    subirDatos(postText, postType, "noImage")
+                    //finish()
+                } else {
+                    subirDatos(postText, postType, image_uri.toString())
+                    //finish()
+                }
+            }
+        }
     }
 
     private fun obtenerDatos() {
         val user = auth.currentUser!!
         uid = user.uid
+        userMail = user.email!!
         val dbPath = baseDatos.getReference("Users")
-        val query = dbPath.orderByChild("usermail").equalTo(userMail)
+        val query = dbPath.orderByChild("userMail").equalTo(userMail)
         val eventListener = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for(ds in snapshot.children){
                     userName = "" + ds.child("username").value
-                    userMail = "" + ds.child("usermail").value
+                    userMail = "" + ds.child("userMail").value
                     userImage = "" + ds.child("dirImagen").value
                 }
             }
@@ -81,27 +114,6 @@ class PostCreation : AppCompatActivity() {
         query.addValueEventListener(eventListener)
     }
 
-    private fun configurarDropDown() {
-        val type = resources.getStringArray(R.array.tipoPost)
-        val adapter = ArrayAdapter(this, R.layout.dropdown_item, type)
-        binding.autoType.setAdapter(adapter)
-    }
-
-    private fun configurarBotones(image: String){
-        binding.postButton.setOnClickListener{
-            val postText = binding.post.text.toString().trim()
-            val postType = binding.autoType.text.toString()
-            if(revisarContenido(postText, postType)){
-                if(image == ""){
-                    subirDatos(postText, postType, "noImage")
-                } else {
-                    subirDatos(postText, postType, image)
-                }
-            }
-        }
-
-    }
-
     private fun subirDatos(postText: String, postType: String, image: String) {
         val timeStamp = System.currentTimeMillis().toString()
         val path = "Posts/post_$timeStamp"
@@ -112,16 +124,21 @@ class PostCreation : AppCompatActivity() {
         if(image != "noImage"){
             val ref = FirebaseStorage.getInstance().reference.child(path)
             ref.putFile(Uri.parse(image)).addOnSuccessListener{ takeSnapshot ->
-                if(takeSnapshot.storage.downloadUrl.isSuccessful){
+
+                val uriTask = takeSnapshot.storage.downloadUrl
+                while (!uriTask.isSuccessful);
+                val downloadUri = uriTask.result.toString()
+
+                if(uriTask.isSuccessful){
                     val hashMap = HashMap<Any, String>()
                     hashMap["uid"] = uid
                     hashMap["username"] = userName
-                    hashMap["usermail"] = userMail
+                    hashMap["userMail"] = userMail
                     hashMap["dirImagen"] = userImage
                     hashMap["postID"] = timeStamp
                     hashMap["postText"] = postText
                     hashMap["postType"] = postType
-                    hashMap["postImage"] = image
+                    hashMap["postImage"] = downloadUri
                     hashMap["postTime"] = timeStamp
 
                     // Path to store post data
@@ -129,6 +146,7 @@ class PostCreation : AppCompatActivity() {
                     ref2DB.child(timeStamp).setValue(hashMap).addOnSuccessListener {
                         pd.dismiss()
                         Toast.makeText(this, "Post publicado", Toast.LENGTH_SHORT).show()
+                        finish()
                     }.addOnFailureListener{ exception: Exception ->
                         pd.dismiss()
                         Toast.makeText(this, ""+exception.message, Toast.LENGTH_SHORT).show()
@@ -142,12 +160,12 @@ class PostCreation : AppCompatActivity() {
             val hashMap = HashMap<Any, String>()
             hashMap["uid"] = uid
             hashMap["username"] = userName
-            hashMap["usermail"] = userMail
+            hashMap["userMail"] = userMail
             hashMap["dirImagen"] = userImage
             hashMap["postID"] = timeStamp
             hashMap["postText"] = postText
             hashMap["postType"] = postType
-            hashMap["postImage"] = image
+            hashMap["postImage"] = "noImage"
             hashMap["postTime"] = timeStamp
 
             // Path to store post data
@@ -155,6 +173,7 @@ class PostCreation : AppCompatActivity() {
             ref2DB.child(timeStamp).setValue(hashMap).addOnSuccessListener {
                 pd.dismiss()
                 Toast.makeText(this, "Post publicado", Toast.LENGTH_SHORT).show()
+                finish()
             }.addOnFailureListener{ exception: Exception ->
                 pd.dismiss()
                 Toast.makeText(this, ""+exception.message, Toast.LENGTH_SHORT).show()
@@ -162,7 +181,7 @@ class PostCreation : AppCompatActivity() {
         }
     }
 
-    private fun revisarContenido(postText: String, postType: String): Boolean {
+    private fun revisarDatos(postText: String, postType: String): Boolean {
         if(postText.isEmpty()){
             Toast.makeText(baseContext, "No seas tímido. Comparte algo con tus seguidores",
                     Toast.LENGTH_SHORT).show()
@@ -187,107 +206,122 @@ class PostCreation : AppCompatActivity() {
         with(builder){
             setTitle("Elige una imagen desde")
             setItems(opciones) { _, which ->
-                when (opciones[which]) {
-                    "Camara" -> {
-                        acceso = "Camara"
-                        if(obtenerPermiso()){
-                            val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                            startActivityForResult(cameraIntent, REQUEST_CODE)
-                        }
-                    }
-                    "Galería" -> {
-                        acceso = "Galería"
-                        if(obtenerPermiso()){
-                            val intent = Intent(Intent.ACTION_PICK)
-                            intent.type = "image/*"
-                            startActivityForResult(intent, REQUEST_CODE)
-                        }
+                if(which == 0){
+                    if(!revisarCameraPermission()){
+                        println("permiso a camara: ${revisarCameraPermission()}")
+                        solicitarCameraPermission()
+                    } else {
+                        obtenerDesdeCamara()
                     }
                 }
 
+                if(which == 1){
+                    if(!revisarStoragePermission()){
+                        println("permiso a galeria: ${revisarStoragePermission()}")
+                        solicitarStoragePermission()
+                    } else {
+                        obtenerDesdeGaleria()
+                    }
+                }
             }
         }
         builder.create().show()
     }
 
-    private fun seDioPermiso(): Boolean{
-        var permiso = false
-        when(acceso) {
-            "Camara" -> {
-                if (ContextCompat.checkSelfPermission(
-                        this,
-                        android.Manifest.permission.READ_EXTERNAL_STORAGE
-                    )
-                    == PackageManager.PERMISSION_GRANTED
-                ) {
-                    permiso = true
+    private fun revisarStoragePermission(): Boolean {
+        return ContextCompat.checkSelfPermission(this,
+            android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == (PackageManager.PERMISSION_GRANTED)
+    }
+
+    private fun solicitarStoragePermission() {
+        ActivityCompat.requestPermissions(this, storagePermission, STORAGE_REQUEST_CODE)
+    }
+
+    private fun revisarCameraPermission(): Boolean {
+        val cameraPermission = ContextCompat.checkSelfPermission(this,
+            android.Manifest.permission.CAMERA) == (PackageManager.PERMISSION_GRANTED)
+
+        val storagePermission = ContextCompat.checkSelfPermission(this,
+            android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == (PackageManager.PERMISSION_GRANTED)
+
+        return cameraPermission && storagePermission
+    }
+
+    private fun solicitarCameraPermission() {
+        ActivityCompat.requestPermissions(this, cameraPermission, CAMERA_REQUEST_CODE)
+    }
+
+    private fun obtenerDesdeCamara(){
+        val cv = ContentValues()
+        cv.put(MediaStore.Images.Media.TITLE,"Tempo Pick")
+        cv.put(MediaStore.Images.Media.DESCRIPTION,"Tempo Descr")
+
+        image_uri = contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, cv)
+
+        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, image_uri)
+        startActivityForResult(intent, IMAGE_CAMERA_CODE)
+    }
+
+    private fun obtenerDesdeGaleria(){
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent, IMAGE_GALLERY_CODE)
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>,
+                                            grantResults: IntArray)
+    {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when(requestCode){
+
+            CAMERA_REQUEST_CODE -> {
+                if(grantResults.isNotEmpty()){
+                    val cameraAceptada = grantResults[0] == PackageManager.PERMISSION_GRANTED
+                    val storageAceptado = grantResults[1] == PackageManager.PERMISSION_GRANTED
+
+                    if(cameraAceptada && storageAceptado){
+                        obtenerDesdeCamara()
+                    } else {
+                        Toast.makeText(this,
+                        "Se necesita el acceso a la cámara y al almacenamiento para subir una imágen.",
+                        Toast.LENGTH_LONG).show()
+                    }
                 }
             }
-            "Galería" -> {
-                if (ContextCompat.checkSelfPermission(
-                        this,
-                        android.Manifest.permission.READ_EXTERNAL_STORAGE
-                    )
-                    == PackageManager.PERMISSION_GRANTED
-                ) {
-                    permiso = true
+
+            STORAGE_REQUEST_CODE -> {
+                if(grantResults.isNotEmpty()){
+                    val storageAceptado = grantResults[0] == PackageManager.PERMISSION_GRANTED
+                    if(storageAceptado){
+                        obtenerDesdeGaleria()
+                    } else {
+                        Toast.makeText(this,
+                        "Se necesita al almacenamiento para subir una imágen.",
+                        Toast.LENGTH_LONG).show()
+
+                    }
                 }
             }
+
         }
-        return permiso
+
     }
 
-    private fun obtenerPermiso(): Boolean {
-        println("hola")
-        var permiso = true
-        if(!seDioPermiso() && acceso == "Camara"){
-            if(ActivityCompat.shouldShowRequestPermissionRationale(this as Activity, android.Manifest.permission.CAMERA)) {
-                mostrarDialogoNegacion()
-            } else {
-                ActivityCompat.requestPermissions(this as Activity, arrayOf(android.Manifest.permission.CAMERA), REQUEST_CODE)
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?)
+    {
+        if(resultCode == RESULT_OK){
+
+            if(requestCode == IMAGE_GALLERY_CODE){
+                if (data != null) {
+                    image_uri = data.data
+                }
+                binding.image.setImageURI(image_uri)
+            } else if(requestCode == IMAGE_CAMERA_CODE){
+                binding.image.setImageURI(image_uri)
             }
-            permiso = false
-        } else if(!seDioPermiso() && acceso == "Galería"){
-            if(ActivityCompat.shouldShowRequestPermissionRationale(this as Activity, android.Manifest.permission.READ_EXTERNAL_STORAGE)) {
-                mostrarDialogoNegacion()
-            } else {
-                ActivityCompat.requestPermissions(this as Activity, arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), REQUEST_CODE)
-            }
-            permiso = false
+
         }
-        return permiso
-    }
-
-    private fun mostrarDialogoNegacion(){
-        AlertDialog.Builder(this)
-            .setTitle("Permiso negado")
-            .setMessage("para poder subir una fotografia es necesario habilitar los permisos de camara y galeria. Puedes hacerlo desde la app de Ajustes.")
-            .setPositiveButton("Ir a Ajustes"
-            ) { _, _ ->
-                // send to app settings if permission is denied permanently
-                val intent = Intent()
-                intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
-                val uri = Uri.fromParts("package", packageName, null)
-                intent.data = uri
-                startActivity(intent)
-            }
-            .setNegativeButton("Cancelar",null)
-            .show()
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        when(acceso){
-            "Camara" -> {
-                if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE && data != null){
-                    binding.image.setImageURI(data.data)
-                }
-            }
-            "Galería" -> {
-                if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE){
-                    binding.image.setImageURI(data?.data) // handle chosen image
-                }
-            }
-        }
     }
 }

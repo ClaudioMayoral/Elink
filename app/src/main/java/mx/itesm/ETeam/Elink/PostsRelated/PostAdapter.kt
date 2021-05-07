@@ -127,13 +127,15 @@ class PostAdapter(private val postArray:List<PostData>) :
         try {
             Picasso.get().load(userImage).placeholder(R.drawable.icon_profile).into(holder.postPicture)
         } catch (e: Exception){
-
         }
 
-        try {
-            Picasso.get().load(postImage).into(holder.imagePost)
-        } catch (e: Exception){
-
+        if(postImage == "noImage"){
+            holder.imagePost.visibility = View.GONE
+        } else {
+            try {
+                Picasso.get().load(postImage).into(holder.imagePost)
+            } catch (e: Exception){
+            }
         }
     }
 

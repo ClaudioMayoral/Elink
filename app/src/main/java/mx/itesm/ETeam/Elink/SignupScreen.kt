@@ -104,6 +104,10 @@ class SignupScreen : AppCompatActivity() {
             Toast.makeText(baseContext, "Las contraseñas no coinciden.",
                 Toast.LENGTH_SHORT).show()
             return false
+        }else if(password.length < 6){
+            Toast.makeText(baseContext, "La contraseña es demasiado corta. Crea una de 6 caracteres mínimo.",
+                Toast.LENGTH_SHORT).show()
+            return false
         }
         return true
     }

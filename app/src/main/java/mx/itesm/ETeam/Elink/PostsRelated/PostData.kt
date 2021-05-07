@@ -6,18 +6,8 @@ data class PostData(val postID: String, val postText: String, val postType: Stri
                     val postImage: String, val postTime: String, val uid: String,
                     val userName: String, val userMail: String, val userImage: String)
 {
-    companion object {
-        @Volatile
-        @JvmStatic
-        private var INSTANCE: PostData? = null
+    constructor() : this("", "", "",
+    "", "", "",
+    "", "", "")
 
-        @JvmStatic
-        @JvmOverloads
-        fun getInstance(postID: String = "", postText: String = "", postType: String = "",
-                        postImage: String = "", postTime: String = "", uid: String = "",
-                        userName: String = "", userMail: String = "", userImage: String = "") {
-            INSTANCE ?: PostData(postID, postText, postType, postImage, postTime, uid, userName,
-                                    userMail, userImage).also { INSTANCE = it }
-        }
-    }
 }

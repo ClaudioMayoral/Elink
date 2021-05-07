@@ -42,21 +42,24 @@
                     android:textColor="@color/dark_blue"
                     android:textSize="20sp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:autoLink="all"/>
                 <TextView
                     android:id="@+id/postType"
                     android:text="@string/tipo_de_post"
                     android:fontFamily="@font/lato"
                     android:textColor="@color/dark_blue"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:autoLink="all"/>
                 <TextView
                     android:id="@+id/time"
                     android:text="33 min"
                     android:fontFamily="@font/lato"
                     android:textColor="@color/dark_blue"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:autoLink="all"/>
             </LinearLayout>
 
             <ImageButton
