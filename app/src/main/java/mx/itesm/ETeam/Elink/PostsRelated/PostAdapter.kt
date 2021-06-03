@@ -25,6 +25,10 @@ class PostAdapter(private val context: Context, private val postList: List<PostD
     private lateinit var userMail: String
     private lateinit var dirImagen: String
 
+//TEST
+    private lateinit var projectName: String
+    private lateinit var projectType: String
+
     // Datos del post
     private lateinit var postID: String
     private lateinit var postText: String
@@ -65,6 +69,10 @@ class PostAdapter(private val context: Context, private val postList: List<PostD
         postType = postList[position].postType
         postImage = postList[position].postImage
         postTimeStamp = postList[position].postTime
+
+        //TEST
+        projectName = postList[position].projectName
+        projectType = postList[position].projectType
     }
 
     private fun colocarDatos(holder: ViewHolder, postTime: String) {
