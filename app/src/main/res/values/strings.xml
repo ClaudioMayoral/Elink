@@ -74,6 +74,11 @@
     <string name="donar">Donar</string>
     <string name="los_proyectos_al_d_a">Los proyectos al día</string>
     <string name="busca_un_post_por_tipo_usuario_o_proyecto">Busca un post por tipo, usuario o proyecto</string>
+    <string name="usertype">UserType</string>
+    <string name="personas_que_sigues">Personas que sigues</string>
+    <string name="seguidores">Seguidores</string>
+    <string name="busca_por_nombre_tipo_de_usuario_o_correo">Busca por nombre, tipo de usuario o correo</string>
+    <string name="status_project">status/project</string>
 
     <string-array name="categorias">
         <item>Ambiental</item>

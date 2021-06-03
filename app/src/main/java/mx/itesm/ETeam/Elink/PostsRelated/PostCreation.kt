@@ -289,7 +289,6 @@ class PostCreation : AppCompatActivity() {
     {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when(requestCode){
-
             CAMERA_REQUEST_CODE -> {
                 if(grantResults.isNotEmpty()){
                     val cameraAceptada = grantResults[0] == PackageManager.PERMISSION_GRANTED

@@ -31,7 +31,7 @@ Muestra el perfil del usuario sheep
 Autor: Alejandro Torices, Claudio Mayoral
 Modificado por: Francisco Arenas
  */
-class SheepProfileFrag : Fragment()
+class SharkProfileFrag : Fragment()
 {
     // Database & Storage
     private lateinit var firebaseAuth: FirebaseAuth
@@ -60,7 +60,7 @@ class SheepProfileFrag : Fragment()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?
                               , savedInstanceState: Bundle?): View
     {
-        val view = inflater.inflate(R.layout.fragment_sheep_profile, container, false)
+        val view = inflater.inflate(R.layout.fragment_shark_profile, container, false)
         cameraPermission = arrayOf(android.Manifest.permission.CAMERA,
                                     android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
         storagePermission = arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)

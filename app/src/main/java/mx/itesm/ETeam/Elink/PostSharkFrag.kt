@@ -20,7 +20,7 @@ import mx.itesm.ETeam.Elink.PostsRelated.PostData
 import java.util.*
 import kotlin.collections.ArrayList
 
-class PostSheepyFrag: Fragment()
+class PostSharkFrag: Fragment()
 {
     // Instance variables
     private lateinit var firebaseAuth: FirebaseAuth
@@ -32,7 +32,7 @@ class PostSheepyFrag: Fragment()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?
                               , savedInstanceState: Bundle?): View?
     {
-        val view = inflater.inflate(R.layout.fragment_posts, container, false)
+        val view = inflater.inflate(R.layout.fragment_post_shark, container, false)
         val layoutManager = LinearLayoutManager(activity)
         firebaseAuth = FirebaseAuth.getInstance()
         recyclerView = view.findViewById(R.id.postsRecyclerView)
