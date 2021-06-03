@@ -104,8 +104,8 @@
 
     <TextView
         android:id="@+id/impactText2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="412dp"
+        android:layout_height="31dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:elevation="5dp"
@@ -135,7 +135,7 @@
         android:id="@+id/btnLogOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="@font/lato"
         android:text="@string/salir"
         android:textStyle="bold"
