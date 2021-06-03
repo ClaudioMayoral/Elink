@@ -16,12 +16,13 @@ class masterScreen : AppCompatActivity(), ClickListener
 {
     // Instance Variables
     private lateinit var binding: ActivityMasterScreenBinding
-    private lateinit var firebaseAuth: FirebaseAuth
-    private lateinit var dataBase: FirebaseDatabase
-    private lateinit var currentUser: FirebaseUser
     private lateinit var dbReference: DatabaseReference
-    private lateinit var userType: String
+    private lateinit var dataBase: FirebaseDatabase
+    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var currentUser: FirebaseUser
+    private lateinit var fragProfile: Fragment
     private lateinit var fragPosts: Fragment
+    private lateinit var userType: String
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -37,19 +38,26 @@ class masterScreen : AppCompatActivity(), ClickListener
 
         dbReference.child("Users").child(currentUser.uid).get().addOnSuccessListener {
             userType = it.child("usertype").value.toString()
-            configurarFragmentoInicio(userType)
+            configurarFragmentos(userType)
             configurarMenu()
         }.addOnFailureListener{
             Toast.makeText(baseContext, "" + it.toString(), Toast.LENGTH_SHORT).show()
         }
     }
     
-    private fun configurarFragmentoInicio(userType: String) {
+    private fun configurarFragmentos(userType: String) {
         fragPosts = if (userType == "sheep"){
-            PostSheepyFrag()
+            PostsSheepFrag()
         } else {
-            PostsSharkyFrag()
+            PostSharkFrag()
         }
+
+        fragProfile = if (userType == "sheep"){
+            SheepProfileFrag()
+        } else {
+            SharkProfileFrag()
+        }
+
         cambiarFragmento(fragPosts)
     }
 
@@ -68,10 +76,7 @@ class masterScreen : AppCompatActivity(), ClickListener
                 cambiarFragmento(fragMessages)
             }
             R.id.navProfile -> {
-                val fragProfile = ProfileFrag()
                 cambiarFragmento(fragProfile)
-                /*val intFirstScreen = Intent(this, firstScreen::class.java)
-                startActivity(intFirstScreen)*/
             }
         }
             true

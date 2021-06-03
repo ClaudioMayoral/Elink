@@ -25,7 +25,7 @@ Muestra las publicaciones de los usuarios, es el fragmento por default al inicia
 Autor: Alejandro Torices
 Modificado por: Francisco Arenas
  */
-class PostsSharkyFrag : Fragment() {
+class PostsSheepFrag : Fragment() {
 
     //private var adapter: RecyclerView.Adapter<PostAdapter.ViewHolder>?= null
     //private var layoutManager: RecyclerView.LayoutManager?= null
@@ -41,7 +41,7 @@ class PostsSharkyFrag : Fragment() {
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?
                                                        , savedInstanceState: Bundle?): View?
     {
-        val view = inflater.inflate(R.layout.fragment_post_shark, container, false)
+        val view = inflater.inflate(R.layout.fragment_posts, container, false)
         val layoutManager = LinearLayoutManager(activity)
         firebaseAuth = FirebaseAuth.getInstance()
         recyclerView = view.findViewById(R.id.postsRecyclerView)

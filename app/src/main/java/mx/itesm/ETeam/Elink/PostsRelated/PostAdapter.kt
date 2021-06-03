@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
+import com.mikhaellopez.circularimageview.CircularImageView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_post_creation.view.*
 import kotlinx.android.synthetic.main.single_post.view.*
@@ -25,7 +26,7 @@ class PostAdapter(private val context: Context, private val postList: List<PostD
     private lateinit var userMail: String
     private lateinit var dirImagen: String
 
-//TEST
+    //TEST
     private lateinit var projectName: String
     private lateinit var projectType: String
 
@@ -120,7 +121,7 @@ class PostAdapter(private val context: Context, private val postList: List<PostD
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-         val userPostPicture: ImageView
+         val userPostPicture: CircularImageView
          val imagePost: ImageView
          val moreButton: ImageButton
          val likeButton: Button

@@ -28,7 +28,7 @@ import com.squareup.picasso.Picasso
 Muestra el perfil del usuario shark
 Autor: Francisco Arenas
  */
-class SharkProfileFrag: Fragment()
+class SheepProfileFrag: Fragment()
 {
     // Database & Storage
     private lateinit var firebaseAuth: FirebaseAuth
@@ -57,7 +57,7 @@ class SharkProfileFrag: Fragment()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?
                               , savedInstanceState: Bundle?): View
     {
-        val view = inflater.inflate(R.layout.fragment_shark_profile, container, false)
+        val view = inflater.inflate(R.layout.fragment_sheep_profile, container, false)
         cameraPermission = arrayOf(android.Manifest.permission.CAMERA,
             android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
         storagePermission = arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)

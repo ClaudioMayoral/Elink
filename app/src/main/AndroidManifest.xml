@@ -21,7 +21,6 @@
         <activity android:name=".ProjectScreen" />
         <activity android:name=".PostsRelated.PostCreation"/>
         <activity android:name=".SearchScreen" />
-        <activity android:name=".MainScreen" />
         <activity android:name=".SharkTypeScreen" />
         <activity android:name=".SheepTypeScreen" />
         <activity android:name=".UserTypeScreen" />

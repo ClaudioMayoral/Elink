@@ -141,7 +141,7 @@ class SignupScreen : AppCompatActivity() {
         imageRef.putFile(Uri.parse(profilePic))
 
         val referencia = baseDatos.getReference("/Users/$userID")
-        val userDB = User(username, usermail, usertype,imageRef.toString())
+        val userDB = User(userID, username, usermail, usertype, imageRef.toString())
         referencia.setValue(userDB)
 
         if(usertype =="shark"){

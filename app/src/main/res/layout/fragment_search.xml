@@ -29,55 +29,33 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:fontFamily="@font/lato"
-        android:text="Busqueda de posts"
+        android:text="Encuentra usuarios"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="@color/dark_blue"
         android:textSize="30sp"
         app:layout_constraintStart_toEndOf="@+id/logo_image"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <LinearLayout
-        android:id="@+id/searchBox"
+    <EditText
+        android:id="@+id/etBuscarPost"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="36dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:autofillHints="Buscar por categoría"
+        android:background="@drawable/background_selectable_input"
+        android:elevation="5dp"
+        android:ems="10"
+        android:hint="@string/busca_por_nombre_tipo_de_usuario_o_correo"
+        android:inputType="text"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textSize="13sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profilePage_Sharky">
-
-        <EditText
-            android:id="@+id/etBuscarPost"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="1dp"
-            android:layout_marginEnd="8dp"
-            android:layout_weight="1"
-            android:autofillHints="Buscar por categoría"
-            android:background="@drawable/background_selectable_input"
-            android:elevation="5dp"
-            android:ems="10"
-            android:hint="Buscar por tipo de post, usuario, o proyecto"
-            android:inputType="text"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:textSize="13sp" />
-
-        <Button
-            android:id="@+id/searchButton"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginEnd="2dp"
-            android:layout_weight="1"
-            app:icon="@drawable/icon_search"
-            app:iconPadding="50dp" />
-
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/profilePage_Sharky" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/searchView"
@@ -92,7 +70,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchBox" />
+        app:layout_constraintTop_toBottomOf="@+id/etBuscarPost" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
