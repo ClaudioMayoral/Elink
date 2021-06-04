@@ -97,7 +97,7 @@ class ShowSheepInfo: Fragment()
                 }
             }
             override fun onCancelled(databaseError: DatabaseError) {
-                Toast.makeText(activity, ""+databaseError.message, Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, ""+databaseError.message, Toast.LENGTH_SHORT).show()
             }
         }
         dBreference.addValueEventListener(postListener)
@@ -156,7 +156,7 @@ class ShowSheepInfo: Fragment()
                 }
             }
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(activity, ""+error.message, Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, ""+error.message, Toast.LENGTH_SHORT).show()
             }
         }
         dbReference.addValueEventListener(postListener)
@@ -180,7 +180,7 @@ class ShowSheepInfo: Fragment()
 
             }
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(activity, ""+error.message, Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, ""+error.message, Toast.LENGTH_SHORT).show()
             }
         }
         dbReference2.addValueEventListener(postListener2)
