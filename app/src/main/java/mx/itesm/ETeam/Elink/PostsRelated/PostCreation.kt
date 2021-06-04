@@ -299,7 +299,7 @@ class PostCreation : AppCompatActivity()
         val timeStamp = System.currentTimeMillis().toString()
         val path = "Posts/post_$timeStamp"
 
-        if (binding.image.drawable != null) {
+        if (binding.image.drawable != null || image_uri != null) {
             // Obtener imagen
             val bitmap = (binding.image.drawable as BitmapDrawable).bitmap
             val baos = ByteArrayOutputStream()
@@ -320,6 +320,7 @@ class PostCreation : AppCompatActivity()
                     hashMap["dirImagen"] = userImage
                     hashMap["projectName"] = projectName
                     hashMap["projectType"] = projectType
+                    hashMap["likes"] = "0"
                     hashMap["postID"] = timeStamp
                     hashMap["postText"] = postText
                     hashMap["postType"] = postType
@@ -352,8 +353,6 @@ class PostCreation : AppCompatActivity()
             hashMap["postType"] = postType
             hashMap["postImage"] = "noImage"
             hashMap["postTime"] = timeStamp
-
-            //TEST
             hashMap["projectName"] = projectName
             hashMap["projectType"] = projectType
 

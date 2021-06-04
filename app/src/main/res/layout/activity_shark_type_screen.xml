@@ -201,68 +201,6 @@ XML o vista de la actividad (sharky_type_screen).
 
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/description13"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:elevation="5dp"
-        android:fontFamily="@font/lato"
-        android:text="@string/agrega_un_m_todo_de_pago_opcional"
-        android:textColor="@color/dark_blue"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="@+id/center_sharky"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
-
-    <com.google.android.material.button.MaterialButtonToggleGroup
-        android:id="@+id/toggleButtonGroup2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:elevation="5dp"
-        app:layout_constraintEnd_toEndOf="@+id/center_sharky"
-        app:layout_constraintStart_toStartOf="@+id/center_sharky"
-        app:layout_constraintTop_toBottomOf="@+id/description13"
-        app:singleSelection="true">
-
-        <Button
-            android:id="@+id/btnSelectBank"
-            style="@style/ToggleButtonWithIconOnly"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="1dp"
-            android:fontFamily="@font/lato"
-            android:text="@string/banco"
-            android:textColor="@drawable/input_toggle_text"
-            android:textStyle="bold"
-            app:icon="@drawable/icon_bank"
-            app:iconPadding="10dp"
-            app:layout_constraintBottom_toBottomOf="@+id/center_sharky"
-            app:layout_constraintEnd_toEndOf="@+id/center_sharky"
-            app:layout_constraintStart_toStartOf="@+id/center_sharky"
-            app:shapeAppearance="@style/Rounded" />
-
-        <Button
-            android:id="@+id/btnSelectPayPal"
-            style="@style/ToggleButtonWithIconOnly"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:elevation="1dp"
-            android:fontFamily="@font/lato"
-            android:text="@string/paypal"
-            android:textColor="@drawable/input_toggle_text"
-            android:textStyle="bold"
-            app:icon="@drawable/icon_paypal"
-            app:iconPadding="10dp"
-            app:layout_constraintBottom_toBottomOf="@+id/center_sharky"
-            app:layout_constraintEnd_toEndOf="@+id/center_sharky"
-            app:layout_constraintStart_toStartOf="@+id/center_sharky"
-            app:shapeAppearance="@style/Rounded" />
-    </com.google.android.material.button.MaterialButtonToggleGroup>
-
     <Button
         android:id="@+id/buttonSignup"
         android:layout_width="0dp"
@@ -282,7 +220,7 @@ XML o vista de la actividad (sharky_type_screen).
         app:layout_constraintBottom_toBottomOf="@+id/center_sharky"
         app:layout_constraintEnd_toEndOf="@+id/center_sharky"
         app:layout_constraintStart_toStartOf="@+id/center_sharky"
-        app:layout_constraintTop_toBottomOf="@+id/toggleButtonGroup2"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
         tools:visibility="visible" />
 
 

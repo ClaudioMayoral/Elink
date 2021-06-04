@@ -17,12 +17,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.squareup.picasso.Picasso
+import mx.itesm.ETeam.Elink.DataClasses.User
+import mx.itesm.ETeam.Elink.PostsRelated.SheepPostAdapter
 
 /*
 Muestra el perfil del usuario shark
@@ -54,23 +58,114 @@ class SheepProfileFrag: Fragment()
     private lateinit var storagePermission: Array<String>
     private var image_uri: Uri? = null
 
+    // PAra el recylcerView
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var userAdapter: UserAdapter
+    private lateinit var idList: ArrayList<String>
+    private lateinit var userList: ArrayList<User>
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?
                               , savedInstanceState: Bundle?): View
     {
         val view = inflater.inflate(R.layout.fragment_sheep_profile, container, false)
+
         cameraPermission = arrayOf(android.Manifest.permission.CAMERA,
             android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
         storagePermission = arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        idList = arrayListOf<String>()
+        userList = arrayListOf<User>()
+
+        val layoutManager = LinearLayoutManager(context)
+        layoutManager.stackFromEnd = true
+        layoutManager.reverseLayout = true
+
+        recyclerView = view.findViewById(R.id.followersRecyclerView)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.setHasFixedSize(true)
+        userAdapter = context?.let { UserAdapter(it, userList) }!!
+        recyclerView.adapter = userAdapter
+
         val editButton = view.findViewById<FloatingActionButton>(R.id.editButton)
         val logoutButton = view.findViewById<Button>(R.id.btnLogOut)
         process = ProgressDialog(activity)
 
-        editarPerfil(editButton)
         colocarDatos(view)
+        obtenerSeguidores()
+        editarPerfil(editButton)
         salirApp(logoutButton)
 
         return view
     }
+
+    private fun obtenerSeguidores() {
+        val userID = FirebaseAuth.getInstance().currentUser?.uid
+        val dbReference = FirebaseDatabase.getInstance().getReference("Follow").child(userID!!)
+            .child("followers")
+
+        val postListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                idList.clear()
+                for (ds in dataSnapshot.children) {
+                    idList.add(ds.key!!)
+                }
+                mostrarUsuarios()
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Toast.makeText(activity, "" + databaseError.message, Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }
+        dbReference.addListenerForSingleValueEvent(postListener)
+    }
+
+    private fun llenarRecyclerView() {
+        val currentID = firebaseAuth.currentUser?.uid
+        val dbReference = FirebaseDatabase.getInstance().getReference("Follow")
+            .child(currentID!!).child("followers")
+
+        val postListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                idList.clear()
+                for (ds in dataSnapshot.children) {
+                    ds.key?.let { idList.add(it) }
+                }
+                mostrarUsuarios()
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Toast.makeText(activity, "" + databaseError.message, Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }
+        dbReference.addListenerForSingleValueEvent(postListener)
+    }
+
+
+    private fun mostrarUsuarios(){
+        val dbReference = FirebaseDatabase.getInstance().getReference("Users")
+        val postListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                userList.clear()
+
+                for (ds in dataSnapshot.children) {
+                    val userInList = ds.getValue(User::class.java)!!
+
+                    for (id in idList) {
+                        if(userInList.userID == id){
+                            userList.add(userInList)
+                        }
+                    }
+                }
+                userAdapter.notifyDataSetChanged()
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Toast.makeText(activity, "" + databaseError.message, Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }
+        dbReference.addValueEventListener(postListener)}
 
     private fun salirApp(logoutButton: Button) {
         logoutButton.setOnClickListener{
