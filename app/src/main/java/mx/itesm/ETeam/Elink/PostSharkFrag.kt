@@ -26,6 +26,7 @@ class PostSharkFrag: Fragment()
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapterPost: SharkPostAdapter
+    private lateinit var idList: ArrayList<String>
     private lateinit var postList: ArrayList<PostData>
     private lateinit var searchQuery: EditText
 
@@ -39,13 +40,37 @@ class PostSharkFrag: Fragment()
         layoutManager.stackFromEnd = true
         layoutManager.reverseLayout = true
         recyclerView.layoutManager = layoutManager
+        idList = arrayListOf<String>()
         postList = arrayListOf<PostData>()
         val button = view.findViewById<Button>(R.id.searchButton)
 
         buscarPost(button, view)
-        cargarPosts()
+        obtenerSeguidores()
 
         return view
+    }
+
+    private fun obtenerSeguidores() {
+        val userID = FirebaseAuth.getInstance().currentUser?.uid
+        val dbReference = FirebaseDatabase.getInstance().getReference("Follow").child(userID!!)
+                            .child("following")
+
+        val postListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                idList.clear()
+                for (ds in dataSnapshot.children) {
+                    idList.add(ds.key!!)
+                }
+                cargarPosts()
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Toast.makeText(activity, "" + databaseError.message, Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }
+
+        dbReference.addListenerForSingleValueEvent(postListener)
     }
 
     private fun buscarPost(button: Button?, view: View) {
@@ -99,7 +124,12 @@ class PostSharkFrag: Fragment()
                 postList.clear()
                 for(ds in dataSnapshot.children){
                     val postdata = ds.getValue(PostData::class.java)!!
-                    postList.add(postdata)
+
+                    for (id in idList){
+                        if(postdata.uid == id){
+                            postList.add(postdata)
+                        }
+                    }
                     adapterPost = activity?.let { SharkPostAdapter(it.applicationContext, postList) }!!
                     recyclerView.adapter = adapterPost
                 }

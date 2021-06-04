@@ -24,9 +24,6 @@ import java.util.*
 class SheepPostAdapter(private val context: Context, private val postList: List<PostData>) :
         RecyclerView.Adapter<SheepPostAdapter.ViewHolder>()
 {
-        // CurrentUser
-        private var currentUserID = FirebaseAuth.getInstance().currentUser
-
         // Datos de usuario
         private lateinit var uid: String
         private var username: String? = null
@@ -36,13 +33,12 @@ class SheepPostAdapter(private val context: Context, private val postList: List<
         private lateinit var projectType: String
 
         // Datos del post
-        //private lateinit var postID: String
+        private lateinit var likes: String
         private lateinit var postText: String
         private lateinit var postType: String
         private lateinit var postImage: String
         private lateinit var postTime: String
         private lateinit var postTimeStamp: String
-        private lateinit var likes: String
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
             val vista = LayoutInflater.from(parent.context)
@@ -76,6 +72,7 @@ class SheepPostAdapter(private val context: Context, private val postList: List<
             postType = postList[position].postType
             postImage = postList[position].postImage
             postTimeStamp = postList[position].postTime
+            likes = postList[position].likes                // numero total de likes
             projectName = postList[position].projectName
             projectType = postList[position].projectType
         }
@@ -85,6 +82,9 @@ class SheepPostAdapter(private val context: Context, private val postList: List<
             holder.time.text = postTime
             holder.postType.text = postType
             holder.content.text = postText
+
+            val likeFormatter = "$likes Likes"
+            holder.likes.text = likeFormatter
 
             // foto de usuario
             try {

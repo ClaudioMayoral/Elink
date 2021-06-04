@@ -12,6 +12,8 @@ import android.widget.*
 import androidx.core.content.FileProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 import com.mikhaellopez.circularimageview.CircularImageView
 import com.squareup.picasso.Picasso
 import mx.itesm.ETeam.Elink.R
@@ -35,13 +37,18 @@ class SharkPostAdapter(private val context: Context, private val postList: List<
     private lateinit var projectType: String
 
     // Datos del post
-    private lateinit var postID: String
     private lateinit var postText: String
     private lateinit var postType: String
     private lateinit var postImage: String
     private lateinit var postTime: String
     private lateinit var postTimeStamp: String
+
+    // Datos de likes
+    private val myUID = FirebaseAuth.getInstance().currentUser
     private lateinit var likes: String
+    private lateinit var likesReference: DatabaseReference      //FirebaseDatabase.getInstance().reference.child("Likes")
+    private lateinit var postsRef: DatabaseReference            //FirebaseDatabase.getInstance().reference.child("Posts")
+    private var processLike = false
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val vista = LayoutInflater.from(parent.context)
@@ -50,14 +57,19 @@ class SharkPostAdapter(private val context: Context, private val postList: List<
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        likesReference = FirebaseDatabase.getInstance().reference.child("Likes")
+        postsRef = FirebaseDatabase.getInstance().reference.child("Posts")
+
         obtenerDatos(position)
+
+        val postID = postList[position].postID
         val calendar = Calendar.getInstance(Locale.getDefault())
         calendar.timeInMillis = postTimeStamp.toLong()
         postTime = android.text.format.DateFormat
                                       .format("dd/MM/yyyy hh:mm:aa", calendar) as String
 
-        colocarDatos(holder, postTime)
-        configurarBotones(holder)
+        colocarDatos(holder, postTime, postID)
+        configurarBotones(holder, position, postID)
     }
 
     override fun getItemCount(): Int {
@@ -69,22 +81,24 @@ class SharkPostAdapter(private val context: Context, private val postList: List<
         username = postList[position].username
         userMail = postList[position].userMail
         dirImagen = postList[position].dirImagen
-        postID = postList[position].postID
         postText = postList[position].postText
         postType = postList[position].postType
         postImage = postList[position].postImage
         postTimeStamp = postList[position].postTime
-
-        //TEST
+        likes = postList[position].likes                // numero total de likes
         projectName = postList[position].projectName
         projectType = postList[position].projectType
     }
 
-    private fun colocarDatos(holder: ViewHolder, postTime: String) {
+    private fun colocarDatos(holder: ViewHolder, postTime: String, postID: String) {
         holder.nameUser.text = username.toString()
         holder.time.text = postTime
         holder.postType.text = postType
         holder.content.text = postText
+
+        val likeFormatter = "$likes Likes"
+        holder.likes.text = likeFormatter
+        colocarLikes(holder, postID)
 
         // foto de usuario
         try {
@@ -102,15 +116,59 @@ class SharkPostAdapter(private val context: Context, private val postList: List<
         }
     }
 
-    private fun configurarBotones(holder: ViewHolder) {
+    private fun colocarLikes(holder: ViewHolder, postKey: String) {
+        val postListener = object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.child(postKey).hasChild(myUID?.uid!!)){
+                    holder.likeButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_liked, 0, 0, 0)
+                    holder.likeButton.text = "Te gusta"
+                } else {
+                    holder.likeButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_like, 0, 0, 0)
+                    holder.likeButton.text = "Like"
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(context, "" + error.message, Toast.LENGTH_SHORT).show()
+            }
+
+        }
+        likesReference.addValueEventListener(postListener)
+
+    }
+
+    private fun configurarBotones(holder: ViewHolder, position: Int, postId: String) {
         holder.seeProfile.setOnClickListener{
             Toast.makeText(context, "SEE BUTTON",
                 Toast.LENGTH_SHORT).show()
         }
 
         holder.likeButton.setOnClickListener{
-            Toast.makeText(context, "LIKE BUTTON",
-                Toast.LENGTH_SHORT).show()
+            val likes: Int = Integer.parseInt(postList[position].likes)
+            processLike = true
+
+            val postListener = object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if(processLike) {
+                        processLike = if(snapshot.child(postId).hasChild(myUID?.uid!!)) {
+                            postsRef.child(postId).child("likes").setValue(""+(likes-1))
+                            likesReference.child(postId).child(myUID.uid).removeValue()
+                            false
+                        } else {
+                            postsRef.child(postId).child("likes").setValue(""+(likes+1))
+                            likesReference.child(postId).child(myUID.uid).setValue("Liked")
+                            false
+                        }
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+
+            }
+            likesReference.addValueEventListener(postListener)
+
         }
 
         holder.donarButton.setOnClickListener{
