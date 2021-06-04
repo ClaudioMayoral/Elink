@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
@@ -73,44 +74,7 @@ class UserAdapter(private val context: Context, private val userList: List<User>
                 holder.status_project.text = followerText
             }
         }
-            /*
-            val dbReference = FirebaseDatabase.getInstance().getReference("Users").child(userInList.userID).child("Project")
-            val postListener = object : ValueEventListener {
-                override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    for (ds in dataSnapshot.children) {
-                        val projectName = ds.child("nombreDelProyecto").toString()
-                        val projectFormat = "Proyecto: $projectName"
-                        holder.status_project.text = projectFormat
-                    }
-                }
 
-                override fun onCancelled(databaseError: DatabaseError) {
-                    Toast.makeText(context, "" + databaseError.message, Toast.LENGTH_SHORT)
-                        .show()
-                }
-            }
-            dbReference.addValueEventListener(postListener)
-
-
-            dbReference.child("Users").child(userInList.userID).get().addOnSuccessListener {
-                projectName = it.child("Project/nombreDelProyecto").toString()
-                println("project name: $projectName")
-                val projectFormat = "Proyecto: $projectName"
-                holder.status_project.text = projectFormat
-            }.addOnFailureListener{
-                Toast.makeText(context, "" + it.toString(), Toast.LENGTH_SHORT).show()
-            }
-
-
-            dbReference.child("Users").child(firebaseUser.uid).get().addOnSuccessListener {
-                projectName = it.child("Project/nombreDelProyecto").value.toString()
-                currentUserType = "shark"
-                val projectFormat = "Proyecto: $projectName"
-                holder.status_project.text = projectFormat
-            }.addOnFailureListener{
-                Toast.makeText(context, "" + it.toString(), Toast.LENGTH_SHORT).show()
-            }
-            */
         Glide.with(context).load(userInList.dirImagen).into(holder.userPicture)
         println("image url: ${userInList.dirImagen}")
         showButton(holder, userInList)
@@ -122,11 +86,22 @@ class UserAdapter(private val context: Context, private val userList: List<User>
             editor.apply()
 
             val supportFragmentManager = (context as FragmentActivity?)!!.supportFragmentManager
-            val fragmentToChange = SharkProfileFrag()
+            val fragmentToChange: Fragment
 
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.contenedorFragmentos, fragmentToChange).addToBackStack(null)
-                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit()
+            if(userInList.usertype == "shark") {
+                fragmentToChange = ShowSharkInfo()
+
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.contenedorFragmentos, fragmentToChange).addToBackStack(null)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit()
+            } else {
+                fragmentToChange = ShowSheepInfo()
+
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.contenedorFragmentos, fragmentToChange).addToBackStack(null)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit()
+            }
+
         }
 
         holder.follow_button.setOnClickListener{
@@ -196,6 +171,7 @@ class UserAdapter(private val context: Context, private val userList: List<User>
             Toast.makeText(context, "" + it.toString(), Toast.LENGTH_SHORT).show()
         }
     }
+
     private fun isFollowing(userID: String, button: Button){
         val reference = FirebaseDatabase.getInstance().reference.child("Follow")
             .child(firebaseUser.uid).child("following")
