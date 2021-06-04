@@ -65,17 +65,6 @@
                     android:textColor="@color/dark_blue"
                     android:textSize="10sp" />
             </LinearLayout>
-
-            <ImageButton
-                android:id="@+id/seeProfile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:contentDescription="@string/desc"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:src="@drawable/icon_more" />
-
         </LinearLayout>
 
         <ImageView

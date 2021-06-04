@@ -8,6 +8,11 @@ import android.widget.Toast
 import mx.itesm.ETeam.Elink.databinding.ActivitySheepTypeScreenBinding
 import kotlin.math.roundToInt
 
+/*
+Guarda los datos para un sheep
+Autor: Alejandro Torices, Claudio Mayoral
+Modificado por: Francisco Arenas
+*/
 class SheepTypeScreen : AppCompatActivity() {
 
     private lateinit var binding: ActivitySheepTypeScreenBinding

@@ -21,7 +21,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 // Autor: Francisco Arenas
-// Clase que permite ver ver los posts
+// Clase que permite ver ver los posts para un shark
 class PostSharkFrag: Fragment()
 {
     // Instance variables

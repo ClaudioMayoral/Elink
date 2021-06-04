@@ -12,6 +12,12 @@ import mx.itesm.ETeam.Elink.databinding.ActivitySharkTypeScreenBinding
 import java.util.*
 import kotlin.collections.HashMap
 
+
+/*
+Guarda los datos para un shark
+Autor: Alejandro Torices, Claudio Mayoral
+Modificado por: Francisco Arenas
+*/
 class SharkTypeScreen : AppCompatActivity() {
     private lateinit var binding: ActivitySharkTypeScreenBinding
 

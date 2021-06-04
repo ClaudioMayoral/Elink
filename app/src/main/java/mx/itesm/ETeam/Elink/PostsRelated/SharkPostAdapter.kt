@@ -2,6 +2,7 @@ package mx.itesm.ETeam.Elink.PostsRelated
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
@@ -10,6 +11,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.content.FileProvider
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
@@ -17,6 +20,7 @@ import com.google.firebase.database.*
 import com.mikhaellopez.circularimageview.CircularImageView
 import com.squareup.picasso.Picasso
 import mx.itesm.ETeam.Elink.R
+import mx.itesm.ETeam.Elink.ShowSheepInfo
 import java.io.File
 import java.io.FileOutputStream
 import java.util.*
@@ -138,11 +142,6 @@ class SharkPostAdapter(private val context: Context, private val postList: List<
     }
 
     private fun configurarBotones(holder: ViewHolder, position: Int, postId: String) {
-        holder.seeProfile.setOnClickListener{
-            Toast.makeText(context, "SEE BUTTON",
-                Toast.LENGTH_SHORT).show()
-        }
-
         holder.likeButton.setOnClickListener{
             val likes: Int = Integer.parseInt(postList[position].likes)
             processLike = true
@@ -231,7 +230,6 @@ class SharkPostAdapter(private val context: Context, private val postList: List<
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
          val userPostPicture: CircularImageView
          val imagePost: ImageView
-         val seeProfile: ImageButton
          val likeButton: Button
          val donarButton: Button
          val compartirButton: Button
@@ -244,7 +242,6 @@ class SharkPostAdapter(private val context: Context, private val postList: List<
          init {
              userPostPicture = itemView.findViewById(R.id.userPostPicture)
              imagePost = itemView.findViewById(R.id.imagePost)
-             seeProfile = itemView.findViewById(R.id.seeProfile)
              likeButton = itemView.findViewById(R.id.likeButton)
              donarButton = itemView.findViewById(R.id.donarButton)
              compartirButton = itemView.findViewById(R.id.compartirButton)
