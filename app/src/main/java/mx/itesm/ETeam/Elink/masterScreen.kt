@@ -3,28 +3,53 @@ package mx.itesm.ETeam.Elink
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.firebase.ui.auth.AuthUI
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.*
 import mx.itesm.ETeam.Elink.databinding.ActivityMasterScreenBinding
 
-class masterScreen : AppCompatActivity(), ClickListener{
+class masterScreen : AppCompatActivity(), ClickListener
+{
+    // Instance Variables
     private lateinit var binding: ActivityMasterScreenBinding
+    private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var dataBase: FirebaseDatabase
+    private lateinit var currentUser: FirebaseUser
+    private lateinit var dbReference: DatabaseReference
+    private lateinit var userType: String
+    private lateinit var fragPosts: Fragment
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?)
+    {
+        // Initialize database references
+        dataBase = FirebaseDatabase.getInstance()
+        dbReference = dataBase.reference
+        firebaseAuth = FirebaseAuth.getInstance()
+        currentUser = firebaseAuth.currentUser!!
+
         super.onCreate(savedInstanceState)
         binding = ActivityMasterScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        configurarFragmentoInicio()
-        configurarMenu()
+        dbReference.child("Users").child(currentUser.uid).get().addOnSuccessListener {
+            userType = it.child("usertype").value.toString()
+            configurarFragmentoInicio(userType)
+            configurarMenu()
+        }.addOnFailureListener{
+            Toast.makeText(baseContext, "" + it.toString(), Toast.LENGTH_SHORT).show()
+        }
     }
-
-    private fun configurarFragmentoInicio() {
-        val fragPosts = PostsFrag()
+    
+    private fun configurarFragmentoInicio(userType: String) {
+        fragPosts = if (userType == "sheep"){
+            PostSheepyFrag()
+        } else {
+            PostsSharkyFrag()
+        }
         cambiarFragmento(fragPosts)
     }
 
@@ -32,7 +57,6 @@ class masterScreen : AppCompatActivity(), ClickListener{
         binding.menuNavegacion.setOnNavigationItemSelectedListener { item ->
         when (item.itemId){
             R.id.navPosts ->{
-                val fragPosts = PostsFrag()
                 cambiarFragmento(fragPosts)
             }
             R.id.navSearch ->{
@@ -50,8 +74,8 @@ class masterScreen : AppCompatActivity(), ClickListener{
                 startActivity(intFirstScreen)*/
             }
         }
-        true
-    }
+            true
+        }
     }
 
     private fun cambiarFragmento(fragmento: Fragment) {

@@ -73,6 +73,7 @@
     <string name="like">Like</string>
     <string name="donar">Donar</string>
     <string name="los_proyectos_al_d_a">Los proyectos al día</string>
+    <string name="busca_un_post_por_tipo_usuario_o_proyecto">Busca un post por tipo, usuario o proyecto</string>
 
     <string-array name="categorias">
         <item>Ambiental</item>

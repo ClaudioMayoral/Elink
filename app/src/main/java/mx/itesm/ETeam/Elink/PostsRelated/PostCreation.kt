@@ -35,10 +35,12 @@ class PostCreation : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
 
     // Datos de usuario
-    private lateinit var userName: String
-    private lateinit var userMail: String
-    private lateinit var userImage: String
-    private lateinit var uid: String
+    private var userName: String? = null
+    private var userMail: String? = null
+    private var userImage: String? = null
+    private var uid: String? = null
+    private var projectName: String? = null
+    private var projectType: String? = null
 
     // Permisos para fotografias
     private val CAMERA_REQUEST_CODE = 100
@@ -99,6 +101,10 @@ class PostCreation : AppCompatActivity() {
         val eventListener = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for(ds in snapshot.children){
+                    //TEST
+                    projectName = "" + ds.child("Project/nombreDelProyecto").value
+                    projectType = "" + ds.child("Project/categoria").value
+
                     userName = "" + ds.child("username").value
                     userMail = "" + ds.child("userMail").value
                     userImage = "" + ds.child("dirImagen").value
@@ -130,7 +136,7 @@ class PostCreation : AppCompatActivity() {
                 val downloadUri = uriTask.result.toString()
 
                 if(uriTask.isSuccessful){
-                    val hashMap = HashMap<Any, String>()
+                    val hashMap = HashMap<Any, String?>()
                     hashMap["uid"] = uid
                     hashMap["username"] = userName
                     hashMap["userMail"] = userMail
@@ -140,6 +146,10 @@ class PostCreation : AppCompatActivity() {
                     hashMap["postType"] = postType
                     hashMap["postImage"] = downloadUri
                     hashMap["postTime"] = timeStamp
+
+                    //TEST
+                    hashMap["projectName"] = projectName
+                    hashMap["projectType"] = projectType
 
                     // Path to store post data
                     val ref2DB = FirebaseDatabase.getInstance().getReference("Posts")
@@ -157,7 +167,7 @@ class PostCreation : AppCompatActivity() {
                 Toast.makeText(this, ""+exception.message, Toast.LENGTH_SHORT).show()
             }
         } else {
-            val hashMap = HashMap<Any, String>()
+            val hashMap = HashMap<Any, String?>()
             hashMap["uid"] = uid
             hashMap["username"] = userName
             hashMap["userMail"] = userMail
@@ -167,6 +177,11 @@ class PostCreation : AppCompatActivity() {
             hashMap["postType"] = postType
             hashMap["postImage"] = "noImage"
             hashMap["postTime"] = timeStamp
+
+            //TEST
+            hashMap["projectName"] = projectName
+            hashMap["projectType"] = projectType
+
 
             // Path to store post data
             val ref2DB = FirebaseDatabase.getInstance().getReference("Posts")
