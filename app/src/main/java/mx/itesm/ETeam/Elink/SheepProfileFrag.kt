@@ -29,7 +29,7 @@ import mx.itesm.ETeam.Elink.DataClasses.User
 import mx.itesm.ETeam.Elink.PostsRelated.SheepPostAdapter
 
 /*
-Muestra el perfil del usuario shark
+Muestra el perfil del usuario sheep
 Autor: Francisco Arenas
  */
 class SheepProfileFrag: Fragment()

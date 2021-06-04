@@ -21,7 +21,7 @@ import mx.itesm.ETeam.Elink.PostsRelated.PostData
 import mx.itesm.ETeam.Elink.PostsRelated.SheepPostAdapter
 
 /*
-Muestra las publicaciones de los usuarios, es el fragmento por default al iniciar la aplicación
+Clase que permite ver ver los posts para un sheep
 Autor: Alejandro Torices
 Modificado por: Francisco Arenas
  */
