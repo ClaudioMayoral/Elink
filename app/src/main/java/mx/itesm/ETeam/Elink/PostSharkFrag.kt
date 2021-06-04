@@ -15,7 +15,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import mx.itesm.ETeam.Elink.PostsRelated.PostAdapter
+import mx.itesm.ETeam.Elink.PostsRelated.SharkPostAdapter
 import mx.itesm.ETeam.Elink.PostsRelated.PostData
 import java.util.*
 import kotlin.collections.ArrayList
@@ -25,7 +25,7 @@ class PostSharkFrag: Fragment()
     // Instance variables
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var recyclerView: RecyclerView
-    private lateinit var adapterPost: PostAdapter
+    private lateinit var adapterPost: SharkPostAdapter
     private lateinit var postList: ArrayList<PostData>
     private lateinit var searchQuery: EditText
 
@@ -72,7 +72,7 @@ class PostSharkFrag: Fragment()
                             ) {
                                 postList.add(postdata)
                             }
-                            adapterPost = activity?.let { PostAdapter(it.applicationContext, postList) }!!
+                            adapterPost = activity?.let { SharkPostAdapter(it.applicationContext, postList) }!!
                             recyclerView.adapter = adapterPost
                         }
 
@@ -100,7 +100,7 @@ class PostSharkFrag: Fragment()
                 for(ds in dataSnapshot.children){
                     val postdata = ds.getValue(PostData::class.java)!!
                     postList.add(postdata)
-                    adapterPost = activity?.let { PostAdapter(it.applicationContext, postList) }!!
+                    adapterPost = activity?.let { SharkPostAdapter(it.applicationContext, postList) }!!
                     recyclerView.adapter = adapterPost
                 }
             }

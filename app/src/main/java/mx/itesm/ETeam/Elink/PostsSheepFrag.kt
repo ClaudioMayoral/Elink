@@ -15,10 +15,10 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import kotlinx.android.synthetic.main.fragment_posts.*
-import mx.itesm.ETeam.Elink.PostsRelated.PostAdapter
+import mx.itesm.ETeam.Elink.PostsRelated.SharkPostAdapter
 import mx.itesm.ETeam.Elink.PostsRelated.PostCreation
 import mx.itesm.ETeam.Elink.PostsRelated.PostData
+import mx.itesm.ETeam.Elink.PostsRelated.SheepPostAdapter
 
 /*
 Muestra las publicaciones de los usuarios, es el fragmento por default al iniciar la aplicación
@@ -35,13 +35,13 @@ class PostsSheepFrag : Fragment() {
     // Instance variables
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var recyclerView: RecyclerView
-    private lateinit var adapterPost: PostAdapter
+    private lateinit var adapterPost: SheepPostAdapter
     private lateinit var postList: ArrayList<PostData>
 
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?
                                                        , savedInstanceState: Bundle?): View?
     {
-        val view = inflater.inflate(R.layout.fragment_posts, container, false)
+        val view = inflater.inflate(R.layout.fragment_posts_sheep, container, false)
         val layoutManager = LinearLayoutManager(activity)
         firebaseAuth = FirebaseAuth.getInstance()
         recyclerView = view.findViewById(R.id.postsRecyclerView)
@@ -66,13 +66,16 @@ class PostsSheepFrag : Fragment() {
 
     private fun cargarPosts() {
         val dBreference = FirebaseDatabase.getInstance().getReference("Posts")
+        val currentUser = FirebaseAuth.getInstance().currentUser!!
         val postListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 postList.clear()
                 for(ds in dataSnapshot.children){
                     val postdata = ds.getValue(PostData::class.java)!!
-                    postList.add(postdata)
-                    adapterPost = activity?.let { PostAdapter(it.applicationContext, postList) }!!
+                    if(postdata.uid == currentUser.uid){
+                        postList.add(postdata)
+                    }
+                    adapterPost = activity?.let { SheepPostAdapter(it.applicationContext, postList) }!!
                     recyclerView.adapter = adapterPost
                 }
             }

@@ -79,6 +79,8 @@
     <string name="seguidores">Seguidores</string>
     <string name="busca_por_nombre_tipo_de_usuario_o_correo">Busca por nombre, tipo de usuario o correo</string>
     <string name="status_project">status/project</string>
+    <string name="editar_post">Editar post</string>
+    <string name="tus_posts">Tus posts</string>
 
     <string-array name="categorias">
         <item>Ambiental</item>
