@@ -112,6 +112,7 @@ class UserAdapter(private val context: Context, private val userList: List<User>
             }
             */
         Glide.with(context).load(userInList.dirImagen).into(holder.userPicture)
+        println("image url: ${userInList.dirImagen}")
         showButton(holder, userInList)
         isFollowing(userInList.userID, holder.follow_button)
 

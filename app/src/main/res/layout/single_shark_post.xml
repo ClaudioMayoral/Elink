@@ -67,7 +67,7 @@
             </LinearLayout>
 
             <ImageButton
-                android:id="@+id/moreButton"
+                android:id="@+id/seeProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@null"
@@ -93,6 +93,7 @@
             android:fontFamily="@font/lato"
             android:paddingTop="10dp"
             android:paddingBottom="2dp"
+            android:layout_marginStart="5dp"
             android:text="Aqui va el cuerpo del post"
             android:textColor="@color/dark_blue"
             android:textSize="16sp" />
@@ -104,6 +105,7 @@
             android:fontFamily="@font/lato"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
+            android:layout_marginStart="5dp"
             android:text="1.2k likes"
             android:textColor="@color/dark_blue"
             android:textSize="12sp" />

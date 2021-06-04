@@ -14,18 +14,21 @@ import com.google.firebase.ktx.Firebase
 import mx.itesm.ETeam.Elink.databinding.ActivitySignupScreenBinding
 import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
 import mx.itesm.ETeam.Elink.DataClasses.Project
 import mx.itesm.ETeam.Elink.DataClasses.SharkPreferences
 import mx.itesm.ETeam.Elink.DataClasses.User
+import java.lang.Exception
 
 /*
 Pantalla para hacer signup se ofrecen distintas opciones
 Autor: Alejandro Torices
  */
-class SignupScreen : AppCompatActivity() {
-
+class SignupScreen : AppCompatActivity()
+{
     private lateinit var binding : ActivitySignupScreenBinding
+
     // Administra la información de sign-in
     private lateinit var auth: FirebaseAuth
     private lateinit var baseDatos: FirebaseDatabase
@@ -35,6 +38,7 @@ class SignupScreen : AppCompatActivity() {
 
     //  ActivityForResult
     private val RC_SIGN_IN: Int = 200
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -137,34 +141,59 @@ class SignupScreen : AppCompatActivity() {
         val usertype = intent.getStringExtra("userType").toString()
         val profilePic = intent.getStringExtra("profilePic").toString()
 
-        val imageRef = storageRef.child("ProfilePics/$userID")
-        imageRef.putFile(Uri.parse(profilePic))
 
-        val referencia = baseDatos.getReference("/Users/$userID")
-        val userDB = User(userID, username, usermail, usertype, imageRef.toString())
-        referencia.setValue(userDB)
+        // Save Image
+        val storagePath = "ProfilePics/"
+        val filePath = storagePath + userID
+        val storageReferecne = FirebaseStorage.getInstance().reference
+        val dbReference = baseDatos.getReference("Users")
+        val secondStorageReference = storageReferecne.child(filePath)
 
-        if(usertype =="shark"){
-            val refPrefShark = baseDatos.getReference("/Users/$userID/Preferences")
+        secondStorageReference.putFile(Uri.parse(profilePic)).addOnSuccessListener {
+            val uriTask = it.storage.downloadUrl
+            while (!uriTask.isSuccessful);
+            val downloadUri = uriTask.result
 
-            val checkAmbiental = intent.getBooleanExtra("ambiental", false)
-            val checkTecnologia = intent.getBooleanExtra("tecnologia", false)
-            val checkSocial = intent.getBooleanExtra("social", false)
-            val checkEntretenimiento = intent.getBooleanExtra("entretenimiento", false)
-            val checkLifeStyle = intent.getBooleanExtra("lifestyle", false)
+            if(uriTask.isSuccessful){
+                val hashMap = HashMap<String, Any>()
+                hashMap["username"] = username
+                hashMap["userMail"] = usermail
+                hashMap["usertype"] = usertype
+                hashMap["dirImagen"] = downloadUri.toString()
+                hashMap["userID"] = userID
 
-            val sharkPrefDB = SharkPreferences(checkAmbiental,checkTecnologia,checkSocial,checkEntretenimiento,checkLifeStyle)
-            refPrefShark.setValue(sharkPrefDB)
-        }else{
-            val refPresSheep = baseDatos.getReference("Users/$userID/Project")
+                // Path to store post data
+                val ref2DB = baseDatos.getReference("Users").child(userID)
+                ref2DB.setValue(hashMap)
 
-            val nombreDelProyecto = intent.getStringExtra("nombreDeProyecto").toString()
-            val descripcionProyecto = intent.getStringExtra("descripcionDeProyecto").toString()
-            val moneyGoal = intent.getIntExtra("metaMonetaria",0).toString().toInt()
-            val categoria = intent.getStringExtra("categoria").toString()
+                if(usertype =="shark"){
+                    val refPrefShark = baseDatos.getReference("/Users/$userID/Preferences")
 
-            val projectDB = Project(nombreDelProyecto,descripcionProyecto,moneyGoal,categoria)
-            refPresSheep.setValue(projectDB)
+                    val checkAmbiental = intent.getBooleanExtra("ambiental", false)
+                    val checkTecnologia = intent.getBooleanExtra("tecnologia", false)
+                    val checkSocial = intent.getBooleanExtra("social", false)
+                    val checkEntretenimiento = intent.getBooleanExtra("entretenimiento", false)
+                    val checkLifeStyle = intent.getBooleanExtra("lifestyle", false)
+
+                    val sharkPrefDB = SharkPreferences(checkAmbiental,checkTecnologia,checkSocial,checkEntretenimiento,checkLifeStyle)
+                    refPrefShark.setValue(sharkPrefDB)
+                }else{
+                    val refPresSheep = baseDatos.getReference("Users").child(userID).child("Project")
+                    val nombreDelProyecto = intent.getStringExtra("nombreDeProyecto").toString()
+                    val descripcionProyecto = intent.getStringExtra("descripcionDeProyecto").toString()
+                    val moneyGoal = intent.getIntExtra("metaMonetaria",0).toString().toInt()
+                    val categoria = intent.getStringExtra("categoria").toString()
+
+                    val projectDB = Project(nombreDelProyecto,descripcionProyecto,moneyGoal,categoria)
+                    refPresSheep.setValue(projectDB)
+                }
+
+                Toast.makeText(this, "Bienvenido!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Ocurrió un error", Toast.LENGTH_SHORT).show()
+            }
+        } .addOnFailureListener {
+            Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
         }
 
         val intMasterScreen = Intent(this, masterScreen::class.java)

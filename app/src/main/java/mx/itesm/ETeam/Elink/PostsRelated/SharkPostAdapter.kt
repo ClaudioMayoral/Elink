@@ -1,28 +1,32 @@
 package mx.itesm.ETeam.Elink.PostsRelated
 
 import android.content.Context
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.content.FileProvider
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.mikhaellopez.circularimageview.CircularImageView
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_post_creation.view.*
-import kotlinx.android.synthetic.main.single_post.view.*
 import mx.itesm.ETeam.Elink.R
-import java.text.DateFormat
-import java.text.SimpleDateFormat
+import java.io.File
+import java.io.FileOutputStream
 import java.util.*
 
 // Autor: Francisco Arenas
 // Clase que permite enseñar en un recyclerView los posts hechos
-class PostAdapter(private val context: Context, private val postList: List<PostData>) :
-                    RecyclerView.Adapter<PostAdapter.ViewHolder>()
+class SharkPostAdapter(private val context: Context, private val postList: List<PostData>) :
+                    RecyclerView.Adapter<SharkPostAdapter.ViewHolder>()
 {
     // Datos de usuario
     private lateinit var uid: String
-    private lateinit var username: String
+    private var username: String? = null
     private lateinit var userMail: String
     private lateinit var dirImagen: String
 
@@ -41,7 +45,7 @@ class PostAdapter(private val context: Context, private val postList: List<PostD
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val vista = LayoutInflater.from(parent.context)
-                                  .inflate(R.layout.single_post, parent, false)
+                                  .inflate(R.layout.single_shark_post, parent, false)
         return ViewHolder(vista)
     }
 
@@ -62,9 +66,9 @@ class PostAdapter(private val context: Context, private val postList: List<PostD
 
     fun obtenerDatos(position: Int) {
         uid = postList[position].uid
-        username = postList[position].userName
+        username = postList[position].username
         userMail = postList[position].userMail
-        dirImagen = postList[position].dirImage
+        dirImagen = postList[position].dirImagen
         postID = postList[position].postID
         postText = postList[position].postText
         postType = postList[position].postType
@@ -77,7 +81,7 @@ class PostAdapter(private val context: Context, private val postList: List<PostD
     }
 
     private fun colocarDatos(holder: ViewHolder, postTime: String) {
-        holder.nameUser.text = username
+        holder.nameUser.text = username.toString()
         holder.time.text = postTime
         holder.postType.text = postType
         holder.content.text = postText
@@ -85,7 +89,7 @@ class PostAdapter(private val context: Context, private val postList: List<PostD
         // foto de usuario
         try {
             Picasso.get().load(dirImagen).placeholder(R.drawable.icon_profile)
-                                         .into(holder.userPostPicture)
+                .into(holder.userPostPicture)
         } catch (e: Exception){ }
 
         //
@@ -93,14 +97,14 @@ class PostAdapter(private val context: Context, private val postList: List<PostD
             holder.imagePost.visibility = View.GONE
         } else {
             try {
-                Picasso.get().load(postImage).into(holder.imagePost)
+                Picasso.get().load(postImage).fit().into(holder.imagePost)
             } catch (e: Exception){ }
         }
     }
 
     private fun configurarBotones(holder: ViewHolder) {
-        holder.moreButton.setOnClickListener{
-            Toast.makeText(context, "MORE BUTTON",
+        holder.seeProfile.setOnClickListener{
+            Toast.makeText(context, "SEE BUTTON",
                 Toast.LENGTH_SHORT).show()
         }
 
@@ -110,20 +114,66 @@ class PostAdapter(private val context: Context, private val postList: List<PostD
         }
 
         holder.donarButton.setOnClickListener{
-            Toast.makeText(context, "DONATE BUTTON",
+            Toast.makeText(context, "SE IMPLEMENTARÁ DESPUÉS",
                 Toast.LENGTH_SHORT).show()
         }
 
         holder.compartirButton.setOnClickListener{
-            Toast.makeText(context, "SHARE BUTTON",
-                Toast.LENGTH_SHORT).show()
+            val bitmapDrawable = holder.imagePost.drawable as BitmapDrawable
+            if (bitmapDrawable == null){
+                // post sin imagen
+                compartirSoloTexto(postText, postType)
+            } else {
+                val bitmap = bitmapDrawable.bitmap
+                compartirImagenTexto(bitmap, postType, postText)
+            }
         }
+    }
+
+    private fun compartirImagenTexto(bitmap: Bitmap?, postType: String, postText: String) {
+        val shareBody = "Post de: ${username}\nTipo de post: $postType\nContenido: $postText"
+        val uri = guardarImagen(bitmap)
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.putExtra(Intent.EXTRA_STREAM, uri)
+        intent.putExtra(Intent.EXTRA_TEXT, shareBody)
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Asunto aquí")
+        intent.type = "image/png"
+        context.startActivity(Intent.createChooser(intent, "Compartir vía"))
+
+    }
+
+    private fun guardarImagen(bitmap: Bitmap?): Uri? {
+        val imageFolder = File(context.cacheDir, "images")
+        var uri: Uri? = null
+        try {
+            imageFolder.mkdirs()
+            val file = File(imageFolder, "shared_image.png")
+            val stream = FileOutputStream(file)
+            bitmap?.compress(Bitmap.CompressFormat.PNG, 90, stream)
+            stream.flush()
+            stream.close()
+            uri = FileProvider.getUriForFile(context, "mx.itesm.ETeam.Elink.fileprovider"
+                , file)
+        } catch (e: java.lang.Exception){
+            Toast.makeText(context, ""+e.message, Toast.LENGTH_SHORT).show()
+        }
+        return uri
+    }
+
+    private fun compartirSoloTexto(postText: String, postType: String) {
+        val shareBody = "Post de: ${username}\nTipo de post: $postType\nContenido: $postText"
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.type = "text/plain"
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Asunto aquí")
+        intent.putExtra(Intent.EXTRA_TEXT, shareBody)
+        context.startActivity(Intent.createChooser(intent, "Compartir vía"))
+
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
          val userPostPicture: CircularImageView
          val imagePost: ImageView
-         val moreButton: ImageButton
+         val seeProfile: ImageButton
          val likeButton: Button
          val donarButton: Button
          val compartirButton: Button
@@ -136,7 +186,7 @@ class PostAdapter(private val context: Context, private val postList: List<PostD
          init {
              userPostPicture = itemView.findViewById(R.id.userPostPicture)
              imagePost = itemView.findViewById(R.id.imagePost)
-             moreButton = itemView.findViewById(R.id.moreButton)
+             seeProfile = itemView.findViewById(R.id.seeProfile)
              likeButton = itemView.findViewById(R.id.likeButton)
              donarButton = itemView.findViewById(R.id.donarButton)
              compartirButton = itemView.findViewById(R.id.compartirButton)

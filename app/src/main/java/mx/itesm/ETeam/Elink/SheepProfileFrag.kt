@@ -74,7 +74,7 @@ class SheepProfileFrag: Fragment()
 
     private fun salirApp(logoutButton: Button) {
         logoutButton.setOnClickListener{
-            firebaseAuth.signOut()
+            FirebaseAuth.getInstance().signOut()
             val intActivity = Intent(activity, firstScreen::class.java)
             startActivity(intActivity)
         }
@@ -119,7 +119,7 @@ class SheepProfileFrag: Fragment()
                         if(image == "" || image == "null" || image.isEmpty()){
                             Picasso.get().load(R.drawable.icon_profile).into(userImage)
                         } else {
-                            Picasso.get().load(image).into(userImage)
+                                Picasso.get().load(image).into(userImage)
                         }
                     } catch (e: Exception){
                         Picasso.get().load(R.drawable.icon_profile).into(userImage)

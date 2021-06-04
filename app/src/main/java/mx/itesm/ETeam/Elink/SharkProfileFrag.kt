@@ -77,7 +77,7 @@ class SharkProfileFrag : Fragment()
 
     private fun salirApp(logoutButton: Button) {
         logoutButton.setOnClickListener{
-            firebaseAuth.signOut()
+            getInstance().signOut()
             val intActivity = Intent(activity, firstScreen::class.java)
             startActivity(intActivity)
         }
