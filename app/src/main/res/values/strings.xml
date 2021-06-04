@@ -82,6 +82,7 @@
     <string name="editar_post">Editar post</string>
     <string name="tus_posts">Tus posts</string>
     <string name="busca_post_por_tipo_de_post_o_proyecto">Busca post por tipo de post o proyecto</string>
+    <string name="sus_posts">Sus posts</string>
 
     <string-array name="categorias">
         <item>Ambiental</item>

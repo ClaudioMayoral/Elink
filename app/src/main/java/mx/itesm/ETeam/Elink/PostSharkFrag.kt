@@ -20,6 +20,8 @@ import mx.itesm.ETeam.Elink.PostsRelated.PostData
 import java.util.*
 import kotlin.collections.ArrayList
 
+// Autor: Francisco Arenas
+// Clase que permite ver ver los posts
 class PostSharkFrag: Fragment()
 {
     // Instance variables
